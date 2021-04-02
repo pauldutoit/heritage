@@ -1,0 +1,562 @@
+<!doctype html>  
+<!--[if IE 6 ]><html lang="en-us" class="ie6"> <![endif]-->
+<!--[if IE 7 ]><html lang="en-us" class="ie7"> <![endif]-->
+<!--[if IE 8 ]><html lang="en-us" class="ie8"> <![endif]-->
+<!--[if (gt IE 7)|!(IE)]><!-->
+<html lang="en-us"><!--<![endif]-->
+<head>
+	<meta charset="utf-8">
+	
+	<title>Artemis - Artemis Ecommerce WordPress Theme Documentation</title>
+	
+	<meta name="description" content="">
+	<meta name="author" content="SmartWPress">
+	<meta name="copyright" content="SmartWPress">
+	<meta name="generator" content="Documenter v2.0 http://rxa.li/documenter">
+	<meta name="date" content="2016-11-26T00:00:00+01:00">
+	
+	<link rel="stylesheet" href="assets/css/documenter_style.css" media="all">
+	
+	
+	<link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+
+	<script src="assets/js/jquery.js"></script>
+	
+	<script src="assets/js/jquery.scrollTo.js"></script>
+	<script src="assets/js/jquery.easing.js"></script>
+	
+	<script>document.createElement('section');var duration='500',easing='swing';</script>
+	<script src="assets/js/script.js"></script>
+	
+	<style>
+		html{background-color:#222222;color:#666666;}
+		::-moz-selection{background:#BBBBBB;color:#222222;}
+		::selection{background:#BBBBBB;color:#222222;}
+		#documenter_sidebar #documenter_logo{background-image:url(assets/images/image_2.png);}
+		a{color:#BBBBBB;}
+		.btn {
+			border-radius:3px;
+		}
+		.btn-primary {
+			  background-image: -moz-linear-gradient(top, #444444, #111111);
+			  background-image: -ms-linear-gradient(top, #444444, #111111);
+			  background-image: -webkit-gradient(linear, 0 0, 0 444444%, from(#1B1B1B), to(#111111));
+			  background-image: -webkit-linear-gradient(top, #444444, #111111);
+			  background-image: -o-linear-gradient(top, #444444, #111111);
+			  background-image: linear-gradient(top, #444444, #111111);
+			  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#444444', endColorstr='#111111', GradientType=0);
+			  border-color: #111111 #111111 #bfbfbf;
+			  color:#FFFFFF;
+		}
+		.btn-primary:hover,
+		.btn-primary:active,
+		.btn-primary.active,
+		.btn-primary.disabled,
+		.btn-primary[disabled] {
+		  border-color: #444444 #444444 #bfbfbf;
+		  background-color: #111111;
+		}
+		hr{border-top:1px solid #111111;border-bottom:1px solid #333333;}
+		#documenter_sidebar, #documenter_sidebar ul a{background-color:#1B1B1B;color:#222222;}
+		#documenter_sidebar ul a{-webkit-text-shadow:1px 1px 0px #222222;-moz-text-shadow:1px 1px 0px #222222;text-shadow:1px 1px 0px #222222;}
+		#documenter_sidebar ul{border-top:1px solid #000000;}
+		#documenter_sidebar ul a{border-top:1px solid #222222;border-bottom:1px solid #000000;color:#BBBBBB;}
+		#documenter_sidebar ul a:hover{background:#BBBBBB;color:#222222;border-top:1px solid #BBBBBB;}
+		#documenter_sidebar ul a.current{background:#BBBBBB;color:#222222;border-top:1px solid #BBBBBB;}
+		#documenter_copyright{display:block !important;visibility:visible !important;}
+	</style>
+	
+</head>
+<body class="documenter-project-lucille">
+	<div id="documenter_sidebar">
+		<a href="#documenter_cover" id="documenter_logo"></a>
+		<ul id="documenter_nav">
+			<li><a class="current" href="#documenter_cover">Start</a></li>
+				
+			<li><a href="#welcome" title="Welcome">Welcome</a></li>
+			<li><a href="#features" title="Features">Features</a></li>
+			<li><a href="#installation" title="Installation">Installation</a></li>
+			<li><a href="#basic_theme_configuration" title="Basic Theme Configuration">Basic Theme Configuration</a></li>
+			<li><a href="#main_menu" title="Main Menu">Main Menu</a></li>
+			<li><a href="#theme_customizer" title="Theme Customizer">Theme Customizer</a></li>
+			<li><a href="#theme_settings" title="Theme Settings">Theme Settings</a></li>
+			<li><a href="#custom_page_templates" title="Custom Page Templates">Custom Page Templates</a></li>
+			<li><a href="#individual_page_background" title="Individual Page Background">Individual Page Background</a></li>
+			<li><a href="#page_header_style" title="Page Header Style">Page Header Style</a></li>
+			<li><a href="#changing_the_blog_layout_type" title="Changing The Blog Layout Type">Changing The Blog Layout Type</a></li>
+			<li><a href="#create_a_page_based_on_visual_composer" title="Create A Page Based On Visual Composer">Create A Page Based On Visual Composer</a></li>
+			<li><a href="#overwrite_woocomerce_description" title="Overwrite Product Description">Overwrite Product Description</a></li>
+			<li><a href="#custom_front_page" title="Custom Front Page">Custom Front Page</a></li>
+			<li><a href="#sources_credits" title="Sources & Credits">Sources & Credits</a></li>
+
+		</ul>
+		<div id="documenter_copyright">Copyright SmartWPress 2016<br>
+		made with the <a href="http://rxa.li/documenter">Documenter v2.0</a> 
+		</div>
+	</div>
+	<div id="documenter_content">
+	<section id="documenter_cover">
+	<h1>Artemis</h1>
+	<h2>Artemis Ecommerce WordPress Theme Documentation</h2>
+	<div id="documenter_buttons">
+		
+	</div>
+	<hr>
+	<ul>
+	<li>created: 03/04/2017</li>
+	<li>latest update: 03/04/2017</li>
+	<li>by: SmartWPress</li>
+	<li><a href=""></a></li>
+	<li>email: <a href="mailto:&#115;&#117;&#112;&#112;&#111;&#114;&#116;&#64;&#115;&#109;&#97;&#114;&#116;&#119;&#112;&#114;&#101;&#115;&#115;&#46;&#99;&#111;&#109;">&#115;&#117;&#112;&#112;&#111;&#114;&#116;&#64;&#115;&#109;&#97;&#114;&#116;&#119;&#112;&#114;&#101;&#115;&#115;&#46;&#99;&#111;&#109;</a></li>
+	</ul>
+	<p>For technical related questions, don't hesitate to send us an email to &#115;&#117;&#112;&#112;&#111;&#114;&#116;&#64;&#115;&#109;&#97;&#114;&#116;&#119;&#112;&#114;&#101;&#115;&#115;&#46;&#99;&#111;&#109;.
+</p>
+	</section>
+	
+	<section id="welcome">
+	<div class="page-header"><h3>Welcome</h3><hr class="notop"></div>
+<p>
+	Congratulations for purchasing a stylish premium Multipurpose WordPress Ecommerce theme.<br>For any question, feel free to contact us, we&#39;ll be happy to help you.&nbsp;Please follow this documentation carefully to get started with <em>Artemis </em>theme.&nbsp;</p>
+<p>
+
+<p style="text-align:center;">	
+	<img alt="" src="assets/images/image_1.png">
+</p>
+</section>
+<section id="features">
+	<div class="page-header"><h3>Features</h3><hr class="notop"></div>
+<ul>
+	<li>
+		Creative and Stylish Design</li>
+	<li>
+		100% Responsive</li>
+	<li>
+		Theme Settings</li>
+	<li>
+		Theme Customiser With Live Preview</li>
+	<li>
+		Custom Colors</li>
+	<li>
+		Different Menu Styles</li>
+	<li>
+		Custom Product Page Styles</li>
+	<li>
+		Custom Page Templates</li>
+	<li>
+		Widget Ready</li>
+	<li>
+		Translation Ready</li>
+	<li>
+		Child Theme Compatible</li>
+	<li>
+		Visual Composer Included</li>
+	<li>
+		Slider Revolution Included</li>
+</ul>
+</section>
+<section id="installation">
+	<div class="page-header"><h3>Installation</h3><hr class="notop"></div>
+<div>
+	There are two ways to install a WordPress theme.</div>
+<div>
+	&nbsp;</div>
+<ol>
+	<li>
+		Directly upload the zipped theme file via <strong>WordPress </strong>admin panel.&nbsp;</li>
+	<li>
+		Upload the unzipped theme folder, directly on your server using a FTP client.</li>
+</ol>
+<div>
+	&nbsp;</div>
+<h2>
+	1. Install Artemis Theme Using WordPress Theme Installer</h2>
+<div>
+	&nbsp;</div>
+<div>
+	1.1 Log in to <strong>WordPress </strong>admin dashboard and navigate to <strong>Appearance -&gt; Themes -&gt; Add New</strong></div>
+<div>
+	&nbsp;</div>
+<div>
+	<img alt="" src="assets/images/image_3.jpg" style="width: 1037px; height: 619px;"></div>
+<div>
+	&nbsp;</div>
+<div>
+	1.2 Press on&nbsp;<strong>Upload Theme&nbsp;</strong>button.</div>
+<div>
+	&nbsp;</div>
+<div>
+	<img alt="" src="assets/images/image_14.jpg"></div>
+<div>
+	&nbsp;</div>
+<div>
+	1.3 For upload, choose the installable&nbsp;theme <strong>zip </strong>file, which can be found inside the archive downloaded from <strong>ThemeForest</strong>.</div>
+<div>
+	&nbsp;</div>
+<div>
+	1.4 Once the upload has finished, click <strong>Install Now </strong>then activate the theme.</div>
+<div>
+	&nbsp;</div>
+<div>
+	1.5 You will see the following message:&nbsp;</div>
+<div>
+	<br>
+	<span style="color: rgb(214, 214, 214); font-family: -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Roboto, Oxygen-Sans, Ubuntu, Cantarell, &quot;Helvetica Neue&quot;, sans-serif; font-size: 13px; font-weight: 600;">This theme requires the following plugins:&nbsp;</span>
+	<em style="color: rgb(214, 214, 214); font-family: -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Roboto, Oxygen-Sans, Ubuntu, Cantarell, &quot;Helvetica Neue&quot;, sans-serif; font-size: 13px; font-weight: 600;">Envato WordPress Toolkit</em><span style="color: rgb(68, 68, 68); font-family: -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Roboto, Oxygen-Sans, Ubuntu, Cantarell, &quot;Helvetica Neue&quot;, sans-serif; font-size: 13px; font-weight: 600;">,&nbsp;
+	</span>
+	<em style="color: rgb(214, 214, 214); font-family: -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Roboto, Oxygen-Sans, Ubuntu, Cantarell, &quot;Helvetica Neue&quot;, sans-serif; font-size: 13px; font-weight: 600;">Artemis Core</em>
+	<span style="color: rgb(214, 214, 214); font-family: -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Roboto, Oxygen-Sans, Ubuntu, Cantarell, &quot;Helvetica Neue&quot;, sans-serif; font-size: 13px; font-weight: 600;">,&nbsp;</span>
+	<em style="color: rgb(214, 214, 214); font-family: -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Roboto, Oxygen-Sans, Ubuntu, Cantarell, &quot;Helvetica Neue&quot;, sans-serif; font-size: 13px; font-weight: 600;">Slider Revolution</em>
+	<span style="color: rgb(214, 214, 214); font-family: -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Roboto, Oxygen-Sans, Ubuntu, Cantarell, &quot;Helvetica Neue&quot;, sans-serif; font-size: 13px; font-weight: 600;">&nbsp;and&nbsp;</span>
+	<em style="color: rgb(214, 214, 214); font-family: -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Roboto, Oxygen-Sans, Ubuntu, Cantarell, &quot;Helvetica Neue&quot;, sans-serif; font-size: 13px; font-weight: 600;">WPBakery Visual Composer</em>
+	<span style="color: rgb(214, 214, 214); font-family: -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Roboto, Oxygen-Sans, Ubuntu, Cantarell, &quot;Helvetica Neue&quot;, sans-serif; font-size: 13px; font-weight: 600;">.</span><span style="font-size: 12px;">&nbsp;</span></div>
+<div>
+	&nbsp;</div>
+<div class="alert alert-info">
+	<strong>Artemis Core</strong> - contains the core functionality related to Artemis theme and is mandatory.</div>
+<div class="alert alert-info">
+	<strong>Slider Revolution</strong> - is a premium plugin that comes with Artemis theme for free. You need this plugin installed to be able to create slides</div>
+<div class="alert alert-info">
+	<strong>Visual Composer</strong> - is a premium plugin, and the the best selling layout builder on CodeCanyon. You need this plugin to be able to create a page similar to the front page used for Artemis Demo.</div>
+<div class="alert alert-info">
+	<strong>Envato WordPress Toolkit</strong> - is a third party plugin that allows you as a customer to be notified when a new theme version will be available.</div>
+<div><br>
+	1.6 Now click on Install link and follow the info message to install and activate the plugins that are coming with the theme.</div>
+		
+<div>
+	&nbsp;</div>
+<div class="alert">
+	Please keep in mind that instalation of <strong>Artemis Core</strong> plugin is mandatory. It is comming with the Artemis theme, and it is required for the theme to work corrrectly. Having the custom post types or widgets or custom visual composer elements in a separate plugin, allows you to keep the data, even if you change the theme.&nbsp;</div>
+<div>
+	&nbsp;</div>
+<h2>
+	2. Install Artemis Theme Using a FTP Client.</h2>
+<div>
+	2.1 Log In to your site using your FTP client, and enter to your WordPress &nbsp;theme folder, wp-content/themes.&nbsp;</div>
+<div>
+	&nbsp;</div>
+<div>
+	2.2 Unzip artemis-swp.zip file and upload artemis-swp folder to <strong>[your wordpress installation directory]/wp-content/themes/</strong> location.</div>
+<div>
+	&nbsp;</div>
+<div>
+	2.3 Log into your WordPress admin dashboard and navigate to <strong>Appearance -&gt; Themes </strong>and activate the teme.</div>
+<div>
+	&nbsp;</div>
+<div>
+	Continue instalation according to step 1.5 and 1.6 descibed above.</div>
+	
+	<div>&nbsp;</div>
+	<h2>Installing WooCommerce plugin</h2>
+	<div class="alert">
+		The existing E-commerce functionality is based on <strong>WooCommerce</strong> plugin. If you need e-commerce functionality, please follow the steps below to install WooCommerce plugin.
+	</div>
+	<div>&nbsp;</div>
+	
+	<div>I.  Please go to Plugins - Add New</div>
+	<div>II. In the search field, please type <strong>WooCommerce</strong></div>
+	<div>III. Click on <strong>Install Now</strong> button</div>
+	<div>IV. Once the plugin is installed, the text on the button will change to <strong>Activate</strong>. Please press again the button to activate the plugin.</div>
+	<div>&nbsp;</div>
+	<img style="max-width: 100%;" alt="Install WooCommerce Image" src="assets/images/image_25.jpg">
+	
+</section>
+<section id="basic_theme_configuration">
+	<div class="page-header"><h3>Basic Theme Configuration</h3><hr class="notop"></div>
+<p>
+	The configuration of Artemis  theme is simple and intuitive. Below, we&#39;ll describe how to define configure it according to your needs by defining the menu, using theme customizer, theme settings, adding videos, image posts, albums and events.&nbsp;</p>
+</section>
+<section id="main_menu">
+	<div class="page-header"><h3>Main Menu</h3><hr class="notop"></div>
+<div>
+	First, you&#39;ll need to create your menu.&nbsp;</div>
+<div>
+	&nbsp;</div>
+<div>
+	Please go to <strong>Appearance </strong>-&gt; <strong>Menus, </strong>add a name for your menu and&nbsp;click on Create Menu button. Please check the image below:</div>
+<div>
+	&nbsp;</div>
+<div>
+	<img alt="" src="assets/images/image_19.jpg"></div>
+<div>
+	&nbsp;</div>
+<div>
+	Then please navigate to the second tab - <strong>Manage Locations</strong>, assigne your newly created menu to the location and click on <strong>Save Changes</strong> button.</div>
+<div>
+	&nbsp;</div>
+<div>
+	<img alt="" src="assets/images/image_20.jpg"></div>
+</section>
+<section id="theme_customizer">
+	<div class="page-header"><h3>Theme Customizer</h3><hr class="notop"></div>
+<div>
+	Artemis theme implements WordPress Theme Customizer, that provides the ability to change the layout and preview the changes in real time.&nbsp;</div>
+<div>
+	&nbsp;</div>
+<div>
+	To access the Customizer, please got to your <strong>WordPress Dashboard</strong>, and select <strong>Appearance </strong>-&gt; <strong>Customize</strong>. Your new screen should look like the screenshot below:</div>
+<div>
+	&nbsp;</div>
+<div>
+	<img alt="" src="assets/images/image_21.jpg" style="width: 1902px; height: 810px;"></div>
+<div>
+	&nbsp;</div>
+<div>
+	&nbsp;</div>
+<div>
+	The following customizer options are implemented:</div>
+<div>
+	&nbsp;</div>
+<div>
+
+
+	<ul>
+		<li>
+			Vibrant Color - the color used for links and some other layout elements that stands out</li>
+		<li>
+			Menu Colors - color will be used as site&#39;s primary color.</li>
+		<li>
+			Site Identity - customize your site&#39;s title, tagline and favicon
+		</li>
+		<li>
+			Colors - choose background color
+		</li>
+		<li>
+			Background Image - the background image
+		</li>		
+		<li>
+			Menus - manage menu locations and menus associated with them
+		</li>
+		<li>
+			Widgets -  manage footer & sidebar widgets
+		</li>
+		<li>
+			Static front page - choose what to display on front page: latest posts or a static page.
+		</li>
+		<li>
+			Additional CSS - here you can add your own CSS rules that will overwrite the default theme styling.
+		</li>		
+	</ul>
+	
+</div>
+<p>
+	&nbsp;</p>
+</section>
+<section id="theme_settings">
+	<div class="page-header"><h3>Theme Settings</h3><hr class="notop"></div>
+<h5>
+	Theme Settings helps you easily take control over different settings of your website.</h5>
+<div>
+	To access theme options, please go to <strong>Appearance </strong>- <strong>Artemis Settings</strong>. There are five different option tabs:</div>
+<div>
+	&nbsp;</div>
+<div>
+	<strong>General Options:</strong></div>
+<div>
+	Allows you to customize the following options: add your own logo image, add custom favicon,&nbsp;</div>
+<div>
+	add a background image for all the inner pages, change the menu style, change the width for header and footer,&nbsp;</div>
+<div>
+	change the default website fonts color scheme, enable or disable sticky menu and back to top button, customize 404 page style,</div>
+<div>
+	enable/disable sibar, select title style and enable/disable login popup.</div>	
+<div>
+	&nbsp;</div>
+<div>
+	<strong>Social Options:</strong></div>
+<div>
+	This is the place where you should add the url to the profile pages of your store over several social networks.&nbsp;</div>
+<div>
+	Every field that is set will generate a link to your social profile and the proper social icon on the dedicated areas of the website.</div>
+<div>
+	&nbsp;</div>
+<div>
+	<strong>Footer Options:</strong></div>
+<div>
+	Settings related to footer widget area, and options to change the font color scheme for footer, use a custom background image for footer area and a color overlay,
+	copyright URL and text, copyright color scheme, background color, and the option to place the social icons to the copyright area.</div>
+<div>
+	&nbsp;</div>
+<div>
+	<strong>Contact Data:</strong></div>
+<div>
+	The place where you should add your contact details that will be visible on the Contact page template.</div>
+<div>
+	&nbsp;</div>
+<div>
+	<strong>Shop:</strong></div>	
+<div>
+	Settings related to Woocomerce. Select your wishlist page, enable/disable sidebar, select product page template and customize product view mode.</div>	
+</section>
+
+<section id="custom_page_templates">
+	<div class="page-header"><h3>Custom Page Templates</h3><hr class="notop"></div>
+<p>
+	Artemis theme offers the following custom page templates:</p>
+<ol>
+	<li>
+		<strong>Default Template - usual page template</strong></li>
+	<li>
+		<strong>Custom, ready to use Page Templates</strong></li>
+</ol>
+<p>
+	<strong>Blog </strong>- shows the latest blog posts. For this template, you have the option to choose full width or boxed width layout from the custom meta box under the content area.</p>
+<p>
+	<strong>Page Contact</strong> - render the contact page with the ajax contact form and the contact data</p>
+<div class="alert alert-info">
+	Please insert the the contact data on Appearance - Artemis Settings - Contact Data (tab). This is the place where you insert the contact data and the contact form email. The contact page template will automatically use this data.</div>
+<div>
+	&nbsp;</div>	
+<div class="alert alert-info">
+	If the contact form email is not filled, the WordPress admin email will be used as recipient email address.</div>
+<p>
+	<strong>Page with Sidebar</strong> - standard page template, with a sidebar</p>	
+<p>
+	<strong>Visual Composer Empty Template</strong> - empty page template, with no header area. Is a empty template that you can use to create a page from scratch using Visual Composer elements.</p>	
+<p>
+	<strong>Visual Composer Empty Template with Header</strong> - empty page template. Is a empty template that you can use to create a page from scratch using Visual Composer elements. It places the heading area on the layout (area with title and breadcrumb navigation)</p>		
+<p>
+	<strong>Wishlist</strong> - wishlist page. You need to select this page in Theme Settings -> Shop -> Wishlist</p>
+<p>
+	&nbsp;</p>
+<h2>
+	How to create a page based on a custom page template:</h2>
+<p>
+	Let&#39;s assume that you want to create the <strong>Contact </strong>page.&nbsp;</p>
+<p>
+	Go to <strong>Pages - Add New</strong>. Type a name for your page.</p>
+<p>
+	Go to <strong>Page Atributes </strong>meta from the right side of the content area, and change the page template from the default value (<strong>Default Template</strong>) to <strong>Page Contact</strong>.</p>
+<p>
+	Click on <strong>Publish </strong>button.</p>
+<div class="alert alert-info">
+	For custom page templates, you don&#39;t need to add content.</div>
+<p>
+	<img alt="" src="assets/images/image_10.jpg"></p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+</section>
+
+<section id="individual_page_background">
+	<div class="page-header"><h3>Individual Page Background</h3><hr class="notop"></div>
+<h2>
+	How to add individual page background for a page/post</h2>
+<p>
+	Artemis theme offers you the opption to select a custom background image for all the inner pages. But you can add a different background image for a certain page.&nbsp;</p>
+<h3>
+	How to set the generic custom page background image.</h3>
+<p>
+	This can be done from Appearance - Artemis Settings - General Settings(tab).</p>
+<h3>
+	<strong><span style="font-size: 12px;">How to set individual custom background image for a page.</span></strong></h3>
+<p>
+	<span style="font-size: 12px;">This can be done from <strong>Page Settings </strong>meta box below the content area. Edit your page or post and &nbsp;locate <strong>Page Settings </strong>meta box below the content area. Choose your image and click on <strong>Save</strong> post button.</span></p>
+<div class="alert alert-info">
+	<span style="font-size: 12px;">You can also add a color overlay with custom opacity, for better text readability.</span></div>
+<p>
+	<img alt="" src="assets/images/image_12.jpg"></p>
+</section>
+<section id="page_header_style">
+	<div class="page-header"><h3>Page Settings</h3><hr class="notop"></div>
+<h2>
+	How to change the heading of a certain page</h2>
+<p>
+	Artemis theme allows you to change the style of your page or post heading area, and also offers you the possibility to add a page custom title.</p>
+<p>
+	You can do this, from <strong>Header Settings and Page Settings</strong> meta box, below the content area.</p>
+<p>
+	Edit your page or posts, and locate the meta boxes below the content area. You can add a custom title, change the color scheme and layout style or add a background image for your header area and a color overlay. After you finish your changes <strong>Save </strong>post.</p>
+<p>
+	<img alt="" src="assets/images/image_13.jpg"></p>
+<p>
+	&nbsp;</p>
+<p>
+	&nbsp;</p>
+</section>
+<section id="changing_the_blog_layout_type">
+	<div class="page-header"><h3>Changing The Blog Layout Type</h3><hr class="notop"></div>
+<h2>
+	<span style="font-size: 12px;">How to switch between different Blog styles</span></h2>
+<p style="font-size: 14px;">
+	Artemis theme offers the option of selecting different layouts for blog pages. This can be done from <strong>Archive&amp;Blog Settings </strong>meta box below the content area. To enable this meta box, you need to create the blog page first.</p>
+<p style="font-size: 14px;">
+	Go to <strong>Pages - Add New</strong>.</p>
+<p style="font-size: 14px;">
+	Type a title for your blog page (Blog or News or other name).</p>
+<p style="font-size: 14px;">
+	Click on <strong>Publish </strong>button.&nbsp;</p>
+<p style="font-size: 14px;">
+	Then please go below the content area and locate the <strong>Archive&amp;Blog Settings </strong>meta box.</p>
+<p style="font-size: 14px;">
+	Select the layout type.&nbsp;</p>
+<p style="font-size: 14px;">
+	Click on <strong>Save </strong>button.</p>
+<p style="font-size: 14px;">
+	<img alt="" src="assets/images/image_11.jpg"></p>
+<h2>
+	&nbsp;</h2>
+</section>
+<section id="overwrite_woocomerce_description">
+	<h2> Override WooCommerce product description with Visual Composer </h2>
+	<p>Artemis allows you to create your product page using Visual Composer. Todo this you must select the "Override product description", then you can use Visual Composer on the main descritption field.
+	<p>
+	<img alt="" src="assets/images/image_24.jpg"></p>
+</section>
+<section id="create_a_page_based_on_visual_composer">
+	<div class="page-header"><h3>Create A Page Based On Visual Composer</h3><hr class="notop"></div>
+<p>
+	You can create a page from scratch, using Visual Composer elements and based on the Empty Page Template created for this kind of layout.&nbsp;</p>
+<p>
+	To do this, you need to create a new page, type a title and select the Visual Composer Empty Template.&nbsp;</p>
+<p>
+	Then, click on <strong>Backend Editor </strong>button and you can start adding visual composer.</p>
+<p>
+	Artemis theme has several new visual composer elements dedicated to this theme, that are ready and intuitive to use. All the elements can be found in the Artemis category in visual composer.</p>
+<p>
+	<img alt="" src="assets/images/image_16.jpg"></p>
+<p>
+	Try to add each element inside a visual composer row element, in this way you can easily set the margins between elements. from Row Settings - Design Options:</p>
+<p>
+	<img alt="" src="assets/images/image_17.jpg"></p>
+<p>
+	<img alt="" src="assets/images/image_18.jpg"></p>
+</section>
+<section id="custom_front_page">
+	<div class="page-header"><h3>Custom Front Page</h3><hr class="notop"></div>
+<p>
+	By default, WordPress shows as front page the archive page showing you the latest posts. But you can change this and add your own custom page as static front page.</p>
+<p>
+	Go to <strong>Settings - Reading</strong>.</p>
+<p>
+	Select Front Page Displays - <strong>A static page</strong></p>
+<p>
+	Choose the page you want to set as front page from the dropdown.</p>
+<p>
+	<img alt="" src="assets/images/image_15.jpg"></p>
+<p>
+	&nbsp;</p>
+</section>
+<section id="sources_credits">
+	<div class="page-header"><h3>Sources & Credits</h3><hr class="notop"></div>
+<ul>
+	<li>
+		<a href="https://jqueryui.com/">jQuery UI</a></li>
+	<li>
+		<a href="https://jqueryui.com/easing/">jQuery Easing</a></li>
+	<li>
+		<a href="http://lokeshdhakar.com/projects/lightbox2/">Lightbox</a></li>
+	<li>
+		<a href="http://masonry.desandro.com/">Masonry</a></li>
+	<li>
+		<a href="http://fontawesome.io/">Font Awesome</a></li>
+	<li>
+		<a href="https://fonts.google.com/">Google Fonts</a></li>
+	<li>
+		<a href="https://wordpress.org/">WordPress</a></li>
+</ul>
+</section>
+
+	</div>
+</body>
+</html>
