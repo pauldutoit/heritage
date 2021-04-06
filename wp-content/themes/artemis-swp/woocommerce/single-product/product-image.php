@@ -67,6 +67,7 @@ if ('type_2' == ARTEMIS_SWP_get_product_page_template()) {
                         if (is_string($product)) {
                             $product = wc_get_product();
                         }
+
                         $attachment_count  = count($product->get_gallery_image_ids());
                         $props             = wc_get_product_attachment_props(get_post_thumbnail_id(), $post);
                         $post_thumbnail_id = get_post_thumbnail_id($post->ID);
@@ -90,6 +91,7 @@ if ('type_2' == ARTEMIS_SWP_get_product_page_template()) {
                             'data-large_image_width'  => $full_size_image[1],
                             'data-large_image_height' => $full_size_image[2],
                         );
+
 
                         $image = get_the_post_thumbnail($post->ID, apply_filters('single_product_large_thumbnail_size', $image_size), $attributes);
 
@@ -119,10 +121,10 @@ if ('type_2' == ARTEMIS_SWP_get_product_page_template()) {
                     echo apply_filters('woocommerce_single_product_image_thumbnail_html', $html, get_post_thumbnail_id($post->ID));
                     ?>
 	            </li>
+
                 <?php do_action('woocommerce_product_thumbnails'); ?>
 	        </ul>
 	    </div>
-
     <?php
     /**
      * @hooked ARTEMIS_SWP_after_product_images - 10

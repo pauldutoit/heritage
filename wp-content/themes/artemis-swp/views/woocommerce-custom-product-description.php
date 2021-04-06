@@ -29,6 +29,6 @@
 
 <?php if ( $heading ): ?>
     <h2><?php echo esc_html($heading); ?></h2>
-<?php endif; ?>
 
+<?php endif; ?>
 <?php echo wp_kses_post($custom_description )?>
