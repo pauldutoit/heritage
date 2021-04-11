@@ -1,0 +1,133 @@
+2021-04-11T12:17:21+00:00 CRITICAL Uncaught Error: Call to undefined function ARTEMIS_SWP_get_menu_style() in C:\wamp64\www\wordpress\wp-content\themes\montheme\header.php:17
+Stack trace:
+#0 C:\wamp64\www\wordpress\wp-includes\template.php(730): require_once()
+#1 C:\wamp64\www\wordpress\wp-includes\template.php(676): load_template('C:\\wamp64\\www\\w...', true, Array)
+#2 C:\wamp64\www\wordpress\wp-includes\general-template.php(48): locate_template(Array, true, true, Array)
+#3 C:\wamp64\www\wordpress\wp-content\themes\montheme\index.php(1): get_header()
+#4 C:\wamp64\www\wordpress\wp-includes\template-loader.php(106): include('C:\\wamp64\\www\\w...')
+#5 C:\wamp64\www\wordpress\wp-blog-header.php(19): require_once('C:\\wamp64\\www\\w...')
+#6 C:\wamp64\www\wordpress\index.php(17): require('C:\\wamp64\\www\\w...')
+#7 {main}
+  thrown dans C:\wamp64\www\wordpress\wp-content\themes\montheme\header.php à la ligne 17
+
+2021-04-11T12:30:06+00:00 CRITICAL Uncaught Error: Call to undefined function ARTEMIS_SWP_get_user_logo_img() in C:\wamp64\www\wordpress\wp-content\themes\montheme\templates\menu\creative_menu.php:29
+Stack trace:
+#0 C:\wamp64\www\wordpress\wp-includes\template.php(732): require()
+#1 C:\wamp64\www\wordpress\wp-includes\template.php(676): load_template('C:\\wamp64\\www\\w...', false, Array)
+#2 C:\wamp64\www\wordpress\wp-includes\general-template.php(204): locate_template(Array, true, false, Array)
+#3 C:\wamp64\www\wordpress\wp-content\themes\montheme\header.php(18): get_template_part('templates/menu/...')
+#4 C:\wamp64\www\wordpress\wp-includes\template.php(730): require_once('C:\\wamp64\\www\\w...')
+#5 C:\wamp64\www\wordpress\wp-includes\template.php(676): load_template('C:\\wamp64\\www\\w...', true, Array)
+#6 C:\wamp64\www\wordpress\wp-includes\general-template.php(48): locate_template(Array, true, true, Array)
+#7 C:\wamp64\www\wordpress\wp-content\themes\montheme\index.php(1): get_header()
+#8 C:\wamp64\www\wordpress\wp-includes\template-loader dans C:\wamp64\www\wordpress\wp-content\themes\montheme\templates\menu\creative_menu.php à la ligne 29
+
+2021-04-11T12:30:06+00:00 CRITICAL Uncaught Error: Call to undefined function ARTEMIS_SWP_get_user_logo_img() in C:\wamp64\www\wordpress\wp-content\themes\montheme\templates\menu\creative_menu.php:29
+Stack trace:
+#0 C:\wamp64\www\wordpress\wp-includes\template.php(732): require()
+#1 C:\wamp64\www\wordpress\wp-includes\template.php(676): load_template('C:\\wamp64\\www\\w...', false, Array)
+#2 C:\wamp64\www\wordpress\wp-includes\general-template.php(204): locate_template(Array, true, false, Array)
+#3 C:\wamp64\www\wordpress\wp-content\themes\montheme\header.php(18): get_template_part('templates/menu/...')
+#4 C:\wamp64\www\wordpress\wp-includes\template.php(730): require_once('C:\\wamp64\\www\\w...')
+#5 C:\wamp64\www\wordpress\wp-includes\template.php(676): load_template('C:\\wamp64\\www\\w...', true, Array)
+#6 C:\wamp64\www\wordpress\wp-includes\general-template.php(48): locate_template(Array, true, true, Array)
+#7 C:\wamp64\www\wordpress\wp-content\themes\montheme\single-post.php(1): get_header()
+#8 C:\wamp64\www\wordpress\wp-includes\template- dans C:\wamp64\www\wordpress\wp-content\themes\montheme\templates\menu\creative_menu.php à la ligne 29
+
+2021-04-11T12:33:23+00:00 CRITICAL Uncaught Error: Call to undefined function ARTEMIS_SWP_get_user_logo_img() in C:\wamp64\www\wordpress\wp-content\themes\montheme\templates\menu\creative_menu.php:29
+Stack trace:
+#0 C:\wamp64\www\wordpress\wp-includes\template.php(732): require()
+#1 C:\wamp64\www\wordpress\wp-includes\template.php(676): load_template('C:\\wamp64\\www\\w...', false, Array)
+#2 C:\wamp64\www\wordpress\wp-includes\general-template.php(204): locate_template(Array, true, false, Array)
+#3 C:\wamp64\www\wordpress\wp-content\themes\montheme\header.php(18): get_template_part('templates/menu/...')
+#4 C:\wamp64\www\wordpress\wp-includes\template.php(730): require_once('C:\\wamp64\\www\\w...')
+#5 C:\wamp64\www\wordpress\wp-includes\template.php(676): load_template('C:\\wamp64\\www\\w...', true, Array)
+#6 C:\wamp64\www\wordpress\wp-includes\general-template.php(48): locate_template(Array, true, true, Array)
+#7 C:\wamp64\www\wordpress\wp-content\themes\montheme\index.php(1): get_header()
+#8 C:\wamp64\www\wordpress\wp-includes\template-loader dans C:\wamp64\www\wordpress\wp-content\themes\montheme\templates\menu\creative_menu.php à la ligne 29
+
+2021-04-11T12:33:33+00:00 CRITICAL Uncaught Error: Call to undefined function ARTEMIS_SWP_get_user_logo_img() in C:\wamp64\www\wordpress\wp-content\themes\montheme\templates\menu\creative_menu.php:29
+Stack trace:
+#0 C:\wamp64\www\wordpress\wp-includes\template.php(732): require()
+#1 C:\wamp64\www\wordpress\wp-includes\template.php(676): load_template('C:\\wamp64\\www\\w...', false, Array)
+#2 C:\wamp64\www\wordpress\wp-includes\general-template.php(204): locate_template(Array, true, false, Array)
+#3 C:\wamp64\www\wordpress\wp-content\themes\montheme\header.php(18): get_template_part('templates/menu/...')
+#4 C:\wamp64\www\wordpress\wp-includes\template.php(730): require_once('C:\\wamp64\\www\\w...')
+#5 C:\wamp64\www\wordpress\wp-includes\template.php(676): load_template('C:\\wamp64\\www\\w...', true, Array)
+#6 C:\wamp64\www\wordpress\wp-includes\general-template.php(48): locate_template(Array, true, true, Array)
+#7 C:\wamp64\www\wordpress\wp-content\themes\montheme\index.php(1): get_header()
+#8 C:\wamp64\www\wordpress\wp-includes\template-loader dans C:\wamp64\www\wordpress\wp-content\themes\montheme\templates\menu\creative_menu.php à la ligne 29
+
+2021-04-11T12:37:49+00:00 CRITICAL Uncaught Error: Call to undefined function HERITAGE_get_page_custom_menu_style() in C:\wamp64\www\wordpress\wp-content\themes\montheme\templates\menu\creative_menu.php:16
+Stack trace:
+#0 C:\wamp64\www\wordpress\wp-includes\template.php(732): require()
+#1 C:\wamp64\www\wordpress\wp-includes\template.php(676): load_template('C:\\wamp64\\www\\w...', false, Array)
+#2 C:\wamp64\www\wordpress\wp-includes\general-template.php(204): locate_template(Array, true, false, Array)
+#3 C:\wamp64\www\wordpress\wp-content\themes\montheme\header.php(18): get_template_part('templates/menu/...')
+#4 C:\wamp64\www\wordpress\wp-includes\template.php(730): require_once('C:\\wamp64\\www\\w...')
+#5 C:\wamp64\www\wordpress\wp-includes\template.php(676): load_template('C:\\wamp64\\www\\w...', true, Array)
+#6 C:\wamp64\www\wordpress\wp-includes\general-template.php(48): locate_template(Array, true, true, Array)
+#7 C:\wamp64\www\wordpress\wp-content\themes\montheme\single-post.php(1): get_header()
+#8 C:\wamp64\www\wordpress\wp-includes\tem dans C:\wamp64\www\wordpress\wp-content\themes\montheme\templates\menu\creative_menu.php à la ligne 16
+
+2021-04-11T12:37:49+00:00 CRITICAL Uncaught Error: Call to undefined function HERITAGE_get_page_custom_menu_style() in C:\wamp64\www\wordpress\wp-content\themes\montheme\templates\menu\creative_menu.php:16
+Stack trace:
+#0 C:\wamp64\www\wordpress\wp-includes\template.php(732): require()
+#1 C:\wamp64\www\wordpress\wp-includes\template.php(676): load_template('C:\\wamp64\\www\\w...', false, Array)
+#2 C:\wamp64\www\wordpress\wp-includes\general-template.php(204): locate_template(Array, true, false, Array)
+#3 C:\wamp64\www\wordpress\wp-content\themes\montheme\header.php(18): get_template_part('templates/menu/...')
+#4 C:\wamp64\www\wordpress\wp-includes\template.php(730): require_once('C:\\wamp64\\www\\w...')
+#5 C:\wamp64\www\wordpress\wp-includes\template.php(676): load_template('C:\\wamp64\\www\\w...', true, Array)
+#6 C:\wamp64\www\wordpress\wp-includes\general-template.php(48): locate_template(Array, true, true, Array)
+#7 C:\wamp64\www\wordpress\wp-content\themes\montheme\index.php(1): get_header()
+#8 C:\wamp64\www\wordpress\wp-includes\template- dans C:\wamp64\www\wordpress\wp-content\themes\montheme\templates\menu\creative_menu.php à la ligne 16
+
+2021-04-11T13:12:56+00:00 CRITICAL Uncaught Error: Class 'WalkerNavMenu' not found in C:\wamp64\www\wordpress\wp-content\themes\montheme\templates\menu\centered_menu.php:61
+Stack trace:
+#0 C:\wamp64\www\wordpress\wp-includes\template.php(732): require()
+#1 C:\wamp64\www\wordpress\wp-includes\template.php(676): load_template('C:\\wamp64\\www\\w...', false, Array)
+#2 C:\wamp64\www\wordpress\wp-includes\general-template.php(204): locate_template(Array, true, false, Array)
+#3 C:\wamp64\www\wordpress\wp-content\themes\montheme\header.php(18): get_template_part('templates/menu/...')
+#4 C:\wamp64\www\wordpress\wp-includes\template.php(730): require_once('C:\\wamp64\\www\\w...')
+#5 C:\wamp64\www\wordpress\wp-includes\template.php(676): load_template('C:\\wamp64\\www\\w...', true, Array)
+#6 C:\wamp64\www\wordpress\wp-includes\general-template.php(48): locate_template(Array, true, true, Array)
+#7 C:\wamp64\www\wordpress\wp-content\themes\montheme\index.php(1): get_header()
+#8 C:\wamp64\www\wordpress\wp-includes\template-loader.php(106): include('C:\\wam dans C:\wamp64\www\wordpress\wp-content\themes\montheme\templates\menu\centered_menu.php à la ligne 61
+
+2021-04-11T15:35:27+00:00 CRITICAL Uncaught Error: Call to undefined function ARTEMIS_SWP_has_megamenu() in C:\wamp64\www\wordpress\wp-content\themes\montheme\core\menu\WalkerNavMenu.php:23
+Stack trace:
+#0 C:\wamp64\www\wordpress\wp-includes\class-wp-walker.php(144): WalkerNavMenu->start_el('<li id="menu-it...', Object(WP_Post), 0, Array, 0)
+#1 C:\wamp64\www\wordpress\wp-includes\class-wp-walker.php(244): Walker->display_element(Object(WP_Post), Array, 0, 0, Array, '<li id="menu-it...')
+#2 C:\wamp64\www\wordpress\wp-includes\post-template.php(1543): Walker->walk(Array, 0, Array, 0)
+#3 C:\wamp64\www\wordpress\wp-includes\post-template.php(1327): walk_page_tree(Array, 0, 0, Array)
+#4 C:\wamp64\www\wordpress\wp-includes\post-template.php(1458): wp_list_pages(Array)
+#5 C:\wamp64\www\wordpress\wp-includes\nav-menu-template.php(164): wp_page_menu(Array)
+#6 C:\wamp64\www\wordpress\wp-content\themes\montheme\templates\menu\centered_menu.php(69): wp_nav_menu(Object(stdClass))
+#7 C:\wamp64\www\wordpress\wp-includes\template.php(732): require('C:\\wamp64 dans C:\wamp64\www\wordpress\wp-content\themes\montheme\core\menu\WalkerNavMenu.php à la ligne 23
+
+2021-04-11T15:36:40+00:00 CRITICAL Uncaught Error: Call to undefined function ARTEMIS_SWP_has_megamenu() in C:\wamp64\www\wordpress\wp-content\themes\montheme\core\menu\WalkerNavMenu.php:20
+Stack trace:
+#0 C:\wamp64\www\wordpress\wp-includes\class-wp-walker.php(144): WalkerNavMenu->start_el('<li id="menu-it...', Object(WP_Post), 0, Array, 0)
+#1 C:\wamp64\www\wordpress\wp-includes\class-wp-walker.php(244): Walker->display_element(Object(WP_Post), Array, 0, 0, Array, '<li id="menu-it...')
+#2 C:\wamp64\www\wordpress\wp-includes\post-template.php(1543): Walker->walk(Array, 0, Array, 0)
+#3 C:\wamp64\www\wordpress\wp-includes\post-template.php(1327): walk_page_tree(Array, 0, 0, Array)
+#4 C:\wamp64\www\wordpress\wp-includes\post-template.php(1458): wp_list_pages(Array)
+#5 C:\wamp64\www\wordpress\wp-includes\nav-menu-template.php(164): wp_page_menu(Array)
+#6 C:\wamp64\www\wordpress\wp-content\themes\montheme\templates\menu\centered_menu.php(69): wp_nav_menu(Object(stdClass))
+#7 C:\wamp64\www\wordpress\wp-includes\template.php(732): require('C:\\wamp64 dans C:\wamp64\www\wordpress\wp-content\themes\montheme\core\menu\WalkerNavMenu.php à la ligne 20
+
+2021-04-11T15:36:51+00:00 CRITICAL Uncaught Error: Call to undefined function ARTEMIS_SWP_has_megamenu() in C:\wamp64\www\wordpress\wp-content\themes\montheme\core\menu\WalkerNavMenu.php:20
+Stack trace:
+#0 C:\wamp64\www\wordpress\wp-includes\class-wp-walker.php(144): WalkerNavMenu->start_el('<li id="menu-it...', Object(WP_Post), 0, Array, 0)
+#1 C:\wamp64\www\wordpress\wp-includes\class-wp-walker.php(244): Walker->display_element(Object(WP_Post), Array, 0, 0, Array, '<li id="menu-it...')
+#2 C:\wamp64\www\wordpress\wp-includes\post-template.php(1543): Walker->walk(Array, 0, Array, 0)
+#3 C:\wamp64\www\wordpress\wp-includes\post-template.php(1327): walk_page_tree(Array, 0, 0, Array)
+#4 C:\wamp64\www\wordpress\wp-includes\post-template.php(1458): wp_list_pages(Array)
+#5 C:\wamp64\www\wordpress\wp-includes\nav-menu-template.php(164): wp_page_menu(Array)
+#6 C:\wamp64\www\wordpress\wp-content\themes\montheme\templates\menu\centered_menu.php(69): wp_nav_menu(Object(stdClass))
+#7 C:\wamp64\www\wordpress\wp-includes\template.php(732): require('C:\\wamp64 dans C:\wamp64\www\wordpress\wp-content\themes\montheme\core\menu\WalkerNavMenu.php à la ligne 20
+
+2021-04-11T16:12:59+00:00 CRITICAL syntax error, unexpected '}' dans C:\wamp64\www\wordpress\wp-content\themes\montheme\settings\settings_getters.php à la ligne 27
+
+2021-04-11T16:14:35+00:00 CRITICAL syntax error, unexpected '}' dans C:\wamp64\www\wordpress\wp-content\themes\montheme\settings\settings_getters.php à la ligne 27
+

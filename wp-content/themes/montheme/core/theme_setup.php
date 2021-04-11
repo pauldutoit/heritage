@@ -1,0 +1,122 @@
+<?php
+
+if(!function_exists('HERITAGE_setup')) {
+
+    function HERITAGE_setup()
+    {
+        $domain = 'heritage';
+
+        add_theme_support('title-tag');
+        add_theme_support('post-thumbnails');
+        add_theme_support('automatic-feed-links');
+
+        register_nav_menus(
+            array(
+                'main_menu' => esc_html__('Main menu', 'heritage'),
+            )
+        );
+
+        // custom background support
+
+        global $wp_version;
+
+        if(version_compare($wp_version, '3.4', '>=')){
+            $default = array(
+                'default_color' => 'fffff',
+                'default_image' => '',
+                'wp-head-callback' => 'HERITAGE_custom_background_cb',
+                'admin-head_callback' => '',
+                'admin-preview-callback' => ''
+            );
+
+            add_theme_support('custom-background', $default);
+        }
+    }
+}
+
+add_action('after_setup_theme', 'HERITAGE_setup');
+
+function HERITAGE_custom_background_cb()
+{
+    $background = get_background_image();
+    $color = get_background_color();
+
+    if (!$background && !$color) {
+        return;
+    }
+
+    $style = $color ? "background-color: #$color;" : '';
+
+    if ($background) {
+        $image = "background-image: url('$background');";
+
+        $position = get_theme_mod('background_position_x', 'left');
+
+        if (!in_array($position, array('center', 'right', 'left')))
+            $position = 'left';
+
+        $position = " background-position: top $position;";
+
+        $attachment = get_theme_mod('background_attachment', 'scroll');
+
+        if (!in_array($attachment, array('fixed', 'scroll')))
+            $attachment = 'scroll';
+
+        $attachment = " background-attachment: $attachment;";
+
+        $style .= $image . $position . $attachment;
+    }
+    ?>
+    <style type="text/css">
+        body, .woocommerce .woocommerce-ordering select option {
+        <?php echo trim($style); ?>
+        }
+    </style>
+    <?php
+}
+
+
+/**
+ * Load the main stylesheet - style.css
+ */
+
+if(!function_exists('HERITAGE_load_main_stylesheet')){
+    function HERITAGE_load_main_stylesheet()
+    {
+        wp_enqueue_style('style', get_stylesheet_uri());
+    }
+}
+add_action('wp_enqueue_scripts', 'HERITAGE_load_main_stylesheet');
+
+
+/**
+ * Load needed Fonts
+ * Exemple Artemis Lato
+ */
+
+if(!function_exists('HERITAGE_load_fonts')){
+    function HERITAGE_load_fonts()
+    {
+        $protocol = is_ssl() ? 'https' : 'http';
+        wp_enqueue_style('artemis-lato', $protocol."://fonts.googleapis.com/css?family=Lato:300,400,700,900&amp;subset=latin-ext");
+    }
+}
+add_action('wp_enqueue_scripts', 'HERITAGE_load_fonts');
+
+/*
+	Control Excerpt Length
+*/
+if (!function_exists('HERITAGE_excerpt_length')) {
+    function HERITAGE_excerpt_length($length)
+    {
+        return 40;
+    }
+}
+add_filter( 'excerpt_length', 'HERITAGE_excerpt_length', 999);
+
+
+if (!isset($content_width)) {
+    $content_width = 900;
+}
+
+?>
