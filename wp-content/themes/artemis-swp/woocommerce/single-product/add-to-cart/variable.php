@@ -29,6 +29,9 @@
           data-product_variations="<?php echo htmlspecialchars( wp_json_encode( $available_variations ) ) ?>">
 	<?php do_action( 'woocommerce_before_variations_form' ); ?>
 
+
+        <?php var_dump($available_variations); ?>
+
 		<?php if ( empty( $available_variations ) && false !== $available_variations ) : ?>
             <p class="stock out-of-stock"><?php esc_html_e( 'This product is currently out of stock and unavailable.', 'artemis-swp' ); ?></p>
 		<?php else : ?>

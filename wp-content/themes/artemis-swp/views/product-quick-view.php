@@ -14,6 +14,7 @@ $props = wc_get_product_attachment_props( get_post_thumbnail_id(), $post );
 $image = $product->get_image( apply_filters( 'single_product_large_thumbnail_size', 'shop_single' ) );;
 
 ?>
+
 <div <?php post_class(); ?>>
 	<div class="images image_gallery woocommerce-product-gallery__wrapper">
 		<?php
@@ -24,7 +25,6 @@ $image = $product->get_image( apply_filters( 'single_product_large_thumbnail_siz
 			esc_attr( $props['caption'] ),
 			$image
 		);
-
 
 		$attachment_ids = $product->get_gallery_image_ids();
 		if ( $attachment_ids ) {

@@ -223,7 +223,7 @@ function ARTEMIS_SWP_get_products_per_row() {
 		}
 	}
 
-	$ppr_in_cookie = isset( $_COOKIE['artemis_swp_products_per_row'] ) ? intval( $_COOKIE['artemis_swp_products_per_row'] ) : 0;
+	$ppr_in_cookie = isset( $_COOKIE['artemis_wp_products_per_row'] ) ? intval( $_COOKIE['artemis_wp_products_per_row'] ) : 0;
 	if ( 3 <= $ppr_in_cookie && $ppr_in_cookie <= 5 ) {
 		return $ppr_in_cookie;
 	}
