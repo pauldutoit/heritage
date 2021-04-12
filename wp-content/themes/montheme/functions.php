@@ -20,7 +20,7 @@ require_once (get_template_directory() . '/core/enqueue_scripts.php');
 
 /** Woocommerce related functionnality */
 
-//require_once (get_template_directory() . '/core/woocommerce_support.php');
+require_once (get_template_directory() . '/core/woocommerce_support.php');
 
 /**
  * Utilities
