@@ -26,6 +26,13 @@ add_action( 'woocommerce_before_shop_loop', 'HERITAGE_products_per_row_buttons',
 // cart
 add_action('woocommerce_cart_actions', 'HERITAGE_add_cart_buttons');
 
+//minicart
+add_action('woocommerce_widget_cart_item_quantity', 'HERITAGE_minicart_quantity', 10, 3);
+
+
+//product image
+add_action('woocommerce_after_product_images','HERITAGE_after_product_images');
+
 function HERITAGE_woocommerce_wrapper_start() {
 
         /*todo: check product page type; if default => boxed*/
@@ -129,6 +136,84 @@ function HERITAGE_add_cart_buttons() {
     </a>
     <?php
 }
+
+/**
+ * Minicart
+ */
+
+if(!function_exists('HERITAGE_minicart_quantity')){
+
+    function HERITAGE_minicart_quantity($value, $cart_item, $cart_item_key){
+        $output = '<dl>' .
+            '<dt>' . esc_html__('Qty', 'heritage').  ':</dt>' .
+            '<dd>' . sprintf('%s', $cart_item['quantity']).  '</dd>' .
+            '</dl>';
+        return $output;
+    }
+}
+
+function HERITAGE_after_product_images() {
+    global $post, $product, $woocommerce;
+    ?>
+    <div class="artemis_swp_gallery_thumbnails clearfix">
+    <?php
+    $attachment_ids = $product->get_gallery_image_ids();
+
+    if ( has_post_thumbnail() ) {
+        $props = wc_get_product_attachment_props( get_post_thumbnail_id(), $post );
+        $image = wp_get_attachment_image( get_post_thumbnail_id(), apply_filters( 'single_product_small_thumbnail_size', 'thumbnail' ), 0 );
+
+        echo apply_filters(
+            'woocommerce_single_product_image_thumbnail_html',
+            sprintf(
+                '<a href="%s" class="%s" title="%s" class="wp-post-thumb-image">%s</a>',
+                esc_url( $props['url'] ),
+                'artemis_swp_gallery_thumbnail active',
+                esc_attr( $props['caption'] ),
+                $image
+            ),
+            $post->ID
+        );
+    } else {
+        $placeholder_src = wc_placeholder_img_src();
+        printf( '<a href="%s" class="%s" title="%s" ><img src="%s" alt="%s" class="wp-post-thumb-image"/></a>',
+            $placeholder_src,
+            'artemis_swp_gallery_thumbnail active',
+            esc_html__( 'Awaiting product image', 'heritage' ),
+            $placeholder_src,
+            esc_html__( 'Awaiting product image', 'heritage' ) );
+    }
+    if ( $attachment_ids ) {
+        foreach ( $attachment_ids as $attachment_id ) {
+
+            $props = wc_get_product_attachment_props( $attachment_id, $post );
+
+            if ( ! $props['url'] ) {
+                continue;
+            }
+
+            echo apply_filters(
+                'woocommerce_single_product_image_thumbnail_html',
+                sprintf(
+                    '<a href="%s" class="%s" title="%s">%s</a>',
+                    esc_url( $props['url'] ),
+                    'artemis_swp_gallery_thumbnail',
+                    esc_attr( $props['caption'] ),
+                    wp_get_attachment_image( $attachment_id, apply_filters( 'single_product_small_thumbnail_size', 'thumbnail' ), 0 )
+                ),
+                $attachment_id,
+                $post->ID,
+                ''//esc_attr( $image_class )
+            );
+        }
+
+
+    }
+    ?></div><?php
+}
+
+
+
 
 
 
