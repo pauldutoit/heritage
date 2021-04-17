@@ -3,13 +3,13 @@
 //    !ARTEMIS_SWP_is_my_account_page()) {
 //    $show_register = ARTEMIS_SWP_is_woocommerce_active() && get_option('woocommerce_enable_myaccount_registration') === 'yes';
 
-  if(!class_exists('woocommerce')){
+  if(true){
       $show_register = true;
     ?>
     <div class="login_creative_container transition3" id="at_login_popup">
 
         <div class="lc_swp_boxed creative_menu_boxed">
-            <div class="login_creative_inner lc_swp_background_image" data-bgimage="<?php echo esc_url(ARTEMIS_SWP_get_login_popup_bg_image()) ?>">
+            <div class="login_creative_inner lc_swp_background_image" data-bgimage="<?php echo 'http://placehold.it/25x25/'/*esc_url(ARTEMIS_SWP_get_login_popup_bg_image())*/ ?>">
                 <div class="at_login_popup_close">
                     <div class="hmb_inner">
                         <span class="hmb_line for_login_popup hmb1 on_left transition2 click"></span>
@@ -52,7 +52,7 @@
 
                             <p class="login-submit">
                                 <?php wp_nonce_field('woocommerce-login', 'woocommerce-login-nonce'); ?>
-                                <?php wp_nonce_field('artemis_swp-login', 'artemis-swp-login-nonce'); ?> // aucune idee de ce que ça fait
+                                <?php wp_nonce_field('artemis_swp-login', 'artemis-swp-login-nonce'); ?> <?php /* aucune idée de ce que ça fait */ ?>
                                 <input type="submit" class="button" name="login" id="at_login_btn"
                                        value="<?php esc_attr_e('Login', 'heritage'); ?>"/>
                             </p>
