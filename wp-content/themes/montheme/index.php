@@ -7,6 +7,8 @@
 ?>
 
 
+<?php the_content() ?>
+
 <?php if (have_posts()) : ?>
     <div class="<?php echo esc_attr($container_class); ?>" data-gapwidth="<?php echo esc_attr($gap_width); ?>" data-bricksonrow="<?php echo esc_attr($bricks_on_row); ?>">
         <?php while (have_posts()) : the_post(); ?>

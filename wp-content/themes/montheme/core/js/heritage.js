@@ -894,8 +894,8 @@ var runUnslider = function( $ ) {
 
     gallery.unslider( {
         arrows   : {
-            prev : '<a class="gallery-unslider-arrow prev"><i class="fa fa-angle-left" aria-hidden="true"></i> <span class="at_swp_slider_prev_next_text">' + artemis_swp.sliderPrevText + '</span> </a>',
-            next : '<a class="gallery-unslider-arrow next"><i class="fa fa-angle-right" aria-hidden="true"></i><span class="at_swp_slider_prev_next_text">' + artemis_swp.sliderNextText + '</span> </a>',
+            prev : '<a class="gallery-unslider-arrow prev"><i class="fa fa-angle-left" aria-hidden="true"></i> <span class="at_swp_slider_prev_next_text">' + 'prev'/*artemis_swp.sliderPrevText*/ + '</span> </a>',
+            next : '<a class="gallery-unslider-arrow next"><i class="fa fa-angle-right" aria-hidden="true"></i><span class="at_swp_slider_prev_next_text">' + 'next'/*artemis_swp.sliderNextText*/ + '</span> </a>',
         },
         autoplay : false,
         delay    : 10000,

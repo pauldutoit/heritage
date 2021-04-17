@@ -11,10 +11,10 @@
 <body  <?php body_class(); ?>>
 <div id="lc_swp_wrapper">
     <?php
-    get_template_part( 'views/login-popup' );
+    get_template_part( 'templates/login-popup' );
     /*main menu*/
     if (!is_page_template("template-visual-composer-no-menu.php")) {
-        $menu_style = 'centered_menu'; //ARTEMIS_SWP_get_menu_style();
+        $menu_style = 'classic_menu'; //ARTEMIS_SWP_get_menu_style();
         get_template_part('templates/menu/'.$menu_style);
     }
 
