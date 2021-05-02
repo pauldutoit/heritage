@@ -90,18 +90,18 @@ if(!function_exists('HERITAGE_load_admin_scripts_and_styles')){
         wp_enqueue_media();
 
         /* theme settings*/
-//        wp_register_script('theme_settings',  get_template_directory_uri().'/settings/js/theme_settings.js', array('jquery', 'alpha_color_picker'), '', true);
-//        wp_enqueue_script('theme_settings');
-//
-//        wp_register_style('theme_settings', get_template_directory_uri(). '/settings/css/theme_settings.css', array('alpha_color_picker'));
-//        wp_enqueue_style('theme_settings');
-//
-//        /*alpha color picker*/
-//        wp_register_script('alpha_color_picker',  get_template_directory_uri().'/core/js/alpha-color-picker.js', array('jquery', 'wp-color-picker'), '', true);
-//        wp_enqueue_script('alpha_color_picker');
-//
-//        wp_register_style('alpha_color_picker', get_template_directory_uri(). '/core/css/alpha-color-picker.css', array('wp-color-picker'));
-//        wp_enqueue_style('alpha_color_picker');
+        wp_register_script('theme_settings',  get_template_directory_uri().'/settings/js/theme_settings.js', array('jquery', 'alpha_color_picker'), '', true);
+        wp_enqueue_script('theme_settings');
+
+        wp_register_style('theme_settings', get_template_directory_uri(). '/settings/css/theme_settings.css', array('alpha_color_picker'));
+        wp_enqueue_style('theme_settings');
+
+        /*alpha color picker*/
+        wp_register_script('alpha_color_picker',  get_template_directory_uri().'/core/js/alpha-color-picker.js', array('jquery', 'wp-color-picker'), '', true);
+        wp_enqueue_script('alpha_color_picker');
+
+        wp_register_style('alpha_color_picker', get_template_directory_uri(). '/core/css/alpha-color-picker.css', array('wp-color-picker'));
+        wp_enqueue_style('alpha_color_picker');
     }
 }
 
