@@ -85,6 +85,12 @@ artemisSwpStylesheet = artemisSwpStyleElement.sheet;
 var artemisSwpRulesIndexes = [];
 var artemisSwpRulesIdIndexes = [];
 
+var options = {
+    width: 400,
+    zoomWidth: 500
+};
+new ImageZoom(document.getElementById("img-container"), options);
+
 function artemisSwpAddStylesheet ( id, cssText, context ) {
     var foundIndex;
     if ( (foundIndex = artemisSwpRulesIdIndexes.indexOf( id )) > -1 ) {

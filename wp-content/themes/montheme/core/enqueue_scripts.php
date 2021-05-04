@@ -18,6 +18,9 @@ if(!function_exists('HERITAGE_load_scripts_and_styles')){
         wp_register_script('fancybox_js', get_template_directory_uri().'/assets/fancybox/fancybox.min.js', array('jquery'), '', true);
         wp_enqueue_script( 'fancybox_js');
 
+        wp_register_script('js_image_zoom', get_template_directory_uri().'/assets/js-image-zoom-master/package/js-image-zoom.js', array('jquery'), '', true);
+        wp_enqueue_script( 'js_image_zoom');
+
 
         wp_register_script('heritage', get_template_directory_uri().'/core/js/heritage.js',
             array(
@@ -28,7 +31,8 @@ if(!function_exists('HERITAGE_load_scripts_and_styles')){
                 'unslider',
                 'fancybox_js',
                 'select2_js',
-                'password-strength-meter'
+                'password-strength-meter',
+                'js_image_zoom'
             ), '', true);
         wp_enqueue_script( 'heritage');
 
