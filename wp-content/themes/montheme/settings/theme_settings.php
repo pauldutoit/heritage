@@ -1,8 +1,9 @@
 <?php
 
+define("LC_SWP_PRINT_SETTINGS", false);
+
 function HERITAGE_setup_admin_menus()
 {
-
     add_theme_page(
         'Heritage Theme Settings', /* page title*/
         'Heritage Settings',  /* menu title */
@@ -12,4 +13,461 @@ function HERITAGE_setup_admin_menus()
     );
 }
 add_action("admin_menu", "HERITAGE_setup_admin_menus");
+
+
+function HERITAGE_option_page_settings()
+{
+    ?>
+
+    <div class="wrap">
+        <div id="icon-themes" class="icon32"></div>
+        <h2>Heritage Theme Settings</h2>
+
+        <?php settings_errors(); ?>
+
+        <?php
+            if(isset($_GET['tab'])){
+                $active_tab = $_GET['tab'];
+            } else {
+                $active_tab = 'general_options';
+            }
+        ?>
+
+        <h2 class="nav-tab-wrapper">
+            <?php
+                $general_options_class = $active_tab == 'general_options' ? 'nav-tab-active' : '';
+                $social_options_class = $active_tab == 'social_options' ? 'nav-tab-active' : '';
+                $footer_options_class = $active_tab == 'footer_options' ? 'nav-tab-active' : '';
+                $contact_options_class = $active_tab == 'contact_options' ? 'nav-tab-active' : '';
+                $shop_options_class = $active_tab == 'shop_options' ? 'nav-tab-active' : '';
+            ?>
+            <a href="?page=heritage_menu_page&tab=general_options" class="nav-tab <?php echo esc_attr($general_options_class); ?>">General Options</a>
+            <a href="?page=heritage_menu_page&tab=social_options" class="nav-tab <?php echo esc_attr($social_options_class); ?>">Social Options</a>
+            <a href="?page=heritage_menu_page&tab=footer_options" class="nav-tab <?php echo esc_attr($footer_options_class); ?>">Footer Options</a>
+            <a href="?page=heritage_menu_page&tab=contact_options" class="nav-tab <?php echo esc_attr($contact_options_class); ?>">Contact Data</a>
+            <a href="?page=heritage_menu_page&tab=shop_options" class="nav-tab <?php echo esc_attr($shop_options_class); ?>">Shop</a>
+        </h2>
+
+        <form method="post" action="options.php">
+
+            <?php
+                if($active_tab == 'general_options'){
+                    settings_fields('heritage_theme_general_options');
+                    do_settings_sections('heritage_theme_general_options');
+                } elseif ($active_tab == 'social_options') {
+                    settings_fields( 'artemis_theme_social_options');
+                    do_settings_sections( 'artemis_theme_social_options');
+                } elseif ($active_tab == 'footer_options') {
+                    settings_fields( 'artemis_theme_footer_options');
+                    do_settings_sections( 'artemis_theme_footer_options');
+                } elseif ($active_tab == 'contact_options') {
+                    settings_fields( 'artemis_theme_contact_options');
+                    do_settings_sections( 'artemis_theme_contact_options');
+                } elseif ($active_tab == 'shop_options') {
+                    settings_fields( 'artemis_theme_shop_options');
+                    do_settings_sections( 'artemis_theme_shop_options');
+                }
+                submit_button();
+            ?>
+        </form>
+    </div>
+
+<?php
+}
+
+/**
+ *  Initialize theme options
+ */
+add_action('admin_init', 'HERITAGE_initialize_theme_options');
+function HERITAGE_initialize_theme_options()
+{
+    $lc_swp_available_theme_options = array (
+      array(
+          'option_name'         => 'heritage_theme_general_options',
+          'section_id'          => 'heritage_general_settings_section',
+          'title'               => esc_html__('General Options', 'heritage'),
+          'callback'            => 'HERITAGE_general_options_callback',
+          'sanitize_callback'	=> 'HERITAGE_sanitize_general_options'
+      ), array (
+            'option_name'		=> 'heritage_theme_social_options',
+            'section_id'		=> 'heritage_social_settings_section',
+            'title'				=> esc_html__('Social Options', 'heritage'),
+            'callback'			=> 'HERITAGE_social_options_callback',
+            'sanitize_callback'	=> 'HERITAGE_sanitize_social_options'
+        ),
+        array (
+            'option_name'		=> 'heritage_theme_footer_options',
+            'section_id'		=> 'heritage_footer_settings_section',
+            'title'				=> esc_html__('Footer Options', 'heritage'),
+            'callback'			=> 'HERITAGE_footer_options_callback',
+            'sanitize_callback'	=> 'HERITAGE_SWP_sanitize_footer_options'
+        ),
+        array (
+            'option_name'		=> 'heritage_theme_contact_options',
+            'section_id'		=> 'heritage_contact_settings_section',
+            'title'				=> esc_html__('Contact Options', 'heritage'),
+            'callback'			=> 'HERITAGE_contact_options_callback',
+            'sanitize_callback'	=> 'HERITAGE_sanitize_contact_options'
+        ),
+        array (
+            'option_name'		=> 'heritage_theme_shop_options',
+            'section_id'		=> 'heritage_shop_settings_section',
+            'title'				=> esc_html__('Shop Options', 'heritage'),
+            'callback'			=> 'HERITAGE_shop_options_callback',
+            'sanitize_callback'	=> 'HERITAGE_sanitize_shop_options'
+        )
+    );
+
+    foreach($lc_swp_available_theme_options as $theme_option) {
+
+        if (false == get_option($theme_option['option_name'])) {
+            add_option($theme_option['option_name']);
+        }
+
+        add_settings_section(
+            $theme_option['section_id'],       // identify section to register options
+            $theme_option['title'],            // displayed title
+            $theme_option['callback'],         // callback used to render the description
+            $theme_option['option_name']       // page on which add section of option
+        );
+    }
+
+    HERITAGE_add_settings_fields();
+
+    foreach ($lc_swp_available_theme_options as $theme_option){
+        register_setting(
+            $theme_option['option_name'],
+            $theme_option['option_name'],
+            $theme_option['sanitize_callback']
+        );
+    }
+
+}
+
+
+/* GENERAL OPTIONS * /
+
+/*
+	Callbacks that render the description for each tab
+*/
+function HERITAGE_general_options_callback() {
+    ?>
+    <p>
+        <?php echo esc_html__('Setup custom logo and favicon.', 'heritage'); ?>
+    </p>
+    <?php
+    /*print theme settings*/
+    if (LC_SWP_PRINT_SETTINGS) {
+        $general = get_option('heritage_theme_general_options');
+
+        ?>
+        <pre>heritage_theme_general_options:
+			<?php echo (json_encode($general)); ?>
+		</pre>
+        <?php
+    }
+}
+
+/*
+	Sanitize Functions
+*/
+function  HERITAGE_sanitize_general_options($input) {
+    $output = array();
+
+    foreach($input as $key => $val) {
+        if(isset($input[$key])) {
+            if (($key == 'lc_custom_favicon') ||
+                ($key == 'lc_custom_logo')) {
+                $output[$key] = esc_url_raw(trim( $input[$key] ) );
+            } else {
+                $output[$key] =  esc_html(trim($input[$key])) ;
+            }
+        }
+    }
+
+    return apply_filters('HERITAGE_sanitize_general_options', $output, $input);
+}
+
+
+/* SOCIAL OPTIONS */
+
+function HERITAGE_social_options_callback() {
+    ?>
+    <p>
+        <?php echo esc_html__('Provide the URL to the social profiles you would like to display.', 'artemis-swp'); ?>
+    </p>
+    <?php
+}
+
+function HERITAGE_sanitize_social_options($input) {
+    $output = array();
+
+    foreach($input as $key => $val) {
+        if(isset($input[$key])) {
+            $output[$key] =  esc_url_raw(trim($input[$key])) ;
+        }
+    }
+
+    return apply_filters('HERITAGE_sanitize_social_options', $output, $input);
+}
+
+/*
+	CALLBACKS FOR SETTINGS FIELDS
+*/
+function HERITAGE_logo_select_cbk() {
+    $logo_url = HERITAGE_get_theme_option('heritage_theme_general_options', 'lc_custom_logo');
+
+    ?>
+    <input id="lc_swp_logo_upload_value" type="text" name="heritage_theme_general_options[lc_custom_logo]" size="150" value="<?php echo esc_url($logo_url); ?>"/>
+    <input id="lc_swp_upload_logo_button" type="button" class="button" value="<?php echo esc_html__('Upload Logo', 'heritage'); ?>" />
+    <input id="lc_swp_remove_logo_button" type="button" class="button" value="<?php echo esc_html__('Remove Logo', 'heritage'); ?>" />
+    <p class="description">
+        <?php echo esc_html__('Upload a custom logo image.', 'heritage'); ?>
+    </p>
+
+    <div id="lc_logo_image_preview">
+        <img class="lc_swp_setting_preview_logo" src="<?php echo esc_url($logo_url); ?>">
+    </div>
+
+    <?php
+}
+
+function HERITAGE_add_settings_fields()
+{
+    $general_settings = array(
+        array(
+            'id'        => 'lc_custom_logo',
+            'label'     => esc_html__('Upload logo image', 'heritage'),
+            'callback'  => 'HERITAGE_logo_select_cbk'
+        ),
+        /** @deprecated  */
+        array (
+            'id'		=> 'lc_custom_favicon',
+            'label'		=> esc_html__('Upload custom favicon', 'heritage'),
+            'callback'	=> 'HERITAGE_favicon_select_cbk'
+        ),
+        array (
+            'id'		=> 'lc_custom_innner_bg_image',
+            'label'		=> esc_html__('Upload custom background image', 'heritage'),
+            'callback'	=> 'HERITAGE_inner_bg_image_select_cbk'
+        ),
+        array (
+            'id'		=> 'lc_menu_style',
+            'label'		=> esc_html__('Choose menu style', 'heritage'),
+            'callback'	=> 'HERITAGE_menu_style_cbk'
+        ),
+        array (
+            'id'		=> 'lc_default_color_scheme',
+            'label'		=> esc_html__('Choose default color scheme', 'heritage'),
+            'callback'	=> 'HERITAGE_default_colorscheme_cbk'
+        ),
+        array (
+            'id'		=> 'lc_enable_sticky_menu',
+            'label'		=> esc_html__('Enable sticky menu', 'heritage'),
+            'callback'	=> 'HERITAGE_enable_sticky_menu_cbk'
+        ),
+        array (
+            'id'		=> 'lc_login_popup_enable',
+            'label'		=> esc_html__('Login Popup', 'heritage'),
+            'callback'	=> 'HERITAGE_lc_login_popup_enable'
+        ),
+        array (
+            'id'		=> 'lc_back_to_top',
+            'label'		=> esc_html__('Enable back to top button', 'heritage'),
+            'callback'	=> 'HERITAGE_back_to_top_cbk'
+        )
+    );
+
+    foreach ($general_settings as $general_setting){
+        add_settings_field(
+            $general_setting['id'],
+            $general_setting['label'],
+            $general_setting['callback'],
+            'heritage_theme_general_options',
+            'heritage_general_settings_section'
+        );
+    }
+}
+
+function HERITAGE_favicon_select_cbk() {
+    $favicon_url = HERITAGE_get_theme_option('heritage_theme_general_options', 'lc_custom_favicon');
+
+    if (function_exists('wp_site_icon')) {
+        ?>
+        <p class="description notice notice-success">
+            <?php echo esc_html__('Hi, your WordPress version is higher than 4.3 and allows you to use the built in WordPress functionality related to custom favicon.', 'artemis-swp'); ?>
+            <br>
+            <?php echo esc_html__('Please go to Appearance - Customize - Site Identity and choose the favicon from that place.', 'artemis-swp'); ?>
+            <br>
+            <?php echo esc_html__('For your WordPress version, the Upload custom favicon option will be ignored, the one from customizer will be used.', 'artemis-swp'); ?>
+            <br>
+            <?php echo esc_html__('This option exists only for backward compatibility reasons.', 'artemis-swp'); ?>
+        </p>
+        <?php
+    }
+    ?>
+
+    <input id="lc_swp_favicon_upload_value" type="text" name="heritage_theme_general_options[lc_custom_favicon]" size="150" value="<?php echo esc_url($favicon_url); ?>"/>
+    <input id="lc_swp_upload_favicon_button" type="button" class="button" value="<?php echo esc_html__('Upload Favicon', 'artemis-swp'); ?>" />
+    <input id="lc_swp_remove_favicon_button" type="button" class="button" value="<?php echo esc_html__('Remove Favicon', 'artemis-swp'); ?>" />
+    <p class="description">
+        <?php echo esc_html__('Upload a custom favicon image.', 'heritage'); ?>
+    </p>
+
+    <div id="lc_favicon_image_preview">
+        <img class="lc_swp_setting_preview_favicon" src="<?php echo esc_url($favicon_url); ?>">
+    </div>
+    <?php
+}
+
+function HERITAGE_inner_bg_image_select_cbk() {
+    $inner_bg_img_url = HERITAGE_get_theme_option('heritage_theme_general_options', 'lc_custom_innner_bg_image');
+    ?>
+
+    <input id="lc_swp_innner_bg_image_upload_value" type="text" name="heritage_theme_general_options[lc_custom_innner_bg_image]" size="150" value="<?php echo esc_url($inner_bg_img_url); ?>"/>
+    <input id="lc_swp_upload_innner_bg_image_button" type="button" class="button" value="<?php echo esc_html__('Upload Image', 'heritage'); ?>" />
+    <input id="lc_swp_remove_innner_bg_image_button" type="button" class="button" value="<?php echo esc_html__('Remove Image', 'heritage'); ?>" />
+    <p class="description">
+        <?php echo esc_html__('Upload a custom background image for inner pages.', 'heritage'); ?>
+    </p>
+
+    <div id="lc_innner_bg_image_preview">
+        <img class="lc_swp_setting_preview_favicon" src="<?php echo esc_url($inner_bg_img_url); ?>">
+    </div>
+    <?php
+}
+
+function HERITAGE_menu_style_cbk() {
+    $menu_style = HERITAGE_get_theme_option('heritage_theme_general_options', 'lc_menu_style');
+    if (empty($menu_style)) {
+        $menu_style = 'creative_menu';
+    }
+
+    $menu_options = array(
+        esc_html__('Creative Menu', 'heritage')			=> 'creative_menu',
+        esc_html__('Classic Menu', 'heritage')			=> 'classic_menu',
+        esc_html__('Centered Menu', 'heritage')			=> 'centered_menu',
+        esc_html__('Classic Doubled Menu', 'heritage')	=> 'classic_double_menu'
+    );
+    ?>
+
+    <select id="lc_menu_style" name="heritage_theme_general_options[lc_menu_style]">
+        <?php HERITAGE_render_select_options($menu_options, $menu_style); ?>
+    </select>
+    <?php
+}
+
+function HERITAGE_default_colorscheme_cbk() {
+    $color_scheme = HERITAGE_get_theme_option('theme_theme_general_options', 'lc_default_color_scheme');
+    if (empty($color_scheme)) {
+        $color_scheme = 'black_on_white';
+    }
+
+    $color_schemes = array(
+        esc_html__('White On Black', 'heritage')	=> 'white_on_black',
+        esc_html__('Black on White', 'heritage')	=> 'black_on_white'
+    );
+    ?>
+
+    <select id="lc_default_color_scheme" name="heritage_theme_general_options[lc_default_color_scheme]">
+        <?php HERITAGE_render_select_options($color_schemes, $color_scheme); ?>
+    </select>
+    <p class="description">
+        <?php echo esc_html__('Default color scheme used for the website content.', 'heritage').'<br>'; ?>
+        <?php echo esc_html__('Black On White - black text on white background.', 'heritage'); ?>
+        <?php echo esc_html__('White On Black - white text on black background.', 'heritage').'<br>'; ?>
+        <?php echo esc_html__('If you change this value, you might need to change the background color or image for your website according to the color scheme.', 'heritage'); ?>
+        <?php echo esc_html__('You can change the background color for your website from Appearance - Customize - Colors.', 'heritage'); ?>
+    </p>
+    <?php
+}
+
+function HERITAGE_enable_sticky_menu_cbk() {
+    $sticky_menu = HERITAGE_get_theme_option('heritage_theme_general_options', 'lc_enable_sticky_menu');
+
+    if (empty($sticky_menu)) {
+        $sticky_menu = 'enabled';
+    }
+
+    $sticky_options = array(
+        esc_html__('Enabled', 'heritage')	=> 'enabled',
+        esc_html__('Disabled', 'heritage')	=> 'disabled'
+    );
+    ?>
+    <select id="lc_enable_sticky_menu" name="heritage_theme_general_options[lc_enable_sticky_menu]">
+        <?php HERITAGE_render_select_options($sticky_options, $sticky_menu); ?>
+    </select>
+    <p class="description">
+        <?php echo esc_html__('Enable or disable sticky menu bar. If enabled, menu will stay on top whyle the user moves the scrollbar.', 'artemis-swp'); ?>
+    </p>
+    <?php
+}
+
+function HERITAGE_lc_login_popup_enable() {
+    $enable_login_popup = HERITAGE_get_theme_option( 'heritage_theme_general_options', 'lc_login_popup_enable' );
+    if ( empty( $enable_login_popup ) ) {
+        $enable_login_popup = 'yes';
+    }
+    $options = array(
+        esc_html__( 'Enabled', 'heritage' ) => 'yes',
+        esc_html__( 'Disabled', 'heritage' )  => 'no',
+    );
+    ?>
+    <select id="lc_login_popup_enable" name="heritage_theme_general_options[lc_login_popup_enable]">
+        <?php HERITAGE_render_select_options( $options, $enable_login_popup ); ?>
+    </select>
+    <p class="description">
+        <?php echo esc_html__( 'Enable or disable login popup on frontend', 'heritage' ); ?>
+    </p>
+    <?php
+}
+
+function HERITAGE_back_to_top_cbk() {
+    $back_to_top = HERITAGE_get_theme_option('heritage_theme_general_options', 'lc_back_to_top');
+
+    if (empty($back_to_top)) {
+        $back_to_top = 'disabled';
+    }
+
+    $sticky_options = array(
+        esc_html__('Enabled', 'heritage')	=> 'enabled',
+        esc_html__('Disabled', 'heritage')	=> 'disabled'
+    );
+    ?>
+    <select id="lc_back_to_top" name="heritage_theme_general_options[lc_back_to_top]">
+        <?php HERITAGE_render_select_options($sticky_options, $back_to_top); ?>
+    </select>
+    <p class="description">
+        <?php echo esc_html__('Enable or disable back to top button.', 'heritage'); ?>
+    </p>
+    <?php
+}
+
+/*
+	UTILS FOR THEME SETTINGS
+*/
+
+function HERITAGE_get_theme_option($option_group, $option_name)
+{
+    $options = get_option($option_group);
+
+    if (isset($options[$option_name])) {
+        return $options[$option_name];
+    }
+
+    return '';
+}
+
+function HERITAGE_render_select_options($options, $selected) {
+    if (empty($selected)) {
+        return;
+    }
+
+    foreach($options as $key => $value) { ?>
+        <option <?php selected( $selected, esc_attr( $value ) ) ?> value="<?php echo esc_attr( $value ); ?>">
+            <?php echo esc_attr( $key ); ?>
+        </option>
+    <?php }
+}
+
 
