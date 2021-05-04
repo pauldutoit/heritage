@@ -16,3 +16,35 @@ function HERITAGE_get_page_custom_menu_style(&$page_logo, &$menu_bar_bg, &$menu_
     !empty($above_menu_bg) ||
     !empty($above_menu_txt_col));
 }
+
+/*
+ * UTILISÉ POUR L'AFFICHAGE DE LA RECHERCHE
+ *
+ * */
+
+function HERITAGE_get_tags() {
+    $tags = array();
+    if( true /*ARTEMIS_SWP_is_woocommerce_active()*/ ) {
+        $args = array(
+            'taxonomy' => 'product_tag',
+            'echo'     => false,
+            'orderby'  => 'count',
+            'order'    => 'DESC',
+            'number'   => 4
+        );
+        $tags = get_terms($args);
+    }
+
+    if( !count($tags) ){
+        $args = array(
+            'taxonomy' => 'post_tag',
+            'echo'     => false,
+            'orderby'  => 'count',
+            'order'    => 'DESC',
+            'number'   => 4
+        );
+        $tags = get_terms($args);
+    }
+
+    return $tags;
+}

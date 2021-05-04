@@ -138,6 +138,20 @@ function HERITAGE_add_cart_buttons() {
 }
 
 /**
+ * VIDER LE PANIER
+ *
+ */
+
+function HERITAGE_woocommerce_clear_cart_url() {
+    global $woocommerce;
+
+    if ( isset( $_GET['empty-cart'] ) ) {
+        $woocommerce->cart->empty_cart();
+    }
+}
+add_action( 'init', 'HERITAGE_woocommerce_clear_cart_url' );
+
+/**
  * Minicart
  */
 
@@ -155,7 +169,7 @@ if(!function_exists('HERITAGE_minicart_quantity')){
 function HERITAGE_after_product_images() {
     global $post, $product, $woocommerce;
     ?>
-    <div class="artemis_swp_gallery_thumbnails clearfix">
+    <div class="artemis_swp_gallery_thumbnails clearfix img-container">
     <?php
     $attachment_ids = $product->get_gallery_image_ids();
 
@@ -166,7 +180,7 @@ function HERITAGE_after_product_images() {
         echo apply_filters(
             'woocommerce_single_product_image_thumbnail_html',
             sprintf(
-                '<a href="%s" class="%s" title="%s" class="wp-post-thumb-image">%s</a>',
+                '<a href="%s" class="%s" id="img-container" title="%s" class="wp-post-thumb-image">%s</a>',
                 esc_url( $props['url'] ),
                 'artemis_swp_gallery_thumbnail active',
                 esc_attr( $props['caption'] ),
