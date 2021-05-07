@@ -5,7 +5,7 @@ $header_width = 'lc_swp_'.$header_width;
 
 /*sticky menu*/
 $header_class = '';
-if ( false /*ARTEMIS_SWP_is_sticky_menu()*/) {
+if (HERITAGE_is_sticky_menu()) {
     $header_class = 'lc_sticky_menu';
 }
 
@@ -16,8 +16,6 @@ $has_custom_menu_styling = HERITAGE_get_page_custom_menu_style($page_logo, $menu
 if ($has_custom_menu_styling) {
     $header_class .= ' cust_page_menu_style';
 }
-
-echo 'classic_menu';
 ?>
 
 <header id="at_page_header" class="<?php echo esc_attr($header_class); ?>" data-menubg="<?php echo esc_attr($menu_bar_bg); ?>" data-menucol="<?php echo esc_attr($menu_txt_col); ?>">
@@ -60,19 +58,19 @@ echo 'classic_menu';
             </div>
 
             <?php
-            //if (in_array( 'woocommerce/woocommerce.php', apply_filters('active_plugins', get_option('active_plugins')))) {
-            if ( class_exists('woocommerce')/*ARTEMIS_SWP_is_woocommerce_active()*/) {
+
+            if (HERITAGE_is_woocommerce_active()) {
                 ?>
 
-                <div class="classic_header_icon artemis-swp-minicart-icon">
+                <div class="classic_header_icon heritage-minicart-icon">
                     <a class="cart-contents" href="<?php echo wc_get_cart_url(); ?>" title="<?php esc_html__('View your shopping cart', 'heritage'); ?>">
-                        <i class="fa fa-artemis-cart" aria-hidden="true"></i>
+                        <i class="fa fa-heritage-cart" aria-hidden="true"></i>
                         <span class="cart-contents-count lc_swp_vibrant_bgc">
 							<?php echo WC()->cart->get_cart_contents_count(); ?>
 						</span>
                     </a>
 
-                    <div class="artemis-swp-minicart">
+                    <div class="heritage-minicart">
                         <?php woocommerce_mini_cart(); ?>
                     </div>
                 </div>
@@ -84,10 +82,7 @@ echo 'classic_menu';
         </div>
 
         <?php
-
-        //$customWalker = new SWPFrontendWalkerNavMenu();
         $customWalker = new FrontendWalkerNavMenu();
-
         /*render main menu*/
         wp_nav_menu(
             array(
@@ -97,18 +92,16 @@ echo 'classic_menu';
                 'walker'			=> $customWalker
             )
         );
-
         ?>
-
         <div class="at_login_wish">
-            <?php if ( class_exists('woocommerce')/*ARTEMIS_SWP_is_woocommerce_active()*/ ) { ?>
+            <?php if (HERITAGE_is_woocommerce_active()) { ?>
                 <div class="at_login account_option">
                     <?php if ( is_user_logged_in() ) { ?>
                         <a href="<?php echo get_permalink( get_option( 'woocommerce_myaccount_page_id' ) ); ?>"
                            title="<?php esc_html_e( 'My Account', 'heritage' ); ?>"><?php esc_html_e( 'My Account', 'heritage' ); ?></a>
                     <?php } else { ?>
                         <a href="<?php echo get_permalink( get_option( 'woocommerce_myaccount_page_id' ) ); ?>"
-                           class="<?php echo esc_attr( 'at_to_login_popup'/*ARTEMIS_SWP_is_login_popup_enabled() ? 'at_to_login_popup' : ''*/ ) ?>"
+                           class="<?php echo esc_attr(HERITAGE_is_login_popup_enabled() ? 'at_to_login_popup' : '') ?>"
                            title="<?php esc_html_e( 'Login / Register', 'heritage' ); ?>"><?php esc_html_e( 'Login / Register', 'heritage' ); ?></a>
                     <?php } ?>
                 </div>

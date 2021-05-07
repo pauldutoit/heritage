@@ -24,6 +24,33 @@ function HERITAGE_get_menu_style(){
     return $menu_style;
 }
 
+function HERITAGE_is_sticky_menu() {
+    $sticky_menu = HERITAGE_get_theme_option('heritage_theme_general_options', 'lc_enable_sticky_menu');
+
+    if (empty($sticky_menu) || ("enabled" == $sticky_menu)) {
+        return true;
+    }
+
+    return false;
+}
+
+function HERITAGE_is_back_to_top_enabled() {
+    $back_to_top = HERITAGE_get_theme_option('heritage_theme_general_options', 'lc_back_to_top');
+
+    if (empty($back_to_top) || ("disabled" == $back_to_top)) {
+        return false;
+    }
+    return true;
+}
+
+function HERITAGE_is_login_popup_enabled() {
+    $enabled = HERITAGE_get_theme_option( 'heritage_theme_general_options', 'lc_login_popup_enable' );
+    if ( empty( $enabled ) ) {
+        $enabled = true;
+    }
+    return $enabled == 'yes';
+}
+
 function HERITAGE_get_products_view_mode(){
     $view_modes = array('list', 'grid');
     if(isset($_REQUEST['mode'])){
@@ -68,3 +95,13 @@ function HERITAGE_get_products_per_row(){
 
     return $products_per_row;
 }
+
+function HERITAGE_get_default_color_scheme() {
+    /* pas encore implementé */
+    //$color_scheme = HERITAGE_get_theme_option('heritage_theme_general_options', 'lc_default_color_scheme');
+//    if (!empty($color_scheme)) {
+//        return $color_scheme;
+//    }
+    return  'black_on_white';
+}
+

@@ -564,6 +564,7 @@ function HERITAGE_back_to_top_cbk() {
     <?php
 }
 
+
 /*
 	SOCIAL OPTIONS
 */

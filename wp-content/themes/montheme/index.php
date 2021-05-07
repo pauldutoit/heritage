@@ -34,9 +34,9 @@
     <div class="lc_swp_boxed">
         <?php
         if (is_search()) {
-            echo '<p>'.esc_html__('Sorry, no results were found matching your search criteria. Please try something else.', 'artemis-swp').'</p>';
+            echo '<p>'.esc_html__('Sorry, no results were found matching your search criteria. Please try something else.', 'heritage').'</p>';
         } else {
-            echo '<p>'.esc_html__('Sorry, no posts matched your criteria.', 'artemis-swp').'</p>';
+            echo '<p>'.esc_html__('Sorry, no posts matched your criteria.', 'heritage').'</p>';
         }
         ?>
     </div>

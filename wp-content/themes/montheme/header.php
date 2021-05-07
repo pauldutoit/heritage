@@ -3,10 +3,6 @@
 <head>
     <meta charset="<?php bloginfo( 'charset' ); ?>" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <script src="js-image-zoom.js"></script>
-    <!-- Or from a CDN -->
-    <script src="https://unpkg.com/js-image-zoom/js-image-zoom.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/js-image-zoom/js-image-zoom.min.js"></script>
     <?php get_template_part('views/favicon'); ?>
 
     <?php wp_head(); ?>
