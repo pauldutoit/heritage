@@ -55,17 +55,17 @@ function HERITAGE_option_page_settings()
                     settings_fields('heritage_theme_general_options');
                     do_settings_sections('heritage_theme_general_options');
                 } elseif ($active_tab == 'social_options') {
-                    settings_fields( 'artemis_theme_social_options');
-                    do_settings_sections( 'artemis_theme_social_options');
+                    settings_fields( 'heritage_theme_social_options');
+                    do_settings_sections( 'heritage_theme_social_options');
                 } elseif ($active_tab == 'footer_options') {
-                    settings_fields( 'artemis_theme_footer_options');
-                    do_settings_sections( 'artemis_theme_footer_options');
+                    settings_fields( 'heritage_theme_footer_options');
+                    do_settings_sections( 'heritage_theme_footer_options');
                 } elseif ($active_tab == 'contact_options') {
-                    settings_fields( 'artemis_theme_contact_options');
-                    do_settings_sections( 'artemis_theme_contact_options');
+                    settings_fields( 'heritage_theme_contact_options');
+                    do_settings_sections( 'heritage_theme_contact_options');
                 } elseif ($active_tab == 'shop_options') {
-                    settings_fields( 'artemis_theme_shop_options');
-                    do_settings_sections( 'artemis_theme_shop_options');
+                    settings_fields( 'heritage_theme_shop_options');
+                    do_settings_sections( 'heritage_theme_shop_options');
                 }
                 submit_button();
             ?>
@@ -100,7 +100,7 @@ function HERITAGE_initialize_theme_options()
             'section_id'		=> 'heritage_footer_settings_section',
             'title'				=> esc_html__('Footer Options', 'heritage'),
             'callback'			=> 'HERITAGE_footer_options_callback',
-            'sanitize_callback'	=> 'HERITAGE_SWP_sanitize_footer_options'
+            'sanitize_callback'	=> 'HERITAGE_sanitize_footer_options'
         ),
         array (
             'option_name'		=> 'heritage_theme_contact_options',
@@ -144,9 +144,6 @@ function HERITAGE_initialize_theme_options()
 
 }
 
-
-/* GENERAL OPTIONS * /
-
 /*
 	Callbacks that render the description for each tab
 */
@@ -166,6 +163,30 @@ function HERITAGE_general_options_callback() {
 		</pre>
         <?php
     }
+}
+
+function HERITAGE_social_options_callback() {
+    ?>
+    <p>
+        <?php echo esc_html__('Provide the URL to the social profiles you would like to display.', 'heritage'); ?>
+    </p>
+    <?php
+}
+
+function HERITAGE_contact_options_callback() {
+    ?>
+    <p>
+        <?php echo esc_html__('Please insert your contact information.', 'heritage'); ?>
+    </p>
+    <?php
+}
+
+function HERITAGE_shop_options_callback() {
+    ?>
+    <p>
+        <?php echo esc_html__('Change WooCommerce shop related settings.', 'heritage'); ?>
+    </p>
+    <?php
 }
 
 /*
@@ -188,16 +209,20 @@ function  HERITAGE_sanitize_general_options($input) {
     return apply_filters('HERITAGE_sanitize_general_options', $output, $input);
 }
 
+function HERITAGE_sanitize_shop_options($input) {
+    $output = array();
+
+    foreach($input as $key => $val) {
+        if(isset($input[$key])) {
+            $output[$key] =  esc_html(trim($input[$key])) ;
+        }
+    }
+
+    return apply_filters('HERITAGE_sanitize_shop_options', $output, $input);
+}
+
 
 /* SOCIAL OPTIONS */
-
-function HERITAGE_social_options_callback() {
-    ?>
-    <p>
-        <?php echo esc_html__('Provide the URL to the social profiles you would like to display.', 'artemis-swp'); ?>
-    </p>
-    <?php
-}
 
 function HERITAGE_sanitize_social_options($input) {
     $output = array();
@@ -287,6 +312,102 @@ function HERITAGE_add_settings_fields()
             'heritage_general_settings_section'
         );
     }
+
+    $social_settings = array(
+        array (
+            'id'		=> 'lc_fb_url',
+            'label'		=> esc_html__('Facebook URL', 'heritage'),
+            'callback'	=> 'HERITAGE_fb_url_cbk'
+        ),
+        array (
+            'id'		=> 'lc_twitter_url',
+            'label'		=> esc_html__('Twitter URL', 'heritage'),
+            'callback'	=> 'HERITAGE_twitter_url_cbk'
+        ),
+        array (
+            'id'		=> 'lc_gplus_url',
+            'label'		=> esc_html__('Google+ URL', 'heritage'),
+            'callback'	=> 'HERITAGE_gplus_url_cbk'
+        ),
+        array (
+            'id'		=> 'lc_youtube_url',
+            'label'		=> esc_html__('YouTube URL', 'heritage'),
+            'callback'	=> 'HERITAGE_youtube_url_cbk'
+        ),
+        array (
+            'id'		=> 'lc_pinterest_url',
+            'label'		=> esc_html__('Pinterest URL', 'heritage'),
+            'callback'	=> 'HERITAGE_pinterest_url_cbk'
+        )
+    );
+
+    foreach($social_settings as $social_setting) {
+        add_settings_field(
+            $social_setting['id'],         		// ID used to identify the field throughout the theme
+            $social_setting['label'],              // The label to the left of the option interface element
+            $social_setting['callback'], 			// The name of the function responsible for rendering the option interface
+            'heritage_theme_social_options',   		// The page on which this option will be displayed
+            'heritage_social_settings_section'    	// The name of the section to which this field belongs
+        );
+    }
+
+    $contact_settings = array(
+        array(
+            'id'		=> 'lc_contact_address',
+            'label'		=> esc_html__('Contact address', 'heritage'),
+            'callback'	=> 'HERITAGE_lc_contact_address_cbk'
+        ),
+        array(
+            'id'		=> 'lc_contact_phone',
+            'label'		=> esc_html__('Contact phones', 'heritage'),
+            'callback'	=> 'HERITAGE_lc_contact_phone_cbk'
+        ),
+        array(
+            'id'		=> 'lc_contact_fax',
+            'label'		=> esc_html__('Contact Fax Number', 'heritage'),
+            'callback'	=> 'HERITAGE_lc_contact_fax_cbk'
+        ),
+        array(
+            'id'		=> 'lc_contact_email',
+            'label'		=> esc_html__('Contact E-mail', 'heritage'),
+            'callback'	=> 'HERITAGE_lc_contact_email_cbk'
+        )
+    );
+
+    foreach($contact_settings as $contact_setting) {
+        add_settings_field(
+            $contact_setting['id'],         		// ID used to identify the field throughout the theme
+            $contact_setting['label'],              // The label to the left of the option interface element
+            $contact_setting['callback'], 			// The name of the function responsible for rendering the option interface
+            'heritage_theme_contact_options',   		// The page on which this option will be displayed
+            'heritage_contact_settings_section'    	// The name of the section to which this field belongs
+        );
+    }
+
+    $heritage_shop_settings = array(
+        array (
+            'id'		=> 'lc_products_view_mode',
+            'label'		=> esc_html__('Products View Mode', 'heritage'),
+            'callback'	=> 'HERITAGE_lc_products_view_mode'
+        ),
+        array (
+            'id'		=> 'lc_products_per_row',
+            'label'		=> esc_html__('Products Per Row', 'heritage'),
+            'callback'	=> 'HERITAGE_lc_products_per_row'
+        )
+    );
+
+    foreach($heritage_shop_settings as $heritage_shop_setting) {
+        //var_dump($heritage_shop_setting);die;
+        add_settings_field(
+            $heritage_shop_setting['id'],         		// ID used to identify the field throughout the theme
+            $heritage_shop_setting['label'],              // The label to the left of the option interface element
+            $heritage_shop_setting['callback'], 			// The name of the function responsible for rendering the option interface
+            'heritage_theme_shop_options',   		// The page on which this option will be displayed
+            'heritage_shop_settings_section'    	// The name of the section to which this field belongs
+        );
+    }
+
 }
 
 function HERITAGE_favicon_select_cbk() {
@@ -295,21 +416,21 @@ function HERITAGE_favicon_select_cbk() {
     if (function_exists('wp_site_icon')) {
         ?>
         <p class="description notice notice-success">
-            <?php echo esc_html__('Hi, your WordPress version is higher than 4.3 and allows you to use the built in WordPress functionality related to custom favicon.', 'artemis-swp'); ?>
+            <?php echo esc_html__('Hi, your WordPress version is higher than 4.3 and allows you to use the built in WordPress functionality related to custom favicon.', 'heritage'); ?>
             <br>
-            <?php echo esc_html__('Please go to Appearance - Customize - Site Identity and choose the favicon from that place.', 'artemis-swp'); ?>
+            <?php echo esc_html__('Please go to Appearance - Customize - Site Identity and choose the favicon from that place.', 'heritage'); ?>
             <br>
-            <?php echo esc_html__('For your WordPress version, the Upload custom favicon option will be ignored, the one from customizer will be used.', 'artemis-swp'); ?>
+            <?php echo esc_html__('For your WordPress version, the Upload custom favicon option will be ignored, the one from customizer will be used.', 'heritage'); ?>
             <br>
-            <?php echo esc_html__('This option exists only for backward compatibility reasons.', 'artemis-swp'); ?>
+            <?php echo esc_html__('This option exists only for backward compatibility reasons.', 'heritage'); ?>
         </p>
         <?php
     }
     ?>
 
     <input id="lc_swp_favicon_upload_value" type="text" name="heritage_theme_general_options[lc_custom_favicon]" size="150" value="<?php echo esc_url($favicon_url); ?>"/>
-    <input id="lc_swp_upload_favicon_button" type="button" class="button" value="<?php echo esc_html__('Upload Favicon', 'artemis-swp'); ?>" />
-    <input id="lc_swp_remove_favicon_button" type="button" class="button" value="<?php echo esc_html__('Remove Favicon', 'artemis-swp'); ?>" />
+    <input id="lc_swp_upload_favicon_button" type="button" class="button" value="<?php echo esc_html__('Upload Favicon', 'heritage'); ?>" />
+    <input id="lc_swp_remove_favicon_button" type="button" class="button" value="<?php echo esc_html__('Remove Favicon', 'heritage'); ?>" />
     <p class="description">
         <?php echo esc_html__('Upload a custom favicon image.', 'heritage'); ?>
     </p>
@@ -398,7 +519,7 @@ function HERITAGE_enable_sticky_menu_cbk() {
         <?php HERITAGE_render_select_options($sticky_options, $sticky_menu); ?>
     </select>
     <p class="description">
-        <?php echo esc_html__('Enable or disable sticky menu bar. If enabled, menu will stay on top whyle the user moves the scrollbar.', 'artemis-swp'); ?>
+        <?php echo esc_html__('Enable or disable sticky menu bar. If enabled, menu will stay on top whyle the user moves the scrollbar.', 'heritage'); ?>
     </p>
     <?php
 }
@@ -442,6 +563,141 @@ function HERITAGE_back_to_top_cbk() {
     </p>
     <?php
 }
+
+/*
+	SOCIAL OPTIONS
+*/
+function HERITAGE_fb_url_cbk() {
+    $fb_url = HERITAGE_get_theme_option('heritage_theme_social_options', 'lc_fb_url');
+
+    ?>
+    <input id="lc_fb_url" type="text" name="heritage_theme_social_options[lc_fb_url]" size="150" value="<?php echo esc_url($fb_url); ?>"/>
+    <?php
+}
+
+function HERITAGE_twitter_url_cbk() {
+    $twitter_url = HERITAGE_get_theme_option('heritage_theme_social_options', 'lc_twitter_url');
+
+    ?>
+    <input id="lc_twitter_url" type="text" name="heritage_theme_social_options[lc_twitter_url]" size="150" value="<?php echo esc_url($twitter_url); ?>"/>
+    <?php
+}
+
+function HERITAGE_gplus_url_cbk() {
+    $gplus_url = HERITAGE_get_theme_option('heritage_theme_social_options', 'lc_gplus_url');
+
+    ?>
+    <input id="lc_gplus_url" type="text" name="heritage_theme_social_options[lc_gplus_url]" size="150" value="<?php echo esc_url($gplus_url); ?>"/>
+    <?php
+}
+
+function HERITAGE_youtube_url_cbk() {
+    $youtube_url = HERITAGE_get_theme_option('heritage_theme_social_options', 'lc_youtube_url');
+
+    ?>
+    <input id="lc_youtube_url" type="text" name="heritage_theme_social_options[lc_youtube_url]" size="150" value="<?php echo esc_url($youtube_url); ?>"/>
+    <?php
+}
+
+function HERITAGE_pinterest_url_cbk() {
+    $pinterest_url = HERITAGE_get_theme_option('heritage_theme_social_options', 'lc_pinterest_url');
+
+    ?>
+    <input id="lc_pinterest_url" type="text" name="heritage_theme_social_options[lc_pinterest_url]" size="150" value="<?php echo esc_url($pinterest_url); ?>"/>
+    <?php
+}
+
+
+/*
+	Contact Options
+*/
+function HERITAGE_lc_contact_address_cbk() {
+    $contact_address = HERITAGE_get_theme_option('heritage_theme_contact_options', 'lc_contact_address');
+    ?>
+    <input type="text" size="200" id="lc_contact_address" name="heritage_theme_contact_options[lc_contact_address]" value="<?php echo esc_attr($contact_address); ?>" />
+    <?php
+}
+
+function HERITAGE_lc_contact_phone_cbk() {
+    $contact_phone = HERITAGE_get_theme_option('heritage_theme_contact_options', 'lc_contact_phone');
+    ?>
+    <input type="text" size="50" id="lc_contact_phone" name="heritage_theme_contact_options[lc_contact_phone]" value="<?php echo esc_attr($contact_phone); ?>" />
+    <?php
+}
+
+function HERITAGE_lc_contact_fax_cbk() {
+    $contact_fax = HERITAGE_get_theme_option('heritage_theme_contact_options', 'lc_contact_fax');
+    ?>
+    <input type="text" size="50" id="lc_contact_fax" name="heritage_theme_contact_options[lc_contact_fax]" value="<?php echo esc_attr($contact_fax); ?>" />
+    <?php
+}
+
+function HERITAGE_lc_contact_email_cbk() {
+    $contact_email = sanitize_email(HERITAGE_get_theme_option('heritage_theme_contact_options', 'lc_contact_email'));
+    ?>
+    <input type="text" size="50" id="lc_contact_email" name="heritage_theme_contact_options[lc_contact_email]" value="<?php echo esc_attr($contact_email); ?>" />
+    <p class="description">
+        <?php
+        echo esc_html__("This is the email address shown on contact page.", "heritage");
+        ?> <br> <?php
+        echo esc_html__("To set the recipient email for the contact form, please go to Settings - Heritage Core Settings.", "heritage");
+        ?>
+    </p>
+    <?php
+}
+
+/**
+ * SHOP OPTIONS
+ */
+
+function HERITAGE_lc_products_view_mode() {
+    $products_view_mode = HERITAGE_get_theme_option( 'heritage_theme_shop_options', 'lc_products_view_mode' );
+
+    if ( empty( $products_view_mode ) ) {
+        $products_view_mode = 'grid';
+    }
+
+    $view_modes = array(
+        esc_html__( 'Grid', 'heritage' ) => 'grid',
+        esc_html__( 'List', 'heritage' )  => 'list',
+    );
+
+    ?>
+    <select id="lc_products_view_mode" name="heritage_theme_shop_options[lc_products_view_mode]">
+        <?php HERITAGE_render_select_options( $view_modes, $products_view_mode ); ?>
+    </select>
+
+    <p class="description">
+        <?php echo esc_html__( 'Select product list view mode', 'heritage' ); ?>
+    </p>
+    <?php
+}
+
+
+function HERITAGE_lc_products_per_row() {
+    $products_per_row = HERITAGE_get_theme_option( 'heritage_theme_shop_options', 'lc_products_per_row' );
+
+    if ( !intval( $products_per_row ) ) {
+        $products_per_row = 4;
+    }
+
+    $columns = array(
+        esc_html__( '3 Columns', 'heritage' ) => '3',
+        esc_html__( '4 Columns', 'heritage' )  => '4',
+        esc_html__( '5 Columns', 'heritage' )  => '5'
+    );
+
+    ?>
+    <select id="lc_products_per_row" name="heritage_theme_shop_options[lc_products_per_row]">
+        <?php HERITAGE_render_select_options( $columns, $products_per_row ); ?>
+    </select>
+
+    <p class="description">
+        <?php echo esc_html__( 'Select number of products per row in products lists (grid mode)', 'heritage' ); ?>
+    </p>
+    <?php
+}
+
 
 /*
 	UTILS FOR THEME SETTINGS

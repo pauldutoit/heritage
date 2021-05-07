@@ -5,7 +5,7 @@ $header_width = 'lc_swp_'.$header_width;
 
 /*sticky menu*/
 $header_class = '';
-if ( true /*ARTEMIS_SWP_is_sticky_menu()*/) {
+if ( false /*ARTEMIS_SWP_is_sticky_menu()*/) {
     $header_class = 'lc_sticky_menu';
 }
 
@@ -24,7 +24,7 @@ echo 'classic_menu';
     <div class="header_inner lc_wide_menu <?php echo esc_attr($header_width); ?>">
         <div id="logo" class="relative_position">
             <?php
-            $logo_img = 'http://placehold.it/25x25/';//ARTEMIS_SWP_get_user_logo_img();
+            $logo_img = HERITAGE_get_user_logo_img();
             if (!empty($logo_img)) {
                 ?>
 
@@ -84,7 +84,9 @@ echo 'classic_menu';
         </div>
 
         <?php
-        $customWalker = new WalkerNavMenu();
+
+        //$customWalker = new SWPFrontendWalkerNavMenu();
+        $customWalker = new FrontendWalkerNavMenu();
 
         /*render main menu*/
         wp_nav_menu(
@@ -95,6 +97,7 @@ echo 'classic_menu';
                 'walker'			=> $customWalker
             )
         );
+
         ?>
 
         <div class="at_login_wish">

@@ -31,4 +31,8 @@ require_once(get_template_directory() . "/core/utils.php");
 /**
  * Menu walker
  */
-require_once (get_template_directory() . "/core/menu/WalkerNavMenu.php");
+
+require_once( get_template_directory() . "/core/menu/FrontendWalkerNavMenu.php" );
+
+
+

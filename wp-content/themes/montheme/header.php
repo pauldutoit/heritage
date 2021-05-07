@@ -18,7 +18,7 @@
     get_template_part( 'templates/login-popup' );
     /*main menu*/
     if (!is_page_template("template-visual-composer-no-menu.php")) {
-        $menu_style = 'classic_menu'; //ARTEMIS_SWP_get_menu_style();
+        $menu_style = HERITAGE_get_menu_style();
         get_template_part('templates/menu/'.$menu_style);
     }
 

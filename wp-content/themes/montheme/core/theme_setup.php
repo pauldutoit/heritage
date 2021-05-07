@@ -8,11 +8,12 @@ if(!function_exists('HERITAGE_setup')) {
 
         add_theme_support('title-tag');
         add_theme_support('post-thumbnails');
+        add_theme_support('menu');
         add_theme_support('automatic-feed-links');
 
         register_nav_menus(
             array(
-                'main_menu' => esc_html__('Main menu', 'heritage'),
+                'main-menu' => esc_html__('Main menu', 'heritage'),
             )
         );
 
@@ -115,8 +116,19 @@ if (!function_exists('HERITAGE_excerpt_length')) {
 add_filter( 'excerpt_length', 'HERITAGE_excerpt_length', 999);
 
 
+function HERITAGE_menu_class($classes)
+{
+    $classes[] = 'menu-item-swp';
+    return $classes;
+}
+add_filter('nav_menu_css_class', 'HERITAGE_menu_class');
+
+
+
 if (!isset($content_width)) {
     $content_width = 900;
 }
+
+
 
 ?>
