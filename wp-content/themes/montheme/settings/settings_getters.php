@@ -60,12 +60,12 @@ function HERITAGE_get_products_view_mode(){
         }
     }
 
-    $view_mode = isset($_COOKIE['heritage_products_view_mode']) ? sanitize_text_field($_COOKIE['heritage_swp_products_view_mode']) : '';
+    $view_mode = isset($_COOKIE['heritage_products_view_mode']) ? sanitize_text_field($_COOKIE['heritage_products_view_mode']) : '';
     if(in_array($view_mode, $view_modes)){
         return $view_mode;
     }
 
-    $view_mode = 'list'; //ARTEMIS_SWP_get_theme_option( 'artemis_theme_shop_options', 'lc_products_view_mode' );
+    $view_mode = HERITAGE_get_theme_option( 'heritage_theme_shop_options', 'lc_products_view_mode' );
 
     if ( !in_array( $view_mode, $view_modes ) ) {
         return 'grid';
@@ -87,7 +87,7 @@ function HERITAGE_get_products_per_row(){
         return $ppr_in_cookie;
     }
 
-    $products_per_row = 3; //ARTEMIS_SWP_get_theme_option( 'artemis_theme_shop_options', 'lc_products_per_row' );
+    $products_per_row = HERITAGE_get_theme_option( 'heritage_theme_shop_options', 'lc_products_per_row' );
 
     if ( !intval( $products_per_row ) ) {
         $products_per_row = 4;

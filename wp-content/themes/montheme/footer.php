@@ -1,7 +1,3 @@
-<?php if (true /*ARTEMIS_SWP_need_sidebar_on_woo()*/) { ?>
-    </div> <!--.lc_content_full lc_swp_boxed lc_basic_content_padding-->
-<?php } ?>
-
 </div> <!--#lc_swp_content-->
 <?php //get_template_part('templates/canvas_image'); ?>
 <?php get_template_part('templates/utils/back_to_top'); ?>

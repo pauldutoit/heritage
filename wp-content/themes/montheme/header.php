@@ -21,7 +21,7 @@
     /*heading area*/
     if (!is_page_template("template-visual-composer.php") &&
         !is_page_template("template-visual-composer-no-menu.php")) {
-        get_template_part('views/heading_area');
+        get_template_part('templates/heading_area');
     }
     /**
      * @hooked woocommerce_show_product_images 20
@@ -31,13 +31,4 @@
     $color_scheme = 'black_on_white'; //ARTEMIS_SWP_get_default_color_scheme();
     ?>
     <div id="lc_swp_content" data-minheight="200" class="<?php echo esc_attr($color_scheme); ?>">
-        <?php if (true /*ARTEMIS_SWP_need_sidebar_on_woo()*/) { ?>
-        <?php
-        $boxed_class = "lc_swp_boxed";
-        if (is_shop()) {
-            $boxed_class = "lc_swp_full"/*ARTEMIS_SWP_get_shop_width_class()*/ . " sidebar_for_full_width";
-        }
-        ?>
-        <div class="lc_content_full <?php echo esc_attr($boxed_class); ?> lc_big_content_padding">
-            <?php } ?>
 
