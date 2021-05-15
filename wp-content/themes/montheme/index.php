@@ -7,10 +7,12 @@
 ?>
 
 
-<?php the_content() ?>
-
 <?php if (have_posts()) : ?>
+
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci amet aperiam aspernatur autem debitis earum est et ipsa necessitatibus nemo odio quam quidem, quisquam quo quod rerum sunt unde vel?</p>
+
     <div class="<?php echo esc_attr($container_class); ?>" data-gapwidth="<?php echo esc_attr($gap_width); ?>" data-bricksonrow="<?php echo esc_attr($bricks_on_row); ?>">
+
         <?php while (have_posts()) : the_post(); ?>
             <?php
             set_query_var('lc_masonry_brick_class', 'lc_blog_masonry_brick');

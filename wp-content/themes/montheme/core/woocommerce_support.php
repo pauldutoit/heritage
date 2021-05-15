@@ -33,6 +33,16 @@ add_action('woocommerce_widget_cart_item_quantity', 'HERITAGE_minicart_quantity'
 //product image
 add_action('woocommerce_after_product_images','HERITAGE_after_product_images');
 
+
+
+if('grid' == HERITAGE_get_products_view_mode()){
+    add_action( 'woocommerce_before_shop_loop_item_title', 'HERITAGE_quickview_button', 20 );
+}else{
+    // list mode
+    add_action( 'woocommerce_after_shop_loop_item', 'HERITAGE_quickview_button', 20 );
+}
+
+
 function HERITAGE_woocommerce_wrapper_start() {
 
         /*todo: check product page type; if default => boxed*/
@@ -166,6 +176,19 @@ if(!function_exists('HERITAGE_minicart_quantity')){
     }
 }
 
+/** Sharing icons */
+
+function HERITAGE_sharing_icons() {
+    ?>
+    <div class="at_share_product">
+        <?php get_template_part('templates/utils/sharing_icons'); ?>
+    </div>
+    <div class="clearfix"></div>
+    <?php
+}
+add_action( 'woocommerce_after_add_to_cart_form', 'HERITAGE_sharing_icons', 30 );
+
+
 function HERITAGE_after_product_images() {
     global $post, $product, $woocommerce;
     ?>
@@ -221,12 +244,106 @@ function HERITAGE_after_product_images() {
             );
         }
 
-
     }
     ?></div><?php
 }
 
+function HERITAGE_quickview_button() {
+    global $post;
+    $quick_view_url = add_query_arg(
+        array( 'action' => 'artemis_swp_quick_view', 'product_id' => $post->ID ),
+        admin_url( 'admin-ajax.php' )
+    );
+    echo '<span class="artemis_swp_quickview_button">' .
+        '<a data-src="' . esc_attr( $quick_view_url ) . '" ' .
+        'title="' .esc_attr__( 'Quick View', 'heritage' ). '" ' .
+        'data-caption="' .esc_attr( $post->post_title ). '" ' .
+        'href="javascript:void(0)" ' .
+        'data-type="ajax">' .
+        '<i class="fa fa-eye"></i>' .
+        '</a>' .
+        '</span>';
+}
 
+function HERITAGE_quick_view_remove_additional() {
+    remove_action( 'woocommerce_after_single_product_summary', 'woocommerce_output_product_data_tabs', 10 );
+    remove_action( 'woocommerce_after_single_product_summary', 'woocommerce_upsell_display', 15 );
+    remove_action( 'woocommerce_after_single_product_summary', 'woocommerce_output_related_products', 20 );
+}
+add_action('heritage_quick_view_before', 'HERITAGE_quick_view_remove_additional');
+
+function HERITAGE_quick_view_post_class($classes){
+    $classes[] = 'at_quick_view_container';
+    $classes[] = 'product';
+    return $classes;
+}
+
+function HERITAGE_quick_view_body_class($classes){
+    $classes[] = 'woocommerce';
+    $classes[] = 'at_quick_view';
+    return $classes;
+}
+
+function HERITAGE_quick_view() {
+    add_filter( 'body_class', 'HERITAGE_quick_view_body_class' );
+    ?>
+
+    <?php
+    try {
+        if ( ! HERITAGE_is_woocommerce_active() ) {
+            throw new Exception( esc_html__( 'Product not available', 'heritage' ) );
+        }
+        if(class_exists('WC_Shortcodes')) {
+            WC_Shortcodes::init();
+        }
+        $product_id = absint( $_GET['product_id'] );
+
+        $meta_query = WC()->query->get_meta_query();
+
+        $args = array(
+            'post_type'      => 'product',
+            'posts_per_page' => 1,
+            'no_found_rows'  => 1,
+            'post_status'    => 'publish',
+            'meta_query'     => $meta_query,
+            'p'              => $product_id
+        );
+
+        if ( isset( $atts['id'] ) ) {
+            $args['p'] = $atts['id'];
+        }
+
+        $products = new WP_Query( apply_filters( 'woocommerce_shortcode_products_query', $args, array('id' => $product_id) ) );
+
+        if ( $products->have_posts() ) {
+            remove_action( 'woocommerce_product_thumbnails', 'woocommerce_show_product_thumbnails', 20 );
+            add_filter( 'post_class', 'HERITAGE_quick_view_post_class' );
+            while( $products->have_posts() ) {
+                $products->the_post();
+                global $product;
+
+                if ( empty( $product ) || ! $product->is_visible() ) {
+                    throw new Exception( 'Product not available', 'heritage' );
+                }
+                do_action('heritage_quick_view_before');
+                get_template_part( 'templates/product-quick-view' );
+                do_action( 'heritage_quick_view_after' );
+            } // end of the loop.
+        } else {
+            throw new Exception( esc_html__( 'Product was not found', 'heritage' ) );
+        }
+    } catch( Exception $e ) {
+        echo "<div class='at_error'>{$e->getMessage()}</div>";
+    }
+    ?>
+    <?php exit;
+}
+add_action( 'wp_ajax_heritage_quick_view', 'HERITAGE_quick_view' );
+add_action( 'wp_ajax_nopriv_heritage_quick_view', 'HERITAGE_quick_view' );
+
+
+remove_action('woocommerce_review_before_comment_meta', 'woocommerce_review_display_rating', 10);
+add_action('woocommerce_review_before_comment_text', 'woocommerce_review_display_rating', 10);
 
 
 

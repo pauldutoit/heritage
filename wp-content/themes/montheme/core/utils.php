@@ -17,6 +17,16 @@ function HERITAGE_get_page_custom_menu_style(&$page_logo, &$menu_bar_bg, &$menu_
     !empty($above_menu_txt_col));
 }
 
+function HERITAGE_is_sharing_visible()
+{
+    if(function_exists('is_checkout')){
+        if(is_checkout() || is_cart() || is_account_page()){
+            return false;
+        }
+    }
+    return true;
+}
+
 function HERITAGE_is_woocommerce_active()
 {
     if (class_exists('woocommerce')) {

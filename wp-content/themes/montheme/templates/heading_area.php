@@ -81,7 +81,7 @@ if (!empty($overlay)) {
 
 /*title for special templates - keep this the latest processed data*/
 if (is_author()) {
-    $title = esc_html__('Author: ', "artemis-swp").get_the_author();
+    $title = esc_html__('Author: ', "heritage").get_the_author();
 } elseif (is_category()) {
     $title = single_cat_title("", FALSE);
 } elseif (is_archive()) {
@@ -93,7 +93,7 @@ if (is_author()) {
         $title = get_the_time(get_option('date_format'));
     }
 } elseif (is_home()) {
-    $title = esc_html__("Blog", "artemis-swp");
+    $title = esc_html__("Webzine", "heritage");
 } elseif (is_search()) {
     $title = get_search_query();
 }
@@ -112,9 +112,9 @@ if (is_single() || is_page_template("default") || is_page_template("template-sid
     $show_title_on_header = false;
 
     if (HERITAGE_is_woocommerce_active() && is_product()) {
-        if ("type_2" == ARTEMIS_SWP_get_product_page_template()) {
+        //if ("type_2" == ARTEMIS_SWP_get_product_page_template()) {
             $show_title_on_header = true;
-        }
+        //}
     }
 }
 
@@ -182,10 +182,6 @@ if (is_page_template("template-visual-composer-header.php")) {
                     </h1>
                 </div>
             </div>
-        <?php } ?>
-
-        <?php if (!$remove_breadcrumbs) { ?>
-            <?php get_template_part('views/utils/breadcrumbs_nav'); ?>
         <?php } ?>
     </div>
 
