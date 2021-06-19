@@ -14,7 +14,7 @@
 
     $remove_breadcrumbs	= get_post_meta($post_id, 'lc_swp_meta_page_remove_breadc', true);
 
-    $GLOB_color_theme = 'black_on_white'; /*ARTEMIS_SWP_get_default_color_scheme();*/
+    $GLOB_color_theme = 'black_on_white'; /*heritage_SWP_get_default_color_scheme();*/
     $has_bg_image_class = "";
 
 /*special templates*/
@@ -41,7 +41,7 @@
     }
 
 /*woocommerce pages*/
-//if (ARTEMIS_SWP_is_woocommerce_special_page()) {
+//if (heritage_SWP_is_woocommerce_special_page()) {
 //    $header_color_theme = $GLOB_color_theme;
 //}
 
@@ -112,14 +112,14 @@ if (is_single() || is_page_template("default") || is_page_template("template-sid
     $show_title_on_header = false;
 
     if (HERITAGE_is_woocommerce_active() && is_product()) {
-        //if ("type_2" == ARTEMIS_SWP_get_product_page_template()) {
+        //if ("type_2" == heritage_SWP_get_product_page_template()) {
             $show_title_on_header = true;
         //}
     }
 }
 
 $title_align_class = "";
-if (true /*"text_left" == ARTEMIS_SWP_get_titles_alignment_class()*/) {
+if (true /*"text_left" == heritage_SWP_get_titles_alignment_class()*/) {
     $title_align_class = " show_on_left";
 }
 
@@ -133,12 +133,12 @@ if (is_page_template('template-blog.php')) {
 }
 if (function_exists("is_shop")) {
     if (is_shop()) {
-        $heading_width = 'lc_swp_full'; /*ARTEMIS_SWP_get_shop_width_class();*/
+        $heading_width = 'lc_swp_full'; /*heritage_SWP_get_shop_width_class();*/
     }
 }
 if (function_exists("is_product")) {
     if (is_product()) {
-        $heading_width = 'lc_swp_full'; /*ARTEMIS_SWP_get_product_width_class();*/
+        $heading_width = 'lc_swp_full'; /*heritage_SWP_get_product_width_class();*/
     }
 }
 if (is_page_template("template-visual-composer-header.php")) {

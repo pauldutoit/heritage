@@ -1,0 +1,13 @@
+2021-05-19T20:25:55+00:00 CRITICAL Uncaught Error: Call to undefined function apply_filter() in C:\wamp64\www\wordpress\wp-content\themes\montheme\templates\product-quick-view.php:9
+Stack trace:
+#0 C:\wamp64\www\wordpress\wp-includes\template.php(732): require()
+#1 C:\wamp64\www\wordpress\wp-includes\template.php(676): load_template('C:\\wamp64\\www\\w...', false, Array)
+#2 C:\wamp64\www\wordpress\wp-includes\general-template.php(204): locate_template(Array, true, false, Array)
+#3 C:\wamp64\www\wordpress\wp-content\themes\montheme\core\woocommerce_support.php(340): get_template_part('templates/produ...')
+#4 C:\wamp64\www\wordpress\wp-includes\class-wp-hook.php(292): HERITAGE_quick_view('')
+#5 C:\wamp64\www\wordpress\wp-includes\class-wp-hook.php(316): WP_Hook->apply_filters('', Array)
+#6 C:\wamp64\www\wordpress\wp-includes\plugin.php(484): WP_Hook->do_action(Array)
+#7 C:\wamp64\www\wordpress\wp-admin\admin-ajax.php(187): do_action('wp_ajax_heritag...')
+#8 {main}
+  thrown dans C:\wamp64\www\wordpress\wp-content\themes\montheme\templates\product-quick-view.php à la ligne 9
+

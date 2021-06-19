@@ -75,7 +75,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
     <p class="buttons">
         <a href="<?php echo esc_url( wc_get_cart_url() ); ?>"
-           class="button artemis-swp-add_to_cart wc-forward"><?php esc_html_e( 'View Cart', 'heritage' ); ?></a>
+           class="button heritage-swp-add_to_cart wc-forward"><?php esc_html_e( 'View Cart', 'heritage' ); ?></a>
         <a href="<?php echo esc_url( wc_get_checkout_url() ); ?>" class="button checkout wc-forward"><?php esc_html_e( 'Checkout', 'heritage' ); ?></a>
     </p>
 

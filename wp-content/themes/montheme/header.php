@@ -26,9 +26,9 @@
     /**
      * @hooked woocommerce_show_product_images 20
      */
-    do_action('artemis_swp_before_content');
+    do_action('heritage_swp_before_content');
 
-    $color_scheme = 'black_on_white'; //ARTEMIS_SWP_get_default_color_scheme();
+    $color_scheme = 'black_on_white'; //heritage_SWP_get_default_color_scheme();
     ?>
     <div id="lc_swp_content" data-minheight="200" class="<?php echo esc_attr($color_scheme); ?>">
 

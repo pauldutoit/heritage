@@ -69,7 +69,7 @@
                           '.white_on_black .woocommerce a.button.alt,' +
                           '.unslider-nav ol li.unslider-active,' +
                           '.woocommerce .widget_price_filter .price_slider_amount .button,' +
-                          '.artemis-swp-minicart-icon .artemis-swp-minicart .buttons .button,' +
+                          '.heritage-swp-minicart-icon .artemis-swp-minicart .buttons .button,' +
                           '.button, .wc-forward';
 
     var buttonHoverSelectors = '.lc_button:hover, input[type="submit"]:hover,' +
@@ -83,8 +83,8 @@
                                '.white_on_black .woocommerce a.button.alt:hover,' +
                                '.unslider-nav ol li.unslider-active:hover,' +
                                '.woocommerce .widget_price_filter .price_slider_amount .button:hover,' +
-                               '.artemis-swp-minicart-icon .artemis-swp-minicart .buttons .button:hover,' +
-                               '.artemis-swp-minicart-icon .artemis-swp-minicart .buttons .button.checkout:hover,' +
+                               '.heritage-swp-minicart-icon .artemis-swp-minicart .buttons .button:hover,' +
+                               '.heritage-swp-minicart-icon .artemis-swp-minicart .buttons .button.checkout:hover,' +
                                '.button:hover, .wc-forward:hover ';
 	wp.customize('lc_customize[lc_btn_bg_color]', function(value) {
 		value.bind(function(newval) {
@@ -177,7 +177,7 @@
 
 			/*border-color*/
 			$('.lc_button:hover, .lc_blog_masonry_brick:hover > .post_item_details .lc_button, .woocommerce button.button.alt:hover').css("border-color", newval);
-			$('.artemis-swp-minicart-icon .artemis-swp-minicart .buttons .button.checkout:hover').css("border-color", newval);
+			$('.heritage-swp-minicart-icon .artemis-swp-minicart .buttons .button.checkout:hover').css("border-color", newval);
 		});
 	});
 
@@ -311,7 +311,7 @@
 
 	wp.customize('lc_customize[lc_minicart_wishlist_popup_bg_color]', function(value) {
 		value.bind(function(newval) {
-			$('.at_wishlist .artemis-swp-miniwishlist, .artemis-swp-minicart-icon .artemis-swp-minicart ').css('background-color', newval);
+			$('.at_wishlist .artemis-swp-miniwishlist, .heritage-swp-minicart-icon .artemis-swp-minicart ').css('background-color', newval);
 		});
 	});
 

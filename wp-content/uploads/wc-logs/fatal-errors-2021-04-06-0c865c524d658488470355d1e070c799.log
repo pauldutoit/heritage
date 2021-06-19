@@ -1,9 +1,0 @@
-2021-04-06T11:45:26+00:00 CRITICAL Uncaught ArgumentCountError: Too few arguments to function WC_Product::get_attribute(), 0 passed in C:\wamp64\www\wordpress\wp-content\themes\artemis-swp\woocommerce\single-product\product-image.php on line 71 and exactly 1 expected in C:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\abstracts\abstract-wc-product.php:1927
-Stack trace:
-#0 C:\wamp64\www\wordpress\wp-content\themes\artemis-swp\woocommerce\single-product\product-image.php(71): WC_Product->get_attribute()
-#1 C:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\wc-core-functions.php(345): include('C:\\wamp64\\www\\w...')
-#2 C:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\wc-template-functions.php(1478): wc_get_template('single-product/...')
-#3 C:\wamp64\www\wordpress\wp-includes\class-wp-hook.php(292): woocommerce_show_product_images('')
-#4 C:\wamp64\www\wordpress\wp-includes\class-wp-hook.php(316): WP_Hook->apply_filters(NULL, Array)
-#5 C:\wamp64\www\wordpress\wp-includes\plugin.php(484): WP_Hook->do_actio dans C:\wamp64\www\wordpress\wp-content\plugins\woocommerce\includes\abstracts\abstract-wc-product.php à la ligne 1927
-

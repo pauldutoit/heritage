@@ -37,9 +37,15 @@ add_action('woocommerce_after_product_images','HERITAGE_after_product_images');
 
 if('grid' == HERITAGE_get_products_view_mode()){
     add_action( 'woocommerce_before_shop_loop_item_title', 'HERITAGE_quickview_button', 20 );
+    add_action( 'woocommerce_before_shop_loop_item_title', 'heritage_SWP_open_wishlist_quickview_container', 19 );
+    add_action( 'woocommerce_before_shop_loop_item_title', 'heritage_SWP_close_wishlist_quickview_container', 21 );
+
+
 }else{
     // list mode
     add_action( 'woocommerce_after_shop_loop_item', 'HERITAGE_quickview_button', 20 );
+    add_action( 'woocommerce_after_shop_loop_item', 'heritage_SWP_open_wishlist_quickview_container', 19 );
+    add_action( 'woocommerce_after_shop_loop_item', 'heritage_SWP_close_wishlist_quickview_container', 21 );
 }
 
 
@@ -48,13 +54,13 @@ function HERITAGE_woocommerce_wrapper_start() {
         /*todo: check product page type; if default => boxed*/
         $boxed_class = "lc_swp_boxed";
         if (is_product()) {
-            if( /*ARTEMIS_SWP_get_product_page_template() != 'default'
-                && ARTEMIS_SWP_get_product_page_template() != 'type_3'*/ true) { // diférente template (pas encore proposé)
+            if( /*heritage_SWP_get_product_page_template() != 'default'
+                && heritage_SWP_get_product_page_template() != 'type_3'*/ true) { // diférente template (pas encore proposé)
                 $boxed_class = "lc_swp_full";
             }
         }
         if (is_shop()) {
-            $boxed_class = 'lc_swp_full'; //ARTEMIS_SWP_get_shop_width_class();
+            $boxed_class = 'lc_swp_full'; //heritage_SWP_get_shop_width_class();
         }
 
         echo '<div class="lc_content_full '.esc_attr($boxed_class). ' lc_big_content_padding">';
@@ -192,7 +198,7 @@ add_action( 'woocommerce_after_add_to_cart_form', 'HERITAGE_sharing_icons', 30 )
 function HERITAGE_after_product_images() {
     global $post, $product, $woocommerce;
     ?>
-    <div class="artemis_swp_gallery_thumbnails clearfix img-container">
+    <div class="heritage_swp_gallery_thumbnails clearfix img-container">
     <?php
     $attachment_ids = $product->get_gallery_image_ids();
 
@@ -205,7 +211,7 @@ function HERITAGE_after_product_images() {
             sprintf(
                 '<a href="%s" class="%s" id="img-container" title="%s" class="wp-post-thumb-image">%s</a>',
                 esc_url( $props['url'] ),
-                'artemis_swp_gallery_thumbnail active',
+                'heritage_swp_gallery_thumbnail active',
                 esc_attr( $props['caption'] ),
                 $image
             ),
@@ -215,7 +221,7 @@ function HERITAGE_after_product_images() {
         $placeholder_src = wc_placeholder_img_src();
         printf( '<a href="%s" class="%s" title="%s" ><img src="%s" alt="%s" class="wp-post-thumb-image"/></a>',
             $placeholder_src,
-            'artemis_swp_gallery_thumbnail active',
+            'heritage_swp_gallery_thumbnail active',
             esc_html__( 'Awaiting product image', 'heritage' ),
             $placeholder_src,
             esc_html__( 'Awaiting product image', 'heritage' ) );
@@ -234,7 +240,7 @@ function HERITAGE_after_product_images() {
                 sprintf(
                     '<a href="%s" class="%s" title="%s">%s</a>',
                     esc_url( $props['url'] ),
-                    'artemis_swp_gallery_thumbnail',
+                    'heritage_swp_gallery_thumbnail',
                     esc_attr( $props['caption'] ),
                     wp_get_attachment_image( $attachment_id, apply_filters( 'single_product_small_thumbnail_size', 'thumbnail' ), 0 )
                 ),
@@ -248,13 +254,20 @@ function HERITAGE_after_product_images() {
     ?></div><?php
 }
 
+function heritage_SWP_open_wishlist_quickview_container() {
+    echo '<div class="at_wishlist_quickview_btns">';
+}
+function heritage_SWP_close_wishlist_quickview_container() {
+    echo '</div>';
+}
+
 function HERITAGE_quickview_button() {
     global $post;
     $quick_view_url = add_query_arg(
-        array( 'action' => 'artemis_swp_quick_view', 'product_id' => $post->ID ),
+        array( 'action' => 'heritage_swp_quick_view', 'product_id' => $post->ID ),
         admin_url( 'admin-ajax.php' )
     );
-    echo '<span class="artemis_swp_quickview_button">' .
+    echo '<span class="heritage_swp_quickview_button">' .
         '<a data-src="' . esc_attr( $quick_view_url ) . '" ' .
         'title="' .esc_attr__( 'Quick View', 'heritage' ). '" ' .
         'data-caption="' .esc_attr( $post->post_title ). '" ' .

@@ -1,7 +1,7 @@
 <div id="lc_global_search" class="lc_swp_full">
 	<div class="lc_global_search_content">
 		<div class="lc_global_search_inner transition4">
-			<h2 id="search_global_title"> <?php echo esc_html__('Search', 'artemis-swp'); ?> </h2>		
+			<h2 id="search_global_title"> <?php echo esc_html__('Search', 'heritage-swp'); ?> </h2>
 			<?php get_search_form(); ?>
 			<div class="top_keywords">
                 <?php
@@ -9,7 +9,7 @@
                 if( count($tags) ) { ?>
                     <span class="text_before_keywords">
                         <?php
-                        echo esc_html__('Top keywords:', 'artemis-swp');
+                        echo esc_html__('Top keywords:', 'heritage-swp');
                         ?>
                     </span>
 				    <?php foreach ($tags as $tag) { ?>
@@ -17,7 +17,7 @@
                     <?php } ?>
                 <?php } ?>
             </div>
-            <div class="artemis_swp_search_loading">
+            <div class="heritage_swp_search_loading">
                 <i class="fa fa-cog fa-spin"></i>
             </div>
             <div class="search_results" id="search_results">

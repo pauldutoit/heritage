@@ -23,8 +23,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 <table class="shop_table woocommerce-checkout-review-order-table">
     <thead>
     <tr>
-        <th class="product-name"><?php esc_html_e( 'Product', 'artemis-swp' ); ?></th>
-        <th class="product-total"><?php esc_html_e( 'Total', 'artemis-swp' ); ?></th>
+        <th class="product-name"><?php esc_html_e( 'Product', 'heritage-swp' ); ?></th>
+        <th class="product-total"><?php esc_html_e( 'Total', 'heritage-swp' ); ?></th>
     </tr>
     </thead>
     <tbody>
@@ -56,7 +56,7 @@ if ( ! defined( 'ABSPATH' ) ) {
                         $product_permalink = apply_filters( 'woocommerce_cart_item_permalink', $_product->is_visible() ? $_product->get_permalink( $cart_item ) : '', $cart_item, $cart_item_key );
                         ?>
                         <a href="<?php echo esc_url( $product_permalink ); ?>" class="woocomerce-cart-edit-item">
-                            <?php echo esc_html__('Edit', 'artemis-swp'); ?>
+                            <?php echo esc_html__('Edit', 'heritage-swp'); ?>
                         </a>
                     <?php endif; ?>
                     <?php
