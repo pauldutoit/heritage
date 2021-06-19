@@ -16,7 +16,7 @@ global $post, $product;
 
 $placeholder            = has_post_thumbnail() ? 'with-images' : 'without-images';
 $columns                = apply_filters('woocommerce_product_thumbnails_columns', 4);
-//$current_prod_template  = ARTEMIS_SWP_get_product_page_template();
+//$current_prod_template  = heritage_SWP_get_product_page_template();
 $images_container_class = apply_filters('woocommerce_single_product_image_gallery_classes', array(
     'woocommerce-product-gallery',
     'woocommerce-product-gallery--' . $placeholder,

@@ -15,42 +15,42 @@ input[type="submit"],
 .widget_product_categories ul.product-categories ul.children > li.current-cat a,
 .woocommerce table.shop_table td.product-subtotal,
 .woocommerce table.shop_table td.product-name,
-.artemis-swp-miniwishlist .product_list_widget .mini_wishlist_item .mini_wishlist-item-product-name,
-.artemis-swp-minicart-icon .artemis-swp-minicart .mini_cart_item .minicart-item-product-name,
-.artemis-swp-minicart-icon .artemis-swp-minicart .mini_cart_item .at_wishlist_add_to_cart,
+.heritage-swp-miniwishlist .product_list_widget .mini_wishlist_item .mini_wishlist-item-product-name,
+.heritage-swp-minicart-icon .heritage-swp-minicart .mini_cart_item .minicart-item-product-name,
+.heritage-swp-minicart-icon .heritage-swp-minicart .mini_cart_item .at_wishlist_add_to_cart,
 td.actions input.button, tr.order-total td,
 .woocommerce-checkout #order_review tbody .product-total,
 .woocommerce .products .at_product_actions_mask .star-rating,
 .woocommerce .products .at_product_actions_mask .star-rating:before,
-.artemis_swp_add_to_wishlist,
-.artemis_swp_quickview_button,
+.heritage_swp_add_to_wishlist,
+.heritage_swp_quickview_button,
 .woocommerce .at_product_actions_mask a.button,
 .woocommerce .at_product_actions_mask a.button:hover,
 .woocommerce nav.woocommerce-pagination ul li a:focus,
 .woocommerce nav.woocommerce-pagination ul li a:hover,
 .woocommerce nav.woocommerce-pagination ul li span.current,
-.at_product_actions_mask .artemis_swp_already_on_wishlist,
+.at_product_actions_mask .heritage_swp_already_on_wishlist,
 .woocommerce table.shop_table td.product-remove .edit,
 .woocommerce table.shop_table td.product-remove .remove:hover,
-.woocommerce .artemis-swp-order-thank-you table.shop_table,
-.woocommerce .artemis-swp-order-thank-you table.shop_table tbody th,
-.woocommerce .artemis-swp-order-thank-you table.shop_table td,
-.woocommerce .artemis-swp-order-thank-you table.shop_table tfoot td,
-.woocommerce .artemis-swp-order-thank-you table.shop_table tfoot th,
+.woocommerce .heritage-swp-order-thank-you table.shop_table,
+.woocommerce .heritage-swp-order-thank-you table.shop_table tbody th,
+.woocommerce .heritage-swp-order-thank-you table.shop_table td,
+.woocommerce .heritage-swp-order-thank-you table.shop_table tfoot td,
+.woocommerce .heritage-swp-order-thank-you table.shop_table tfoot th,
 .woocommerce-MyAccount-navigation-link.is-active a,
 .lc_review_content,
-.artemis-swp-minicart-icon .artemis-swp-minicart .buttons .button.checkout,
-.artemis-swp-minicart-icon .artemis-swp-minicart .buttons .button:hover,
-.artemis-swp-miniwishlist .product_list_widget .mini_wishlist_item .artemis-swp-wishlist-remove-item,
-.artemis-swp-minicart-icon .artemis-swp-minicart .mini_cart_item .remove,
+.heritage-swp-minicart-icon .heritage-swp-minicart .buttons .button.checkout,
+.heritage-swp-minicart-icon .heritage-swp-minicart .buttons .button:hover,
+.heritage-swp-miniwishlist .product_list_widget .mini_wishlist_item .heritage-swp-wishlist-remove-item,
+.heritage-swp-minicart-icon .heritage-swp-minicart .mini_cart_item .remove,
 .woocommerce-checkout #order_review tfoot th,
 .woocommerce .login .rememberme,
 .woocommerce #customer_login .rememberme,
 .woocommerce #customer_login .login .button,
 .at_swp_popup_dialog .button:hover,
 .at_swp_popup_dialog .button.alt,
-.artemis-swp-miniwishlist .product_list_widget .empty,
-.artemis-swp-minicart-icon .artemis-swp-minicart .cart_list .empty,
+.heritage-swp-miniwishlist .product_list_widget .empty,
+.heritage-swp-minicart-icon .heritage-swp-minicart .cart_list .empty,
 .woocommerce ul.cart_list li dl dd,
 .woocommerce ul.product_list_widget li dl dd,
 .woocommerce .widget_shopping_cart .total,
@@ -58,16 +58,16 @@ td.actions input.button, tr.order-total td,
 .prod_details_cat, .rev_rotate_letter,
 .woocommerce #reviews #comments ol.commentlist li .comment-text p.meta strong,
 .woocommerce #reviews #comments ol.commentlist li .comment-text .star-rating,
-.attr_txt, .before_at_cf_detail, .at_first_color, .look_desc strong, .widget_artemis_recent_posts.widget_recent_entries a, h3.footer-widget-title,
-.widget.widget_text strong, .artemis_swp_already_on_wishlist, .woocommerce .cart-collaterals .at_coupon_form .button,
+.attr_txt, .before_at_cf_detail, .at_first_color, .look_desc strong, .widget_heritage_recent_posts.widget_recent_entries a, h3.footer-widget-title,
+.widget.widget_text strong, .heritage_swp_already_on_wishlist, .woocommerce .cart-collaterals .at_coupon_form .button,
 .widget_search .search-submit, .widget_product_search .submit_woo_search, .brick_cust_desc, .font_style_small h5.lc_reviewer_name {
     color: #ffffff;
 }
 
 /*same on both color schemes [[[*/
 .look_content h2, a.look_link.text_over_image, .unslider-look-arrow, 
-.artemis-swp-miniwishlist .buttons .button,
-.artemis-swp-minicart .buttons a.button.artemis-swp-add_to_cart,
+.heritage-swp-miniwishlist .buttons .button,
+.heritage-swp-minicart .buttons a.button.heritage-swp-add_to_cart,
 .search_result_post_title {
 	color: #ffffff;
 }
@@ -92,10 +92,10 @@ h3.widgettitle::after {
 	color: #000000;
 }
 
-.artemis-swp-miniwishlist .product_list_widget .mini_wishlist_item .artemis-swp-wishlist-remove-item:hover,
+.heritage-swp-miniwishlist .product_list_widget .mini_wishlist_item .heritage-swp-wishlist-remove-item:hover,
 .woocommerce .widget_shopping_cart .cart_list li a.remove:hover,
 .woocommerce.widget_shopping_cart .cart_list li a.remove:hover,
-.artemis-swp-minicart-icon .artemis-swp-minicart .mini_cart_item .remove:hover {
+.heritage-swp-minicart-icon .heritage-swp-minicart .mini_cart_item .remove:hover {
     color: #ffffff !important;
 }
 
@@ -125,7 +125,7 @@ h4.section_subtitle,
 }
 
 .woocommerce a.remove,
-.artemis-swp-wishlist-remove-item,
+.heritage-swp-wishlist-remove-item,
 .woocommerce table.shop_table td.product-remove .remove {
 	color : #acacac !important;
 }
@@ -156,8 +156,8 @@ button.single_add_to_cart_button,
 .woocommerce .product .onsale,
 .woocommerce .at_product_actions_mask a.button:before,
 .woocommerce .at_product_actions_mask a.added_to_cart:before,
-.artemis_swp_template-type_1.woocommerce div.product .woocommerce-tabs ul.tabs li.active:after,
-.artemis_swp_template-type_1 .gallery-unslider-arrow:hover,
+.heritage_swp_template-type_1.woocommerce div.product .woocommerce-tabs ul.tabs li.active:after,
+.heritage_swp_template-type_1 .gallery-unslider-arrow:hover,
 .woocommerce #customer_login .login .button:hover,
 .woocommerce button.button.alt, .woocommerce button.button.alt.disabled,
 .woocommerce-MyAccount-navigation li.woocommerce-MyAccount-navigation-link.is-active a:after {
@@ -165,8 +165,8 @@ button.single_add_to_cart_button,
 	color: #000000;
 }
 
-.at_wishlist .artemis-swp-miniwishlist,
-.artemis-swp-miniwishlist .buttons .button:hover,
+.at_wishlist .heritage-swp-miniwishlist,
+.heritage-swp-miniwishlist .buttons .button:hover,
 .woocommerce .shipping-calculator-form button.button:hover,
 .at_login_popup_forms .input,
 .woocommerce #customer_login .input-text,
@@ -178,7 +178,7 @@ button.single_add_to_cart_button,
 .woocommerce #customer_login .login .button,
 .at_swp_popup_dialog .button:hover,
 .at_swp_popup_dialog .button.alt,
-.artemis-swp-minicart-icon .artemis-swp-minicart {
+.heritage-swp-minicart-icon .heritage-swp-minicart {
 	background-color : transparent;
 }
 
@@ -206,7 +206,7 @@ input:not([type=radio]):not([type=checkbox]):not([type=submit]), td.actions inpu
 .at_product_list_mode_container .at_product_list_mode,
 .woocommerce nav.woocommerce-pagination ul li a,
 .lc_copy_area.black_on_white a,
-.artemis-swp-minicart-icon .artemis-swp-minicart .mini_cart_item dt,
+.heritage-swp-minicart-icon .heritage-swp-minicart .mini_cart_item dt,
 .woocommerce #reviews #comments ol.commentlist li .comment-text p.meta,
 h5.lc_reviewer_name, .mini_wishlist_item .stock {
 	color: #acacac;
@@ -244,7 +244,7 @@ table {
 
 .decrement_qty, .increment_qty,
 .woocommerce .quantity .qty,
-.artemis_swp_full_line,
+.heritage_swp_full_line,
 .woocommerce-cart table.cart td.actions .coupon .input-text,
 .woocommerce div.product form.cart .variations select {
 	border-color: #4c4c4c !important;
@@ -264,12 +264,12 @@ article.no_thumbnail.sticky .post_item_details.no_thumbnail {
 	border-color: #464646;
 }
 .woocommerce-checkout-review-order-table tfoot tr:not(:first-of-type),
-.woocommerce .artemis-swp-order-thank-you table.shop_table tfoot tr:not(:first-of-type) {
+.woocommerce .heritage-swp-order-thank-you table.shop_table tfoot tr:not(:first-of-type) {
 	border-top-color: #e1e1e1;
 }
 
-.artemis-swp-miniwishlist .product_list_widget .mini_wishlist_item:not(:last-of-type),
-.artemis-swp-minicart-icon .artemis-swp-minicart .mini_cart_item:not(:last-of-type),
+.heritage-swp-miniwishlist .product_list_widget .mini_wishlist_item:not(:last-of-type),
+.heritage-swp-minicart-icon .heritage-swp-minicart .mini_cart_item:not(:last-of-type),
 .woocommerce .widget_shopping_cart .cart_list li:not(:last-of-type),
 .woocommerce.widget_shopping_cart .cart_list li:not(:last-of-type),
 .woocommerce form .form-row .select2-container .select2-choice,
@@ -331,7 +331,7 @@ article.no_thumbnail.sticky .post_item_details.no_thumbnail {
 
 h3.widgettitle,
 #wp-calendar thead,
-.widget_artemis_contact_data .contact_address_w_entry {
+.widget_heritage_contact_data .contact_address_w_entry {
     color : #ffffff;
 }
 
@@ -340,7 +340,7 @@ h3.widgettitle,
 .widget_pages a,
 .widget_archive a,
 .widget_categories a,
-.widget_artemis_contact_data a {
+.widget_heritage_contact_data a {
     color : #868686;
 }
 
@@ -424,7 +424,7 @@ blockquote i.fa {
 
 .lc_back_to_top_btn,
 #commentform textarea,  input#author,  input#email,  input#url,
-input.artemis_cf_input,  textarea.artemis_cf_input, 
+input.heritage_cf_input,  textarea.heritage_cf_input,
 .woocommerce-ordering select,
 div.product .woocommerce-tabs ul.tabs:before,
 .woocommerce-message,
@@ -468,7 +468,7 @@ div.product .woocommerce-tabs ul.tabs:before,
  .black_on_white strong {
 	color: #000000;
 }
-.black_on_white input.artemis_cf_input, .black_on_white textarea.artemis_cf_input {
+.black_on_white input.heritage_cf_input, .black_on_white textarea.heritage_cf_input {
 	border-color: #2b2b2b !important;
 }
 .black_on_white .lc_button, .black_on_white input[type="submit"] {

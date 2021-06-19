@@ -8,7 +8,7 @@
  * or theme author for support.
  *
  * @package   TGM-Plugin-Activation
- * @version   2.6.1 for parent theme Artemis for publication on WordPress.org
+ * @version   2.6.1 for parent theme heritage for publication on WordPress.org
  * @link      http://tgmpluginactivation.com/
  * @author    Thomas Griffin, Gary Jones, Juliette Reinders Folmer
  * @copyright Copyright (c) 2011, Thomas Griffin
@@ -324,77 +324,77 @@ if ( ! class_exists( 'TGM_Plugin_Activation' ) ) {
 
             // Load class strings.
             $this->strings = array(
-                'page_title'                      => esc_html__( 'Install Required Plugins', 'artemis-swp' ),
-                'menu_title'                      => esc_html__( 'Install Plugins', 'artemis-swp' ),
+                'page_title'                      => esc_html__( 'Install Required Plugins', 'heritage-swp' ),
+                'menu_title'                      => esc_html__( 'Install Plugins', 'heritage-swp' ),
                 /* translators: %s: plugin name. */
-                'installing'                      => esc_html__( 'Installing Plugin: %s', 'artemis-swp' ),
+                'installing'                      => esc_html__( 'Installing Plugin: %s', 'heritage-swp' ),
                 /* translators: %s: plugin name. */
-                'updating'                        => esc_html__( 'Updating Plugin: %s', 'artemis-swp' ),
-                'oops'                            => esc_html__( 'Something went wrong with the plugin API.', 'artemis-swp' ),
+                'updating'                        => esc_html__( 'Updating Plugin: %s', 'heritage-swp' ),
+                'oops'                            => esc_html__( 'Something went wrong with the plugin API.', 'heritage-swp' ),
                 'notice_can_install_required'     => _n_noop(
                     /* translators: 1: plugin name(s). */
                     'This theme requires the following plugin: %1$s.',
                     'This theme requires the following plugins: %1$s.',
-                    'artemis-swp'
+                    'heritage-swp'
                 ),
                 'notice_can_install_recommended'  => _n_noop(
                     /* translators: 1: plugin name(s). */
                     'This theme recommends the following plugin: %1$s.',
                     'This theme recommends the following plugins: %1$s.',
-                    'artemis-swp'
+                    'heritage-swp'
                 ),
                 'notice_ask_to_update'            => _n_noop(
                     /* translators: 1: plugin name(s). */
                     'The following plugin needs to be updated to its latest version to ensure maximum compatibility with this theme: %1$s.',
                     'The following plugins need to be updated to their latest version to ensure maximum compatibility with this theme: %1$s.',
-                    'artemis-swp'
+                    'heritage-swp'
                 ),
                 'notice_ask_to_update_maybe'      => _n_noop(
                     /* translators: 1: plugin name(s). */
                     'There is an update available for: %1$s.',
                     'There are updates available for the following plugins: %1$s.',
-                    'artemis-swp'
+                    'heritage-swp'
                 ),
                 'notice_can_activate_required'    => _n_noop(
                     /* translators: 1: plugin name(s). */
                     'The following required plugin is currently inactive: %1$s.',
                     'The following required plugins are currently inactive: %1$s.',
-                    'artemis-swp'
+                    'heritage-swp'
                 ),
                 'notice_can_activate_recommended' => _n_noop(
                     /* translators: 1: plugin name(s). */
                     'The following recommended plugin is currently inactive: %1$s.',
                     'The following recommended plugins are currently inactive: %1$s.',
-                    'artemis-swp'
+                    'heritage-swp'
                 ),
                 'install_link'                    => _n_noop(
                     'Begin installing plugin',
                     'Begin installing plugins',
-                    'artemis-swp'
+                    'heritage-swp'
                 ),
                 'update_link'                     => _n_noop(
                     'Begin updating plugin',
                     'Begin updating plugins',
-                    'artemis-swp'
+                    'heritage-swp'
                 ),
                 'activate_link'                   => _n_noop(
                     'Begin activating plugin',
                     'Begin activating plugins',
-                    'artemis-swp'
+                    'heritage-swp'
                 ),
-                'return'                          => esc_html__( 'Return to Required Plugins Installer', 'artemis-swp' ),
-                'dashboard'                       => esc_html__( 'Return to the Dashboard', 'artemis-swp' ),
-                'plugin_activated'                => esc_html__( 'Plugin activated successfully.', 'artemis-swp' ),
-                'activated_successfully'          => esc_html__( 'The following plugin was activated successfully:', 'artemis-swp' ),
+                'return'                          => esc_html__( 'Return to Required Plugins Installer', 'heritage-swp' ),
+                'dashboard'                       => esc_html__( 'Return to the Dashboard', 'heritage-swp' ),
+                'plugin_activated'                => esc_html__( 'Plugin activated successfully.', 'heritage-swp' ),
+                'activated_successfully'          => esc_html__( 'The following plugin was activated successfully:', 'heritage-swp' ),
                 /* translators: 1: plugin name. */
-                'plugin_already_active'           => esc_html__( 'No action taken. Plugin %1$s was already active.', 'artemis-swp' ),
+                'plugin_already_active'           => esc_html__( 'No action taken. Plugin %1$s was already active.', 'heritage-swp' ),
                 /* translators: 1: plugin name. */
-                'plugin_needs_higher_version'     => esc_html__( 'Plugin not activated. A higher version of %s is needed for this theme. Please update the plugin.', 'artemis-swp' ),
+                'plugin_needs_higher_version'     => esc_html__( 'Plugin not activated. A higher version of %s is needed for this theme. Please update the plugin.', 'heritage-swp' ),
                 /* translators: 1: dashboard link. */
-                'complete'                        => esc_html__( 'All plugins installed and activated successfully. %1$s', 'artemis-swp' ),
-                'dismiss'                         => esc_html__( 'Dismiss this notice', 'artemis-swp' ),
-                'notice_cannot_install_activate'  => esc_html__( 'There are one or more required or recommended plugins to install, update or activate.', 'artemis-swp' ),
-                'contact_admin'                   => esc_html__( 'Please contact the administrator of this site for help.', 'artemis-swp' ),
+                'complete'                        => esc_html__( 'All plugins installed and activated successfully. %1$s', 'heritage-swp' ),
+                'dismiss'                         => esc_html__( 'Dismiss this notice', 'heritage-swp' ),
+                'notice_cannot_install_activate'  => esc_html__( 'There are one or more required or recommended plugins to install, update or activate.', 'heritage-swp' ),
+                'contact_admin'                   => esc_html__( 'Please contact the administrator of this site for help.', 'heritage-swp' ),
             );
 
             do_action( 'tgmpa_register' );
@@ -519,8 +519,8 @@ if ( ! class_exists( 'TGM_Plugin_Activation' ) ) {
             $actions['update'] = sprintf(
                 '<a href="%1$s" title="%2$s" class="edit">%3$s</a>',
                 esc_url( $this->get_tgmpa_status_url( 'update' ) ),
-                esc_attr__( 'This plugin needs to be updated to be compatible with your theme.', 'artemis-swp' ),
-                esc_html__( 'Update Required', 'artemis-swp' )
+                esc_attr__( 'This plugin needs to be updated to be compatible with your theme.', 'heritage-swp' ),
+                esc_html__( 'Update Required', 'heritage-swp' )
             );
 
             return $actions;
@@ -824,7 +824,7 @@ if ( ! class_exists( 'TGM_Plugin_Activation' ) ) {
 
                 // Display message based on if all plugins are now active or not.
                 if ( $this->is_tgmpa_complete() ) {
-                    echo '<p>', sprintf( esc_html( $this->strings['complete'] ), '<a href="' . esc_url( self_admin_url() ) . '">' . esc_html__( 'Return to the Dashboard', 'artemis-swp' ) . '</a>' ), '</p>';
+                    echo '<p>', sprintf( esc_html( $this->strings['complete'] ), '<a href="' . esc_url( self_admin_url() ) . '">' . esc_html__( 'Return to the Dashboard', 'heritage-swp' ) . '</a>' ), '</p>';
                     echo '<style type="text/css">#adminmenu .wp-submenu li.current { display: none !important; }</style>';
                 } else {
                     echo '<p><a href="', esc_url( $this->get_tgmpa_url() ), '" target="_parent">', esc_html( $this->strings['return'] ), '</a></p>';
@@ -931,10 +931,10 @@ if ( ! class_exists( 'TGM_Plugin_Activation' ) ) {
                     if ( true === $GLOBALS['wp_filesystem']->move( $from_path, $to_path ) ) {
                         return trailingslashit( $to_path );
                     } else {
-                        return new WP_Error( 'rename_failed', esc_html__( 'The remote plugin package does not contain a folder with the desired slug and renaming did not work.', 'artemis-swp' ) . ' ' . esc_html__( 'Please contact the plugin provider and ask them to package their plugin according to the WordPress guidelines.', 'artemis-swp' ), array( 'found' => $subdir_name, 'expected' => $desired_slug ) );
+                        return new WP_Error( 'rename_failed', esc_html__( 'The remote plugin package does not contain a folder with the desired slug and renaming did not work.', 'heritage-swp' ) . ' ' . esc_html__( 'Please contact the plugin provider and ask them to package their plugin according to the WordPress guidelines.', 'heritage-swp' ), array( 'found' => $subdir_name, 'expected' => $desired_slug ) );
                     }
                 } elseif ( empty( $subdir_name ) ) {
-                    return new WP_Error( 'packaged_wrong', esc_html__( 'The remote plugin package consists of more than one file, but the files are not packaged in a folder.', 'artemis-swp' ) . ' ' . esc_html__( 'Please contact the plugin provider and ask them to package their plugin according to the WordPress guidelines.', 'artemis-swp' ), array( 'found' => $subdir_name, 'expected' => $desired_slug ) );
+                    return new WP_Error( 'packaged_wrong', esc_html__( 'The remote plugin package consists of more than one file, but the files are not packaged in a folder.', 'heritage-swp' ) . ' ' . esc_html__( 'Please contact the plugin provider and ask them to package their plugin according to the WordPress guidelines.', 'heritage-swp' ), array( 'found' => $subdir_name, 'expected' => $desired_slug ) );
                 }
             }
 
@@ -1118,12 +1118,12 @@ if ( ! class_exists( 'TGM_Plugin_Activation' ) ) {
                         $count          = count( $plugin_group );
                         $linked_plugins = array_map( array( 'TGMPA_Utils', 'wrap_in_em' ), $linked_plugins );
                         $last_plugin    = array_pop( $linked_plugins ); // Pop off last name to prep for readability.
-                        $imploded       = empty( $linked_plugins ) ? $last_plugin : ( implode( ', ', $linked_plugins ) . ' ' . esc_html_x( 'and', 'plugin A *and* plugin B', 'artemis-swp' ) . ' ' . $last_plugin );
+                        $imploded       = empty( $linked_plugins ) ? $last_plugin : ( implode( ', ', $linked_plugins ) . ' ' . esc_html_x( 'and', 'plugin A *and* plugin B', 'heritage-swp' ) . ' ' . $last_plugin );
 
                         $rendered .= sprintf(
                             $line_template,
                             sprintf(
-                                translate_nooped_plural( $this->strings[ $type ], $count, 'artemis-swp' ),
+                                translate_nooped_plural( $this->strings[ $type ], $count, 'heritage-swp' ),
                                 $imploded,
                                 $count
                             )
@@ -1171,14 +1171,14 @@ if ( ! class_exists( 'TGM_Plugin_Activation' ) ) {
                 if ( $install_count > 0 ) {
                     $action_links['install'] = sprintf(
                         $link_template,
-                        translate_nooped_plural( $this->strings['install_link'], $install_count, 'artemis-swp' ),
+                        translate_nooped_plural( $this->strings['install_link'], $install_count, 'heritage-swp' ),
                         esc_url( $this->get_tgmpa_status_url( 'install' ) )
                     );
                 }
                 if ( $update_count > 0 ) {
                     $action_links['update'] = sprintf(
                         $link_template,
-                        translate_nooped_plural( $this->strings['update_link'], $update_count, 'artemis-swp' ),
+                        translate_nooped_plural( $this->strings['update_link'], $update_count, 'heritage-swp' ),
                         esc_url( $this->get_tgmpa_status_url( 'update' ) )
                     );
                 }
@@ -1187,7 +1187,7 @@ if ( ! class_exists( 'TGM_Plugin_Activation' ) ) {
             if ( current_user_can( 'activate_plugins' ) && $activate_count > 0 ) {
                 $action_links['activate'] = sprintf(
                     $link_template,
-                    translate_nooped_plural( $this->strings['activate_link'], $activate_count, 'artemis-swp' ),
+                    translate_nooped_plural( $this->strings['activate_link'], $activate_count, 'heritage-swp' ),
                     esc_url( $this->get_tgmpa_status_url( 'activate' ) )
                 );
             }
@@ -1979,7 +1979,7 @@ if ( ! class_exists( 'TGM_Plugin_Activation' ) ) {
                 esc_html(
                     sprintf(
                         /* translators: %s: version number */
-                        esc_html__( 'TGMPA v%s', 'artemis-swp' ),
+                        esc_html__( 'TGMPA v%s', 'heritage-swp' ),
                         self::TGMPA_VERSION
                     )
                 ),
@@ -2270,10 +2270,10 @@ if ( ! class_exists( 'TGMPA_List_Table' ) ) {
          */
         protected function get_plugin_advise_type_text( $required ) {
             if ( true === $required ) {
-                return esc_html__( 'Required', 'artemis-swp' );
+                return esc_html__( 'Required', 'heritage-swp' );
             }
 
-            return esc_html__( 'Recommended', 'artemis-swp' );
+            return esc_html__( 'Recommended', 'heritage-swp' );
         }
 
         /**
@@ -2289,13 +2289,13 @@ if ( ! class_exists( 'TGMPA_List_Table' ) ) {
 
             switch ( $type ) {
                 case 'repo':
-                    $string = esc_html__( 'WordPress Repository', 'artemis-swp' );
+                    $string = esc_html__( 'WordPress Repository', 'heritage-swp' );
                     break;
                 case 'external':
-                    $string = esc_html__( 'External Source', 'artemis-swp' );
+                    $string = esc_html__( 'External Source', 'heritage-swp' );
                     break;
                 case 'bundled':
-                    $string = esc_html__( 'Pre-Packaged', 'artemis-swp' );
+                    $string = esc_html__( 'Pre-Packaged', 'heritage-swp' );
                     break;
             }
 
@@ -2312,25 +2312,25 @@ if ( ! class_exists( 'TGMPA_List_Table' ) ) {
          */
         protected function get_plugin_status_text( $slug ) {
             if ( ! $this->tgmpa->is_plugin_installed( $slug ) ) {
-                return esc_html__( 'Not Installed', 'artemis-swp' );
+                return esc_html__( 'Not Installed', 'heritage-swp' );
             }
 
             if ( ! $this->tgmpa->is_plugin_active( $slug ) ) {
-                $install_status = esc_html__( 'Installed But Not Activated', 'artemis-swp' );
+                $install_status = esc_html__( 'Installed But Not Activated', 'heritage-swp' );
             } else {
-                $install_status = esc_html__( 'Active', 'artemis-swp' );
+                $install_status = esc_html__( 'Active', 'heritage-swp' );
             }
 
             $update_status = '';
 
             if ( $this->tgmpa->does_plugin_require_update( $slug ) && false === $this->tgmpa->does_plugin_have_update( $slug ) ) {
-                $update_status = esc_html__( 'Required Update not Available', 'artemis-swp' );
+                $update_status = esc_html__( 'Required Update not Available', 'heritage-swp' );
 
             } elseif ( $this->tgmpa->does_plugin_require_update( $slug ) ) {
-                $update_status = esc_html__( 'Requires Update', 'artemis-swp' );
+                $update_status = esc_html__( 'Requires Update', 'heritage-swp' );
 
             } elseif ( false !== $this->tgmpa->does_plugin_have_update( $slug ) ) {
-                $update_status = esc_html__( 'Update recommended', 'artemis-swp' );
+                $update_status = esc_html__( 'Update recommended', 'heritage-swp' );
             }
 
             if ( '' === $update_status ) {
@@ -2339,7 +2339,7 @@ if ( ! class_exists( 'TGMPA_List_Table' ) ) {
 
             return sprintf(
                 /* translators: 1: install status, 2: update status */
-                _x( '%1$s, %2$s', 'Install/Update Status', 'artemis-swp' ),
+                _x( '%1$s, %2$s', 'Install/Update Status', 'heritage-swp' ),
                 $install_status,
                 $update_status
             );
@@ -2385,19 +2385,19 @@ if ( ! class_exists( 'TGMPA_List_Table' ) ) {
                 switch ( $type ) {
                     case 'all':
                         /* translators: 1: number of plugins. */
-                        $text = _nx( 'All <span class="count">(%s)</span>', 'All <span class="count">(%s)</span>', $count, 'plugins', 'artemis-swp' );
+                        $text = _nx( 'All <span class="count">(%s)</span>', 'All <span class="count">(%s)</span>', $count, 'plugins', 'heritage-swp' );
                         break;
                     case 'install':
                         /* translators: 1: number of plugins. */
-                        $text = _n( 'To Install <span class="count">(%s)</span>', 'To Install <span class="count">(%s)</span>', $count, 'artemis-swp' );
+                        $text = _n( 'To Install <span class="count">(%s)</span>', 'To Install <span class="count">(%s)</span>', $count, 'heritage-swp' );
                         break;
                     case 'update':
                         /* translators: 1: number of plugins. */
-                        $text = _n( 'Update Available <span class="count">(%s)</span>', 'Update Available <span class="count">(%s)</span>', $count, 'artemis-swp' );
+                        $text = _n( 'Update Available <span class="count">(%s)</span>', 'Update Available <span class="count">(%s)</span>', $count, 'heritage-swp' );
                         break;
                     case 'activate':
                         /* translators: 1: number of plugins. */
-                        $text = _n( 'To Activate <span class="count">(%s)</span>', 'To Activate <span class="count">(%s)</span>', $count, 'artemis-swp' );
+                        $text = _n( 'To Activate <span class="count">(%s)</span>', 'To Activate <span class="count">(%s)</span>', $count, 'heritage-swp' );
                         break;
                     default:
                         $text = '';
@@ -2479,7 +2479,7 @@ if ( ! class_exists( 'TGMPA_List_Table' ) ) {
             $output = array();
 
             if ( $this->tgmpa->is_plugin_installed( $item['slug'] ) ) {
-                $installed = ! empty( $item['installed_version'] ) ? $item['installed_version'] : _x( 'unknown', 'as in: "version nr unknown"', 'artemis-swp' );
+                $installed = ! empty( $item['installed_version'] ) ? $item['installed_version'] : _x( 'unknown', 'as in: "version nr unknown"', 'heritage-swp' );
 
                 $color = '';
                 if ( ! empty( $item['minimum_version'] ) && $this->tgmpa->does_plugin_require_update( $item['slug'] ) ) {
@@ -2487,7 +2487,7 @@ if ( ! class_exists( 'TGMPA_List_Table' ) ) {
                 }
 
                 $output[] = sprintf(
-                    '<p><span style="min-width: 32px; text-align: right; float: right;%1$s">%2$s</span>' . esc_html__( 'Installed version:', 'artemis-swp' ) . '</p>',
+                    '<p><span style="min-width: 32px; text-align: right; float: right;%1$s">%2$s</span>' . esc_html__( 'Installed version:', 'heritage-swp' ) . '</p>',
                     $color,
                     $installed
                 );
@@ -2495,7 +2495,7 @@ if ( ! class_exists( 'TGMPA_List_Table' ) ) {
 
             if ( ! empty( $item['minimum_version'] ) ) {
                 $output[] = sprintf(
-                    '<p><span style="min-width: 32px; text-align: right; float: right;">%1$s</span>' . esc_html__( 'Minimum required version:', 'artemis-swp' ) . '</p>',
+                    '<p><span style="min-width: 32px; text-align: right; float: right;">%1$s</span>' . esc_html__( 'Minimum required version:', 'heritage-swp' ) . '</p>',
                     $item['minimum_version']
                 );
             }
@@ -2507,7 +2507,7 @@ if ( ! class_exists( 'TGMPA_List_Table' ) ) {
                 }
 
                 $output[] = sprintf(
-                    '<p><span style="min-width: 32px; text-align: right; float: right;%1$s">%2$s</span>' . esc_html__( 'Available version:', 'artemis-swp' ) . '</p>',
+                    '<p><span style="min-width: 32px; text-align: right; float: right;%1$s">%2$s</span>' . esc_html__( 'Available version:', 'heritage-swp' ) . '</p>',
                     $color,
                     $item['available_version']
                 );
@@ -2530,7 +2530,7 @@ if ( ! class_exists( 'TGMPA_List_Table' ) ) {
          * @since 2.2.0
          */
         public function no_items() {
-            echo esc_html__( 'No plugins to install, update or activate.', 'artemis-swp' ) . ' <a href="' . esc_url( self_admin_url() ) . '"> ' . esc_html__( 'Return to the Dashboard', 'artemis-swp' ) . '</a>';
+            echo esc_html__( 'No plugins to install, update or activate.', 'heritage-swp' ) . ' <a href="' . esc_url( self_admin_url() ) . '"> ' . esc_html__( 'Return to the Dashboard', 'heritage-swp' ) . '</a>';
             echo '<style type="text/css">#adminmenu .wp-submenu li.current { display: none !important; }</style>';
         }
 
@@ -2544,14 +2544,14 @@ if ( ! class_exists( 'TGMPA_List_Table' ) ) {
         public function get_columns() {
             $columns = array(
                 'cb'     => '<input type="checkbox" />',
-                'plugin' => esc_html__( 'Plugin', 'artemis-swp' ),
-                'source' => esc_html__( 'Source', 'artemis-swp' ),
-                'type'   => esc_html__( 'Type', 'artemis-swp' ),
+                'plugin' => esc_html__( 'Plugin', 'heritage-swp' ),
+                'source' => esc_html__( 'Source', 'heritage-swp' ),
+                'type'   => esc_html__( 'Type', 'heritage-swp' ),
             );
 
             if ( 'all' === $this->view_context || 'update' === $this->view_context ) {
-                $columns['version'] = esc_html__( 'Version', 'artemis-swp' );
-                $columns['status']  = esc_html__( 'Status', 'artemis-swp' );
+                $columns['version'] = esc_html__( 'Version', 'heritage-swp' );
+                $columns['status']  = esc_html__( 'Status', 'heritage-swp' );
             }
 
             return apply_filters( 'tgmpa_table_columns', $columns );
@@ -2600,18 +2600,18 @@ if ( ! class_exists( 'TGMPA_List_Table' ) ) {
             // Display the 'Install' action link if the plugin is not yet available.
             if ( ! $this->tgmpa->is_plugin_installed( $item['slug'] ) ) {
                 /* translators: %2$s: plugin name in screen reader markup */
-                $actions['install'] = esc_html__( 'Install %2$s', 'artemis-swp' );
+                $actions['install'] = esc_html__( 'Install %2$s', 'heritage-swp' );
             } else {
                 // Display the 'Update' action link if an update is available and WP complies with plugin minimum.
                 if ( false !== $this->tgmpa->does_plugin_have_update( $item['slug'] ) && $this->tgmpa->can_plugin_update( $item['slug'] ) ) {
                     /* translators: %2$s: plugin name in screen reader markup */
-                    $actions['update'] = esc_html__( 'Update %2$s', 'artemis-swp' );
+                    $actions['update'] = esc_html__( 'Update %2$s', 'heritage-swp' );
                 }
 
                 // Display the 'Activate' action link, but only if the plugin meets the minimum version.
                 if ( $this->tgmpa->can_plugin_activate( $item['slug'] ) ) {
                     /* translators: %2$s: plugin name in screen reader markup */
-                    $actions['activate'] = esc_html__( 'Activate %2$s', 'artemis-swp' );
+                    $actions['activate'] = esc_html__( 'Activate %2$s', 'heritage-swp' );
                 }
             }
 
@@ -2681,7 +2681,7 @@ if ( ! class_exists( 'TGMPA_List_Table' ) ) {
                 <tr class="plugin-update-tr">
                     <td colspan="', absint( $this->get_column_count() ), '" class="plugin-update colspanchange">
                         <div class="update-message">',
-                            esc_html__( 'Upgrade message from the plugin author:', 'artemis-swp' ),
+                            esc_html__( 'Upgrade message from the plugin author:', 'heritage-swp' ),
                             ' <strong>', wp_kses_data( $item['upgrade_notice'] ), '</strong>
                         </div>
                     </td>
@@ -2714,16 +2714,16 @@ if ( ! class_exists( 'TGMPA_List_Table' ) ) {
 
             if ( 'update' !== $this->view_context && 'activate' !== $this->view_context ) {
                 if ( current_user_can( 'install_plugins' ) ) {
-                    $actions['tgmpa-bulk-install'] = esc_html__( 'Install', 'artemis-swp' );
+                    $actions['tgmpa-bulk-install'] = esc_html__( 'Install', 'heritage-swp' );
                 }
             }
 
             if ( 'install' !== $this->view_context ) {
                 if ( current_user_can( 'update_plugins' ) ) {
-                    $actions['tgmpa-bulk-update'] = esc_html__( 'Update', 'artemis-swp' );
+                    $actions['tgmpa-bulk-update'] = esc_html__( 'Update', 'heritage-swp' );
                 }
                 if ( current_user_can( 'activate_plugins' ) ) {
-                    $actions['tgmpa-bulk-activate'] = esc_html__( 'Activate', 'artemis-swp' );
+                    $actions['tgmpa-bulk-activate'] = esc_html__( 'Activate', 'heritage-swp' );
                 }
             }
 
@@ -2754,9 +2754,9 @@ if ( ! class_exists( 'TGMPA_List_Table' ) ) {
                 // Did user actually select any plugins to install/update ?
                 if ( empty( $_POST['plugin'] ) ) {
                     if ( 'install' === $install_type ) {
-                        $message = esc_html__( 'No plugins were selected to be installed. No action taken.', 'artemis-swp' );
+                        $message = esc_html__( 'No plugins were selected to be installed. No action taken.', 'heritage-swp' );
                     } else {
-                        $message = esc_html__( 'No plugins were selected to be updated. No action taken.', 'artemis-swp' );
+                        $message = esc_html__( 'No plugins were selected to be updated. No action taken.', 'heritage-swp' );
                     }
 
                     echo '<div id="message" class="error"><p>', esc_html( $message ), '</p></div>';
@@ -2797,9 +2797,9 @@ if ( ! class_exists( 'TGMPA_List_Table' ) ) {
                 // No need to proceed further if we have no plugins to handle.
                 if ( empty( $plugins_to_install ) ) {
                     if ( 'install' === $install_type ) {
-                        $message = esc_html__( 'No plugins are available to be installed at this time.', 'artemis-swp' );
+                        $message = esc_html__( 'No plugins are available to be installed at this time.', 'heritage-swp' );
                     } else {
-                        $message = esc_html__( 'No plugins are available to be updated at this time.', 'artemis-swp' );
+                        $message = esc_html__( 'No plugins are available to be updated at this time.', 'heritage-swp' );
                     }
 
                     echo '<div id="message" class="error"><p>', esc_html( $message ), '</p></div>';
@@ -2905,7 +2905,7 @@ if ( ! class_exists( 'TGMPA_List_Table' ) ) {
 
                 // Did user actually select any plugins to activate ?
                 if ( empty( $_POST['plugin'] ) ) {
-                    echo '<div id="message" class="error"><p>', esc_html__( 'No plugins were selected to be activated. No action taken.', 'artemis-swp' ), '</p></div>';
+                    echo '<div id="message" class="error"><p>', esc_html__( 'No plugins were selected to be activated. No action taken.', 'heritage-swp' ), '</p></div>';
 
                     return false;
                 }
@@ -2931,7 +2931,7 @@ if ( ! class_exists( 'TGMPA_List_Table' ) ) {
 
                 // Return early if there are no plugins to activate.
                 if ( empty( $plugins_to_activate ) ) {
-                    echo '<div id="message" class="error"><p>', esc_html__( 'No plugins are available to be activated at this time.', 'artemis-swp' ), '</p></div>';
+                    echo '<div id="message" class="error"><p>', esc_html__( 'No plugins are available to be activated at this time.', 'heritage-swp' ), '</p></div>';
 
                     return false;
                 }
@@ -2945,11 +2945,11 @@ if ( ! class_exists( 'TGMPA_List_Table' ) ) {
                     $count        = count( $plugin_names ); // Count so we can use _n function.
                     $plugin_names = array_map( array( 'TGMPA_Utils', 'wrap_in_strong' ), $plugin_names );
                     $last_plugin  = array_pop( $plugin_names ); // Pop off last name to prep for readability.
-                    $imploded     = empty( $plugin_names ) ? $last_plugin : ( implode( ', ', $plugin_names ) . ' ' . esc_html_x( 'and', 'plugin A *and* plugin B', 'artemis-swp' ) . ' ' . $last_plugin );
+                    $imploded     = empty( $plugin_names ) ? $last_plugin : ( implode( ', ', $plugin_names ) . ' ' . esc_html_x( 'and', 'plugin A *and* plugin B', 'heritage-swp' ) . ' ' . $last_plugin );
 
                     printf( // WPCS: xss ok.
                         '<div id="message" class="updated"><p>%1$s %2$s.</p></div>',
-                        esc_html( _n( 'The following plugin was activated successfully:', 'The following plugins were activated successfully:', $count, 'artemis-swp' ) ),
+                        esc_html( _n( 'The following plugin was activated successfully:', 'The following plugins were activated successfully:', $count, 'heritage-swp' ) ),
                         $imploded
                     );
 
@@ -3155,8 +3155,8 @@ if ( ! function_exists( 'tgmpa_load_bulk_installer' ) ) {
                      * @since 2.2.0
                      */
                     public function activate_strings() {
-                        $this->strings['activation_failed']  = esc_html__( 'Plugin activation failed.', 'artemis-swp' );
-                        $this->strings['activation_success'] = esc_html__( 'Plugin activated successfully.', 'artemis-swp' );
+                        $this->strings['activation_failed']  = esc_html__( 'Plugin activation failed.', 'heritage-swp' );
+                        $this->strings['activation_success'] = esc_html__( 'Plugin activated successfully.', 'heritage-swp' );
                     }
 
                     /**
@@ -3495,32 +3495,32 @@ if ( ! function_exists( 'tgmpa_load_bulk_installer' ) ) {
                         if ( 'update' === $this->options['install_type'] ) {
                             parent::add_strings();
                             /* translators: 1: plugin name, 2: action number 3: total number of actions. */
-                            $this->upgrader->strings['skin_before_update_header'] = esc_html__( 'Updating Plugin %1$s (%2$d/%3$d)', 'artemis-swp' );
+                            $this->upgrader->strings['skin_before_update_header'] = esc_html__( 'Updating Plugin %1$s (%2$d/%3$d)', 'heritage-swp' );
                         } else {
                             /* translators: 1: plugin name, 2: error message. */
                             $allowed_tags = array(
                                 'strong' => array()
                             );
-                            $this->upgrader->strings['skin_update_failed_error'] = wp_kses(__( 'An error occurred while installing %1$s: <strong>%2$s</strong>.', 'artemis-swp' ), $allowed_tags);
+                            $this->upgrader->strings['skin_update_failed_error'] = wp_kses(__( 'An error occurred while installing %1$s: <strong>%2$s</strong>.', 'heritage-swp' ), $allowed_tags);
                             /* translators: 1: plugin name. */
-                            $this->upgrader->strings['skin_update_failed'] = esc_html__( 'The installation of %1$s failed.', 'artemis-swp' );
+                            $this->upgrader->strings['skin_update_failed'] = esc_html__( 'The installation of %1$s failed.', 'heritage-swp' );
 
                             if ( $this->tgmpa->is_automatic ) {
                                 // Automatic activation strings.
-                                $this->upgrader->strings['skin_upgrade_start'] = esc_html__( 'The installation and activation process is starting. This process may take a while on some hosts, so please be patient.', 'artemis-swp' );
+                                $this->upgrader->strings['skin_upgrade_start'] = esc_html__( 'The installation and activation process is starting. This process may take a while on some hosts, so please be patient.', 'heritage-swp' );
                                 /* translators: 1: plugin name. */
-                                $this->upgrader->strings['skin_update_successful'] = esc_html__( '%1$s installed and activated successfully.', 'artemis-swp' ) . ' <a href="#" class="hide-if-no-js" onclick="%2$s"><span>' . esc_html__( 'Show Details', 'artemis-swp' ) . '</span><span class="hidden">' . esc_html__( 'Hide Details', 'artemis-swp' ) . '</span>.</a>';
-                                $this->upgrader->strings['skin_upgrade_end']       = esc_html__( 'All installations and activations have been completed.', 'artemis-swp' );
+                                $this->upgrader->strings['skin_update_successful'] = esc_html__( '%1$s installed and activated successfully.', 'heritage-swp' ) . ' <a href="#" class="hide-if-no-js" onclick="%2$s"><span>' . esc_html__( 'Show Details', 'heritage-swp' ) . '</span><span class="hidden">' . esc_html__( 'Hide Details', 'heritage-swp' ) . '</span>.</a>';
+                                $this->upgrader->strings['skin_upgrade_end']       = esc_html__( 'All installations and activations have been completed.', 'heritage-swp' );
                                 /* translators: 1: plugin name, 2: action number 3: total number of actions. */
-                                $this->upgrader->strings['skin_before_update_header'] = esc_html__( 'Installing and Activating Plugin %1$s (%2$d/%3$d)', 'artemis-swp' );
+                                $this->upgrader->strings['skin_before_update_header'] = esc_html__( 'Installing and Activating Plugin %1$s (%2$d/%3$d)', 'heritage-swp' );
                             } else {
                                 // Default installation strings.
-                                $this->upgrader->strings['skin_upgrade_start'] = esc_html__( 'The installation process is starting. This process may take a while on some hosts, so please be patient.', 'artemis-swp' );
+                                $this->upgrader->strings['skin_upgrade_start'] = esc_html__( 'The installation process is starting. This process may take a while on some hosts, so please be patient.', 'heritage-swp' );
                                 /* translators: 1: plugin name. */
-                                $this->upgrader->strings['skin_update_successful'] = esc_html__( '%1$s installed successfully.', 'artemis-swp' ) . ' <a href="#" class="hide-if-no-js" onclick="%2$s"><span>' . esc_html__( 'Show Details', 'artemis-swp' ) . '</span><span class="hidden">' . esc_html__( 'Hide Details', 'artemis-swp' ) . '</span>.</a>';
-                                $this->upgrader->strings['skin_upgrade_end']       = esc_html__( 'All installations have been completed.', 'artemis-swp' );
+                                $this->upgrader->strings['skin_update_successful'] = esc_html__( '%1$s installed successfully.', 'heritage-swp' ) . ' <a href="#" class="hide-if-no-js" onclick="%2$s"><span>' . esc_html__( 'Show Details', 'heritage-swp' ) . '</span><span class="hidden">' . esc_html__( 'Hide Details', 'heritage-swp' ) . '</span>.</a>';
+                                $this->upgrader->strings['skin_upgrade_end']       = esc_html__( 'All installations have been completed.', 'heritage-swp' );
                                 /* translators: 1: plugin name, 2: action number 3: total number of actions. */
-                                $this->upgrader->strings['skin_before_update_header'] = esc_html__( 'Installing Plugin %1$s (%2$d/%3$d)', 'artemis-swp' );
+                                $this->upgrader->strings['skin_before_update_header'] = esc_html__( 'Installing Plugin %1$s (%2$d/%3$d)', 'heritage-swp' );
                             }
                         }
                     }
@@ -3580,7 +3580,7 @@ if ( ! function_exists( 'tgmpa_load_bulk_installer' ) ) {
                             echo '<style type="text/css">#adminmenu .wp-submenu li.current { display: none !important; }</style>';
                             $update_actions['dashboard'] = sprintf(
                                 esc_html( $this->tgmpa->strings['complete'] ),
-                                '<a href="' . esc_url( self_admin_url() ) . '">' . esc_html__( 'Return to the Dashboard', 'artemis-swp' ) . '</a>'
+                                '<a href="' . esc_url( self_admin_url() ) . '">' . esc_html__( 'Return to the Dashboard', 'heritage-swp' ) . '</a>'
                             );
                         } else {
                             $update_actions['tgmpa_page'] = '<a href="' . esc_url( $this->tgmpa->get_tgmpa_url() ) . '" target="_parent">' . esc_html( $this->tgmpa->strings['return'] ) . '</a>';

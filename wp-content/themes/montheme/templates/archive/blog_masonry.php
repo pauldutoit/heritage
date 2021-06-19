@@ -51,7 +51,7 @@ $lc_masonry_brick_class = get_query_var('lc_masonry_brick_class');
             ?>
         </div>
 
-        <div class="masonry_read_more artemis_link">
+        <div class="masonry_read_more heritage_link">
             <a href="<?php the_permalink(); ?>">
                 <?php echo esc_html__("Read more", "heritage"); ?>
             </a>

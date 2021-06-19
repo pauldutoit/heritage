@@ -20,13 +20,13 @@ jQuery( document ).ready( function( $ ) {
     handleParallax( $ );
     handleGoToNextSection( $ );
     hanldeJsLinks( $ );
-    artemisSwpToggleMiniCart( $ );
-    artemisSwpToggleMiniWishlist( $ );
+    heritageSwpToggleMiniCart( $ );
+    heritageSwpToggleMiniWishlist( $ );
     handleProductAttrShowcase( $ );
     handleVideoSection( $ );
-    artemisSwpAddToWishlist( $ );
-    artemisSwpRemoveWishlistItem( $ );
-    artemisSwpQuantityChanger( $ );
+    heritageSwpAddToWishlist( $ );
+    heritageSwpRemoveWishlistItem( $ );
+    heritageSwpQuantityChanger( $ );
     customAspectRatio( $ );
     makeProdImgCover( $ );
     lookTextOverImage($);
@@ -56,34 +56,34 @@ jQuery( document ).ready( function( $ ) {
         setTimeout(function() {
             setContentHeight( $ );
         }, 600);
-        artemisSwpHandleProductsMasonry( $ );
+        heritageSwpHandleProductsMasonry( $ );
     } );
 
     imageOverText( $ );
     handlePostRating($);
-    artemisSwpSelect2( $ );
-    artemisSwpGridListSelector( $ );
-    artemisSwpItemsPerRowSelector( $ );
-    artemisSwpAddedToCartHandler( $ );
-    artemisSwpHandleLoginPopup( $ );
-    artemisSwpHandleQuickView( $ );
+    heritageSwpSelect2( $ );
+    heritageSwpGridListSelector( $ );
+    heritageSwpItemsPerRowSelector( $ );
+    heritageSwpAddedToCartHandler( $ );
+    heritageSwpHandleLoginPopup( $ );
+    heritageSwpHandleQuickView( $ );
 
     handleType2ProductSliderImgHeight( $ );
 
-    artemisSwpHandleType2TemplateVariationChangeImage($);
-    artemisSwpHandleProductsMasonry($);
+    heritageSwpHandleType2TemplateVariationChangeImage($);
+    heritageSwpHandleProductsMasonry($);
     handleFullScreenSearch();
 });
-var artemisSwpStyleElement = document.createElement( 'style' ),
-        artemisSwpStylesheet;
+var heritageSwpStyleElement = document.createElement( 'style' ),
+        heritageSwpStylesheet;
 
 // Append style element to head
-document.head.appendChild( artemisSwpStyleElement );
+document.head.appendChild( heritageSwpStyleElement );
 // Grab style sheet
-artemisSwpStylesheet = artemisSwpStyleElement.sheet;
+heritageSwpStylesheet = heritageSwpStyleElement.sheet;
 
-var artemisSwpRulesIndexes = [];
-var artemisSwpRulesIdIndexes = [];
+var heritageSwpRulesIndexes = [];
+var heritageSwpRulesIdIndexes = [];
 
 var options = {
     width: 400,
@@ -91,23 +91,23 @@ var options = {
 };
 new ImageZoom(document.getElementById("img-container"), options);
 
-function artemisSwpAddStylesheet ( id, cssText, context ) {
+function heritageSwpAddStylesheet ( id, cssText, context ) {
     var foundIndex;
-    if ( (foundIndex = artemisSwpRulesIdIndexes.indexOf( id )) > -1 ) {
-        artemisSwpStylesheet.deleteRule( foundIndex );
-        artemisSwpRulesIndexes.splice( foundIndex, 1 );
-        artemisSwpRulesIdIndexes.splice( foundIndex, 1 );
+    if ( (foundIndex = heritageSwpRulesIdIndexes.indexOf( id )) > -1 ) {
+        heritageSwpStylesheet.deleteRule( foundIndex );
+        heritageSwpRulesIndexes.splice( foundIndex, 1 );
+        heritageSwpRulesIdIndexes.splice( foundIndex, 1 );
     }
-    artemisSwpStylesheet.insertRule( cssText, artemisSwpStylesheet.cssRules.length );
-    artemisSwpRulesIndexes.push( {
+    heritageSwpStylesheet.insertRule( cssText, heritageSwpStylesheet.cssRules.length );
+    heritageSwpRulesIndexes.push( {
         'context' : context,
         'ruleId'  : id
     } );
-    artemisSwpRulesIdIndexes.push( id );
+    heritageSwpRulesIdIndexes.push( id );
 }
 
 
-function artemisSwpGuid () {
+function heritageSwpGuid () {
     function s4 () {
         return Math.floor( (1 + Math.random()) * 0x10000 )
                 .toString( 16 )
@@ -349,19 +349,19 @@ function handleJSStyling ( $ ) {
 
             $(this).css("color", cust_col);
 
-            var elementCustomClass = 'at_swp_'+ artemisSwpGuid();
+            var elementCustomClass = 'at_swp_'+ heritageSwpGuid();
             $( this ).addClass( elementCustomClass);
             if ($(this).hasClass("at_link_line_before")) {
                 /*set bg color for :before to cust_col*/
                 var cssText = '.'+elementCustomClass+' { color: ' +cust_col +' !important; }';
-                artemisSwpAddStylesheet( elementCustomClass, cssText, 'at_link_line_before');
+                heritageSwpAddStylesheet( elementCustomClass, cssText, 'at_link_line_before');
                 cssText = '.'+elementCustomClass+':hover { color: ' + cust_hover_col +' !important; }';
-                artemisSwpAddStylesheet( elementCustomClass + '-hover', cssText, 'at_link_line_before');
+                heritageSwpAddStylesheet( elementCustomClass + '-hover', cssText, 'at_link_line_before');
 
                 cssText = '.'+elementCustomClass+':before { background-color: ' +cust_col +' !important; }';
-                artemisSwpAddStylesheet( elementCustomClass + '-before', cssText, 'at_link_line_before');
+                heritageSwpAddStylesheet( elementCustomClass + '-before', cssText, 'at_link_line_before');
                 cssText = '.'+elementCustomClass+':hover:before { background-color: ' + cust_hover_col +' !important; }';
-                artemisSwpAddStylesheet( elementCustomClass+ '-before-hover', cssText, 'at_link_line_before');
+                heritageSwpAddStylesheet( elementCustomClass+ '-before-hover', cssText, 'at_link_line_before');
             }
         }
     } );
@@ -894,14 +894,14 @@ var runUnslider = function( $ ) {
     var gallery = $( '.woocommerce div.images .image_gallery' );
 
     gallery.on( 'unslider.change', function( event, index, slide ) {
-        $( '.artemis_swp_gallery_thumbnails a.artemis_swp_gallery_thumbnail' ).removeClass( 'active' );
-        $( '.artemis_swp_gallery_thumbnails a.artemis_swp_gallery_thumbnail:eq(' + index + ')' ).addClass( 'active' );
+        $( '.heritage_swp_gallery_thumbnails a.heritage_swp_gallery_thumbnail' ).removeClass( 'active' );
+        $( '.heritage_swp_gallery_thumbnails a.heritage_swp_gallery_thumbnail:eq(' + index + ')' ).addClass( 'active' );
     } );
 
     gallery.unslider( {
         arrows   : {
-            prev : '<a class="gallery-unslider-arrow prev"><i class="fa fa-angle-left" aria-hidden="true"></i> <span class="at_swp_slider_prev_next_text">' + 'prev'/*artemis_swp.sliderPrevText*/ + '</span> </a>',
-            next : '<a class="gallery-unslider-arrow next"><i class="fa fa-angle-right" aria-hidden="true"></i><span class="at_swp_slider_prev_next_text">' + 'next'/*artemis_swp.sliderNextText*/ + '</span> </a>',
+            prev : '<a class="gallery-unslider-arrow prev"><i class="fa fa-angle-left" aria-hidden="true"></i> <span class="at_swp_slider_prev_next_text">' + 'prev'/*heritage_swp.sliderPrevText*/ + '</span> </a>',
+            next : '<a class="gallery-unslider-arrow next"><i class="fa fa-angle-right" aria-hidden="true"></i><span class="at_swp_slider_prev_next_text">' + 'next'/*heritage_swp.sliderNextText*/ + '</span> </a>',
         },
         autoplay : false,
         delay    : 10000,
@@ -909,7 +909,7 @@ var runUnslider = function( $ ) {
         nav      : false
     } );
 
-    $( '.artemis_swp_gallery_thumbnails a' ).click( function( event ) {
+    $( '.heritage_swp_gallery_thumbnails a' ).click( function( event ) {
         event.preventDefault();
         var index = $( this ).index();
         $( gallery ).unslider( 'animate:' + index );
@@ -1174,12 +1174,12 @@ var imageOverText = function( $ ) {
     } );
 }
 
-var artemisSwpToggleMiniCart = function( $ ) {
-    var miniCartIcon = $( '.artemis-swp-minicart-icon' );
-    miniCartIcon.find( '.artemis-swp-minicart' ).hide();
+var heritageSwpToggleMiniCart = function( $ ) {
+    var miniCartIcon = $( '.heritage-swp-minicart-icon' );
+    miniCartIcon.find( '.heritage-swp-minicart' ).hide();
 
     miniCartIcon.hover( function() {
-        $( this ).find( '.artemis-swp-minicart' ).stop().fadeIn();
+        $( this ).find( '.heritage-swp-minicart' ).stop().fadeIn();
         if ($('.pre_header.classic_double_menu').length) {
             $('.at_wishlist.account_option').css("display", "none");
             $('.at_login.account_option').css("display", "none");
@@ -1187,8 +1187,8 @@ var artemisSwpToggleMiniCart = function( $ ) {
     }, function() {
         setTimeout( (function( parent ) {
             return function() {
-                if ( ! $( '.artemis-swp-minicart-icon:hover' ).length ) {
-                    $( parent ).find( '.artemis-swp-minicart' ).stop().fadeOut(10);
+                if ( ! $( '.heritage-swp-minicart-icon:hover' ).length ) {
+                    $( parent ).find( '.heritage-swp-minicart' ).stop().fadeOut(10);
                     $('.at_wishlist.account_option').css("display", "block");
                     $('.at_login.account_option').css("display", "block");                    
                 }
@@ -1196,33 +1196,33 @@ var artemisSwpToggleMiniCart = function( $ ) {
         })( this ), 100 );
     } );
 };
-var artemisSwpToggleMiniWishlist = function( $ ) {
+var heritageSwpToggleMiniWishlist = function( $ ) {
     var miniCartIcon = $( '.at_wishlist' );
-    miniCartIcon.find( '.artemis-swp-miniwishlist' ).hide();
+    miniCartIcon.find( '.heritage-swp-miniwishlist' ).hide();
 
     miniCartIcon.find( 'a' ).mouseenter( function() {
-            miniCartIcon.find( '.artemis-swp-miniwishlist' ).stop().fadeIn();
+            miniCartIcon.find( '.heritage-swp-miniwishlist' ).stop().fadeIn();
     } );
     miniCartIcon.mouseleave( function() {
         setTimeout( (function( parent ) {
             return function() {
                 if ( ! $( '.at_wishlist:hover' ).length ) {
-                    $( parent ).find( '.artemis-swp-miniwishlist' ).stop().fadeOut(10);
+                    $( parent ).find( '.heritage-swp-miniwishlist' ).stop().fadeOut(10);
                 }
             }
         })( miniCartIcon ), 100 );
     } );
 };
 
-var artemisSwpAddToWishlist = function( $ ) {
-    $( 'body' ).on( 'click', '.artemis_swp_add_to_wishlist', function( event ) {
+var heritageSwpAddToWishlist = function( $ ) {
+    $( 'body' ).on( 'click', '.heritage_swp_add_to_wishlist', function( event ) {
         var productId = $( this ).data( 'wishlist-id' );
         var _self = this;
         $.ajax( {
             type     : 'POST',
-            url      : artemis_swp_wishlist.ajax_url,
+            url      : heritage_swp_wishlist.ajax_url,
             data     : {
-                action     : 'artemis_swp_add_to_wishlist',
+                action     : 'heritage_swp_add_to_wishlist',
                 product_id : productId
             },
             dataType : "json",
@@ -1231,13 +1231,13 @@ var artemisSwpAddToWishlist = function( $ ) {
                     alert( response.message )
                 }
                 else {
-                    var btn = '<span class="artemis_swp_already_on_wishlist" title="' + response.message + '"><i class="fa fa-heart"></i> <span>' + response.message + '</span></span>';
+                    var btn = '<span class="heritage_swp_already_on_wishlist" title="' + response.message + '"><i class="fa fa-heart"></i> <span>' + response.message + '</span></span>';
 
                     if ( typeof response.mini_wishlist_item !== "undefined" ) {
-                        var $wishlist = $( '.artemis_swp-mini_wishlist' );
+                        var $wishlist = $( '.heritage_swp-mini_wishlist' );
                         $wishlist.find( 'li.empty' ).remove();
                         $wishlist.append( response.mini_wishlist_item );
-                        $( '.artemis-swp-miniwishlist p.buttons' ).removeClass( 'at_hidden' );
+                        $( '.heritage-swp-miniwishlist p.buttons' ).removeClass( 'at_hidden' );
                     }
 
                     $( _self ).replaceWith( btn );
@@ -1251,15 +1251,15 @@ var artemisSwpAddToWishlist = function( $ ) {
     } );
 };
 
-var artemisSwpRemoveWishlistItem = function( $ ) {
-    $( 'body' ).on( 'click', '.artemis-swp-wishlist-remove-item', function( event ) {
+var heritageSwpRemoveWishlistItem = function( $ ) {
+    $( 'body' ).on( 'click', '.heritage-swp-wishlist-remove-item', function( event ) {
         var productId = $( this ).data( 'wishlist-id' );
         var _self = this;
         $.ajax( {
             type     : 'POST',
-            url      : artemis_swp_wishlist.ajax_url,
+            url      : heritage_swp_wishlist.ajax_url,
             data     : {
-                action     : 'artemis_swp_remove_from_wishlist',
+                action     : 'heritage_swp_remove_from_wishlist',
                 product_id : productId
             },
             dataType : "json",
@@ -1269,9 +1269,9 @@ var artemisSwpRemoveWishlistItem = function( $ ) {
                         $( this ).remove();
 
                         if ( response.products_in_wishlist == 0 ) {
-                            $( '#artemis-swp-empty-wishlist' ).show();
-                            $( 'ul.artemis_swp-mini_wishlist' ).append( '<li class="empty">' + artemis_swp_wishlist.emptyText + '</li>' );
-                            $( '.artemis-swp-miniwishlist p.buttons' ).addClass( 'at_hidden' );
+                            $( '#heritage-swp-empty-wishlist' ).show();
+                            $( 'ul.heritage_swp-mini_wishlist' ).append( '<li class="empty">' + heritage_swp_wishlist.emptyText + '</li>' );
+                            $( '.heritage-swp-miniwishlist p.buttons' ).addClass( 'at_hidden' );
                         }
                     } );
                 }
@@ -1288,7 +1288,7 @@ var artemisSwpRemoveWishlistItem = function( $ ) {
     } );
 };
 
-var artemisSwpQuantityChanger = function( $ ) {
+var heritageSwpQuantityChanger = function( $ ) {
     $( document ).on( 'click', '.increment_qty', function() {
         var input = jQuery( this ).parent().parent().find( "input.qty" );
         var oldVal = input.val();
@@ -1312,21 +1312,21 @@ var artemisSwpQuantityChanger = function( $ ) {
     } );
 };
 
-var artemisSwpGridListSelector = function( $ ) {
+var heritageSwpGridListSelector = function( $ ) {
     $( '.at_product_list_mode' ).on( 'click', function( event ) {
         event.preventDefault();
         $( '#at_product_view_mode' ).val( $( this ).data( 'mode' ) ).closest( 'form' ).submit();
     } );
 };
 
-var artemisSwpItemsPerRowSelector = function( $ ) {
+var heritageSwpItemsPerRowSelector = function( $ ) {
     $( '.at_products_per_row_item' ).on( 'click', function( event ) {
         event.preventDefault();
         $( '#at_products_per_row' ).val( $( this ).data( 'per_page' ) ).closest( 'form' ).submit();
     } );
 };
 
-var artemisSwpSelect2 = function( $ ) {
+var heritageSwpSelect2 = function( $ ) {
     $( 'select' ).filter( function() {
         return ( $( this ).hasClass( 'country_to_state' ) || $( this ).is( ':visible' )) && $( this ).closest( '.variations' ).length < 1;
     } ).select2( {
@@ -1334,11 +1334,11 @@ var artemisSwpSelect2 = function( $ ) {
     } );
 };
 
-var artemisSwpAddedToCartHandler = function( $ ) {
+var heritageSwpAddedToCartHandler = function( $ ) {
     $( document.body ).on( "added_to_cart", function( event, fragments, cart_hash ) {
         if ( fragments['div.widget_shopping_cart_content'] ) {
             var $cart_contents = $( fragments['div.widget_shopping_cart_content'] );
-            $( '.artemis-swp-minicart' ).html( $cart_contents.html() );
+            $( '.heritage-swp-minicart' ).html( $cart_contents.html() );
         }
         if ( fragments['at_cart_contents_count'] ) {
             $( '.cart-contents-count' ).html( fragments['at_cart_contents_count'] );
@@ -1346,7 +1346,7 @@ var artemisSwpAddedToCartHandler = function( $ ) {
     } );
 };
 
-var artemisSwpHandleLoginPopup = function( $ ) {
+var heritageSwpHandleLoginPopup = function( $ ) {
     $( '.at_to_login_popup' ).click( function( event ) {
         event.preventDefault();
         $( '#at_login_popup' ).addClass( 'visible_container' )
@@ -1377,11 +1377,11 @@ var artemisSwpHandleLoginPopup = function( $ ) {
         event.preventDefault();
         var formData = $( '#at_loginform' ).serializeArray();
 
-        formData.push( {name : 'action', value : 'artemis_swp_ajax_login'} );
+        formData.push( {name : 'action', value : 'heritage_swp_ajax_login'} );
         formData.push( {name : this.name, value : this.value} );
 
         $.ajax( {
-            url        : artemis_swp_login_popup.ajax_url,
+            url        : heritage_swp_login_popup.ajax_url,
             method     : 'POST',
             data       : formData,
             beforeSend : function() {
@@ -1399,7 +1399,7 @@ var artemisSwpHandleLoginPopup = function( $ ) {
                     window.location.reload();
                 }
                 else {
-                    var msg = artemis_swp_login_popup.general_error_text;
+                    var msg = heritage_swp_login_popup.general_error_text;
                     if ( typeof response.message !== "undefined" ) {
                         msg = response.message;
                     }
@@ -1407,7 +1407,7 @@ var artemisSwpHandleLoginPopup = function( $ ) {
                 }
             },
             error      : function( a, b, c ) {
-                $( '#at_login_popup_messages' ).html( artemis_swp_login_popup.general_error_text ).addClass( 'active' );
+                $( '#at_login_popup_messages' ).html( heritage_swp_login_popup.general_error_text ).addClass( 'active' );
             },
             complete   : function() {
                 $( '#at_login_popup_messages' ).removeClass( 'active' );
@@ -1429,7 +1429,7 @@ var artemisSwpHandleLoginPopup = function( $ ) {
                     , f = 1;
             b.includeMeter( c, e ),
                     f = b.checkPasswordStrength( c, e ),
-                    f < artemis_swp_password_string_meter.min_password_strength && ! c.is( "form.checkout" ) ? d.attr( "disabled", "disabled" ).addClass( "disabled" ) : d.removeAttr( "disabled", "disabled" ).removeClass( "disabled" )
+                    f < heritage_swp_password_string_meter.min_password_strength && ! c.is( "form.checkout" ) ? d.attr( "disabled", "disabled" ).addClass( "disabled" ) : d.removeAttr( "disabled", "disabled" ).removeClass( "disabled" )
         },
         includeMeter          : function( b, c ) {
             var d = b.find( ".woocommerce-password-strength" );
@@ -1441,12 +1441,12 @@ var artemisSwpHandleLoginPopup = function( $ ) {
             var c = a.find( ".woocommerce-password-strength" )
                     , d = a.find( ".woocommerce-password-hint" )
                     ,
-                    e = '<small class="woocommerce-password-hint">' + artemis_swp_password_string_meter.i18n_password_hint + "</small>"
+                    e = '<small class="woocommerce-password-hint">' + heritage_swp_password_string_meter.i18n_password_hint + "</small>"
                     , f = wp.passwordStrength.meter( b.val(), wp.passwordStrength.userInputBlacklist() )
                     , g = "";
             switch ( c.removeClass( "short bad good strong" ),
                     d.remove(),
-            f < artemis_swp_password_string_meter.min_password_strength && (g = " - " + artemis_swp_password_string_meter.i18n_password_error),
+            f < heritage_swp_password_string_meter.min_password_strength && (g = " - " + heritage_swp_password_string_meter.i18n_password_error),
                     f ) {
                 case 0:
                     c.addClass( "short" ).html( pwsL10n.short + g ),
@@ -1520,9 +1520,9 @@ var handleVideoSection = function( $ ) {
     } );
 }
 
-var artemisSwpHandleQuickView = function( $ ) {
+var heritageSwpHandleQuickView = function( $ ) {
 
-    $( '.artemis_swp_quickview_button a' ).fancybox( {
+    $( '.heritage_swp_quickview_button a' ).fancybox( {
         baseClass         : 'at_fancybox woocommerce',
         type              : 'ajax',
         closeClickOutside : true,
@@ -1538,13 +1538,13 @@ var artemisSwpHandleQuickView = function( $ ) {
     } );
 };
 
-var artemisSwpConfirmBox = function( opts ) {
+var heritageSwpConfirmBox = function( opts ) {
 
     var defaults = {
         title            : '',
         message          : '',
-        cancelButtonText : artemis_swp.confirmCancel,
-        okButtonText     : artemis_swp.confirmOk,
+        cancelButtonText : heritage_swp.confirmCancel,
+        okButtonText     : heritage_swp.confirmOk,
         callback         : null
     };
 
@@ -1576,12 +1576,12 @@ var artemisSwpConfirmBox = function( opts ) {
     );
 };
 
-var artemisSwpAlertBox = function( opts ) {
+var heritageSwpAlertBox = function( opts ) {
 
     var defaults = {
         title        : '',
         message      : '',
-        okButtonText : artemis_swp.alertOk,
+        okButtonText : heritage_swp.alertOk,
         callback     : null
     };
 
@@ -1613,7 +1613,7 @@ var artemisSwpAlertBox = function( opts ) {
 (function( proxied ) {
     window.alert = function( message ) {
         // do something here
-        return artemisSwpAlertBox( {'message' : message} );
+        return heritageSwpAlertBox( {'message' : message} );
     };
 })( window.alert );
 
@@ -1661,7 +1661,7 @@ var makeProdImgCover = function( $ ) {
 };
 
 var handleType2ProductSliderImgHeight = function( $ ) {
-    var container = $( '.artemis_swp_template-type_2.woocommerce div.images' );
+    var container = $( '.heritage_swp_template-type_2.woocommerce div.images' );
     if ( container.length ) {
         var topOffset = container.offset().top;
         $( '.unslider img', container ).css( 'max-height', $( window ).height() - topOffset );
@@ -1763,17 +1763,17 @@ function handleLookBooks($) {
 
 }
 
-function artemisSwpHandleType2TemplateVariationChangeImage($) {
-    $('.artemis_swp_template-type_2 .variations_form').on('wc_variation_form', function(event){
+function heritageSwpHandleType2TemplateVariationChangeImage($) {
+    $('.heritage_swp_template-type_2 .variations_form').on('wc_variation_form', function(event){
         $(this).bind('found_variation reset_image', function(event, variation){
 
             var $form = $(this),
                     $product = $form.closest( '.product' ),
-                    $product_gallery = $( '.artemis_swp_template-type_2' ).find( '.woocommerce-product-gallery' ),
+                    $product_gallery = $( '.heritage_swp_template-type_2' ).find( '.woocommerce-product-gallery' ),
                     $gallery_img = $product.find( '.flex-control-nav li:eq(0) img' ),
                     $product_img_wrap = $product_gallery.find( '.woocommerce-product-gallery__image, .woocommerce-product-gallery__image--placeholder' ).eq( 0 ),
                     $product_img = $product_img_wrap.find( '.wp-post-image' ),
-                    $product_thumb_img = $( '.artemis_swp_template-type_2' ).find('.artemis_swp_gallery_thumbnails').find( '.wp-post-thumb-image' ),
+                    $product_thumb_img = $( '.heritage_swp_template-type_2' ).find('.heritage_swp_gallery_thumbnails').find( '.wp-post-thumb-image' ),
                     $product_link = $product_img_wrap.find( 'a' ).eq( 0 );
 
             if ( variation && variation.image && variation.image.src && variation.image.src.length > 1 ) {
@@ -1844,7 +1844,7 @@ function artemisSwpHandleType2TemplateVariationChangeImage($) {
     })
 }
 
-function artemisSwpHandleProductsMasonry($) {
+function heritageSwpHandleProductsMasonry($) {
 
     var grids = $( '.lc_swp_prods_grid_container' );
     if ( !grids.length ) {
@@ -1954,7 +1954,7 @@ function handleFullScreenSearch () {
             'url'        : ajax_url,
             'type'       : 'POST',
             'data'       : {
-                'action'      : 'artemis_swp_ajax_search',
+                'action'      : 'heritage_swp_ajax_search',
                 'search_term' : searchTerm
             },
             'beforeSend' : function() {
@@ -1970,13 +1970,13 @@ function handleFullScreenSearch () {
                     if ( typeof response.posts !== "undefined" ) {
                         $( '.search_results', $container ).html( response.posts );
                         var height = 0;
-                        $( '.search_results', $container ).find( '.artemis_swp_post' ).each( function() {
+                        $( '.search_results', $container ).find( '.heritage_swp_post' ).each( function() {
                             var selfHeight = $( this ).outerHeight();
                             if ( height < selfHeight ) {
                                 height = selfHeight;
                             }
                         } );
-                        $( '.search_results', $container ).find( '.artemis_swp_post' ).css( 'height', height );
+                        $( '.search_results', $container ).find( '.heritage_swp_post' ).css( 'height', height );
                     }
                 }
             },

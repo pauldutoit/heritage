@@ -37,7 +37,7 @@ do_action( 'woocommerce_before_main_content' );
 
 <?php
 /**
- *	Artemis theme - No need to show title here, it is shown in the heading area
+ *	heritage theme - No need to show title here, it is shown in the heading area
  *   Commented the code below from standard WooCommerce template
  */
 ?>

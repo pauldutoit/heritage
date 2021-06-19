@@ -32,9 +32,9 @@ if ($attachment_ids && has_post_thumbnail()) {
     $columns = apply_filters('woocommerce_product_thumbnails_columns', 3);
 
     $li_class              = "";
-    //$current_prod_template = ARTEMIS_SWP_get_product_page_template();
+    //$current_prod_template = heritage_SWP_get_product_page_template();
     if (false /*"type_1" == $current_prod_template*/) {
-        if (false /*ARTEMIS_SWP_show_prod_img_as_cover()*/) {
+        if (false /*heritage_SWP_show_prod_img_as_cover()*/) {
             $li_class = "at_swp_custom_ar ar_169";
         }
     }

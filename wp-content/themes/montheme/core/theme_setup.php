@@ -92,14 +92,14 @@ add_action('wp_enqueue_scripts', 'HERITAGE_load_main_stylesheet');
 
 /**
  * Load needed Fonts
- * Exemple Artemis Lato
+ * Exemple heritage Lato
  */
 
 if(!function_exists('HERITAGE_load_fonts')){
     function HERITAGE_load_fonts()
     {
         $protocol = is_ssl() ? 'https' : 'http';
-        wp_enqueue_style('artemis-lato', $protocol."://fonts.googleapis.com/css?family=Lato:300,400,700,900&amp;subset=latin-ext");
+        wp_enqueue_style('heritage-lato', $protocol."://fonts.googleapis.com/css?family=Lato:300,400,700,900&amp;subset=latin-ext");
     }
 }
 add_action('wp_enqueue_scripts', 'HERITAGE_load_fonts');
