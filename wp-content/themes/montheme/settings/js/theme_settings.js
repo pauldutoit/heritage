@@ -3,7 +3,12 @@ jQuery(document).ready(function($){
    var meta_image_frame;
    handleUploadLogo($, meta_image_frame);
    handleUploadInnerBgImage($, meta_image_frame);
+   initializeAlphaColorPicker($);
 });
+
+function initializeAlphaColorPicker($) {
+    $('input.alpha-color-picker-settings').alphaColorPicker();
+}
 
 /**
  * Handle upload logo functionnality

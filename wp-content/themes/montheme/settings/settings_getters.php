@@ -34,6 +34,17 @@ function HERITAGE_is_sticky_menu() {
     return false;
 }
 
+function HERITAGE_get_header_footer_width() {
+    $header_width = HERITAGE_get_theme_option('heritage_theme_general_options', 'lc_header_footer_width');
+
+    /*cannot return empty value*/
+    if (empty($header_width)) {
+        $header_width = 'full';
+    }
+
+    return $header_width;
+}
+
 function HERITAGE_is_back_to_top_enabled() {
     $back_to_top = HERITAGE_get_theme_option('heritage_theme_general_options', 'lc_back_to_top');
 
@@ -105,3 +116,66 @@ function HERITAGE_get_default_color_scheme() {
     return  'black_on_white';
 }
 
+
+function HERITAGE_get_footer_color_scheme() {
+    $footer_color_scheme = HERITAGE_get_theme_option('heritage_theme_footer_options', 'lc_footer_widgets_color_scheme');
+
+    if (!empty($footer_color_scheme)) {
+        return $footer_color_scheme;
+    }
+
+    return 'black_on_white';
+}
+
+function HERITAGE_get_footer_bg_color() {
+    $footer_background_color = HERITAGE_get_theme_option('heritage_theme_footer_options', 'lc_footer_widgets_background_color');
+
+    if (!empty($footer_background_color)) {
+        return $footer_background_color;
+    }
+
+    return 'rgba(255, 255, 255, 0)';
+}
+
+function HERITAGE_get_copyrigth_text() {
+    return esc_html(HERITAGE_get_theme_option('heritage_theme_footer_options', 'lc_copyright_text'));
+}
+
+function HERITAGE_get_copyrigth_url() {
+    return esc_url_raw(HERITAGE_get_theme_option('heritage_theme_footer_options', 'lc_copyright_url'));
+}
+
+function HERITAGE_have_social_on_copyright() {
+    $put_social_footer = HERITAGE_get_theme_option('heritage_theme_footer_options', 'lc_copyright_put_social');
+    if (empty($put_social_footer)) {
+        return true;
+    }
+
+    return "enabled" == $put_social_footer ? true : false;
+}
+
+function HERITAGE_get_available_social_profiles() {
+    $user_profiles = array();
+
+    $available_profiles = array(
+        'facebook'		=> 'lc_fb_url',
+        'twitter'		=>'lc_twitter_url',
+        'google-plus'	=>'lc_gplus_url',
+        'youtube'		=>'lc_youtube_url',
+        'pinterest'		=>'lc_pinterest_url',
+    );
+
+    foreach ($available_profiles as $key =>	$profile) {
+        $profile_url = HERITAGE_get_theme_option('heritage_theme_social_options', $profile);
+
+        if (!empty($profile_url)) {
+            $single_profile = array();
+            $single_profile['url'] 	= $profile_url;
+            $single_profile['icon'] 	= $key;
+
+            $user_profiles[] = $single_profile;
+        }
+    }
+
+    return $user_profiles;
+}

@@ -16,7 +16,10 @@ require_once (get_template_directory() . '/settings/settings_getters.php');
 require_once (get_template_directory() . '/core/enqueue_scripts.php');
 
 
-/** Register theme sidebar */
+/** Register theme sidebar **/
+
+require_once( get_template_directory() . "/core/register_theme_sidebars.php" );
+
 
 /** Woocommerce related functionnality */
 

@@ -173,6 +173,14 @@ function HERITAGE_social_options_callback() {
     <?php
 }
 
+function HERITAGE_footer_options_callback() {
+    ?>
+    <p>
+        <?php echo esc_html__('Setup footer text for the copyright area, footer text URL and analytics code. Also setup the footer widget area.', 'heritage'); ?>
+    </p>
+    <?php
+}
+
 function HERITAGE_contact_options_callback() {
     ?>
     <p>
@@ -373,6 +381,74 @@ function HERITAGE_add_settings_fields()
             'callback'	=> 'HERITAGE_lc_contact_email_cbk'
         )
     );
+
+
+    $footer_settings = array(
+        array(
+            'id'		=> 'lc_footer_widgets_background_image',
+            'label'		=> esc_html__('Footer widgets Background Image', 'artemis-swp'),
+            'callback'	=> 'HERITAGE_footer_widget_bgimg_cbk'
+        ),
+        array(
+            'id'		=> 'lc_copyright_text',
+            'label'		=> esc_html__('Copyright text', 'artemis-swp'),
+            'callback'	=> 'HERITAGE_copyright_text_cbk'
+        ),
+        array(
+            'id'		=> 'lc_copyright_url',
+            'label'		=> esc_html__('Copyrigth URL', 'artemis-swp'),
+            'callback'	=> 'HERITAGE_copyright_url_cbk'
+        ),
+        array(
+            'id'		=> 'lc_copyright_text_bg_color',
+            'label'		=> esc_html__('Copyrigth Text Background Color', 'artemis-swp'),
+            'callback'	=> 'HERITAGE_copyright_bgc_cbk'
+        ),
+        array(
+            'id'		=> 'lc_footer_widgets_background_color',
+            'label'		=> esc_html__('Footer widgets color overlay', 'artemis-swp'),
+            'callback'	=> 'HERITAGE_footer_widget_bgcolor_cbk'
+        ),
+        array(
+            'id'		=> 'lc_copyright_put_social',
+            'label'		=> esc_html__('Place social icons on footer', 'artemis-swp'),
+            'callback'	=> 'HERITAGE_copyright_put_social_cbk'
+        )
+    );
+
+    foreach($footer_settings as $footer_setting) {
+        add_settings_field(
+            $footer_setting['id'],
+            $footer_setting['label'],
+            $footer_setting['callback'],
+            'heritage_theme_footer_options',
+            'heritage_footer_settings_section'
+        );
+    }
+
+    $contact_settings = array(
+        array(
+            'id'      => 'lc_contact_address',
+            'label'       => esc_html__('Contact address', 'heritage'),
+            'callback' => 'HERITAGE_lc_contact_address_cbk'
+        ),
+        array(
+            'id'      => 'lc_contact_phone',
+            'label'       => esc_html__('Contact phones', 'heritage'),
+            'callback' => 'HERITAGE_lc_contact_phone_cbk'
+        ),
+        array(
+            'id'      => 'lc_contact_fax',
+            'label'       => esc_html__('Contact Fax Number', 'heritage'),
+            'callback' => 'HERITAGE_lc_contact_fax_cbk'
+        ),
+        array(
+            'id'      => 'lc_contact_email',
+            'label'       => esc_html__('Contact E-mail', 'heritage'),
+            'callback' => 'HERITAGE_lc_contact_email_cbk'
+        )
+    );
+
 
     foreach($contact_settings as $contact_setting) {
         add_settings_field(
@@ -608,6 +684,97 @@ function HERITAGE_pinterest_url_cbk() {
     <?php
 }
 
+/*
+    Footer Options
+ */
+
+
+function HERITAGE_footer_widget_bgimg_cbk() {
+    $footer_bg_image = HERITAGE_get_theme_option('heritage_theme_footer_options', 'lc_footer_widgets_background_image');
+
+    ?>
+    <input id="lc_swp_footer_bg_image_upload_value" type="text" name="heritage_theme_footer_options[lc_footer_widgets_background_image]" size="150" value="<?php echo esc_url($footer_bg_image); ?>"/>
+    <input id="lc_swp_upload_footer_widgets_bg_image_button" type="button" class="button" value="<?php echo esc_html__('Upload Image', 'heritage'); ?>" />
+    <input id="lc_swp_remove_footer_widgets_bg_image_button" type="button" class="button" value="<?php echo esc_html__('Remove Image', 'heritage'); ?>" />
+    <p class="description">
+        <?php echo esc_html__('Upload a custom background image for the footer widgets area.', 'heritage'); ?>
+    </p>
+
+    <div id="lc_footer_widgets_bg_image_preview">
+        <img class="lc_swp_setting_preview_favicon" src="<?php echo esc_url($footer_bg_image); ?>">
+    </div>
+    <?php
+}
+
+function HERITAGE_copyright_text_cbk() {
+    $copyright_text = HERITAGE_get_theme_option('heritage_theme_footer_options', 'lc_copyright_text');
+    ?>
+    <textarea  cols="147" rows="10" id="lc_copyright_text" name="heritage_theme_footer_options[lc_copyright_text]" ><?php echo esc_html($copyright_text); ?></textarea>;
+    <?php
+}
+
+function HERITAGE_copyright_url_cbk() {
+    $copyright_url = HERITAGE_get_theme_option('heritage_theme_footer_options', 'lc_copyright_url');
+    ?>
+    <input type="text" size="147" id="lc_copyright_url" name="heritage_theme_footer_options[lc_copyright_url]" value="<?php echo esc_url_raw($copyright_url)?>"/>
+    <?php
+}
+
+function HERITAGE_copyright_put_social_cbk() {
+    $put_social_footer = HERITAGE_get_theme_option('heritage_theme_footer_options', 'lc_copyright_put_social');
+    if (empty($put_social_footer)) {
+        $put_social_footer = 'enabled';
+    }
+
+    $put_social_footer_vals = array(
+        esc_html__('Enabled', 'heritage')  => 'enabled',
+        esc_html__('Disabled', 'heritage') => 'disabled'
+    );
+    ?>
+    <select id="lc_copyright_put_social" name="heritage_theme_footer_options[lc_copyright_put_social]">
+        <?php HERITAGE_render_select_options($put_social_footer_vals, $put_social_footer); ?>
+    </select>
+
+    <p class="description">
+        <?php echo esc_html__('Place social profiles icons on copyright area.', 'heritage'); ?>
+        <?php echo esc_html__('Please make sure that copyright text is filled in the above field.', 'heritage'); ?>
+    </p>
+    <?php
+}
+
+function HERITAGE_footer_widget_bgcolor_cbk() {
+    $footer_background_color = HERITAGE_get_theme_option('heritage_theme_footer_options', 'lc_footer_widgets_background_color');
+    $default_bg_color = 'rgba(255, 255, 255, 0)';
+
+    if ('' == $footer_background_color) {
+        $footer_background_color = $default_bg_color;
+    }
+    ?>
+
+    <input type="text" id="lc_footer_widgets_background_color" class="alpha-color-picker-settings" name="heritage_theme_footer_options[lc_footer_widgets_background_color]" value="<?php echo esc_attr($footer_background_color); ?>" data-default-color="rgba(255, 255, 255, 0)" data-show-opacity="true" />
+
+    <p class="description">
+        <?php echo esc_html__('Color overlay for the footer widgets area. Can be used as background color or as color over the background image.', 'heritage'); ?>
+    </p>
+    <?php
+}
+
+function HERITAGE_copyright_bgc_cbk() {
+    $copy_bgc = HERITAGE_get_theme_option('heritage_theme_footer_options', 'lc_copyright_text_bg_color');
+    $default_copy_bgc = 'rgba(255, 255, 255, 0)';
+
+    if ('' == $copy_bgc) {
+        $copy_bgc = $default_copy_bgc;
+    }
+    ?>
+
+    <input type="text" id="lc_copyright_text_bg_color" class="alpha-color-picker-settings" name="heritage_theme_footer_options[lc_copyright_text_bg_color]" value="<?php echo esc_html($copy_bgc); ?>" data-default-color="rgba(255, 255, 255, 0)" data-show-opacity="true" />
+
+    <p class="description">
+        <?php echo esc_html__('Background color for the copyright text area.', 'heritage'); ?>
+    </p>
+    <?php
+}
 
 /*
 	Contact Options
