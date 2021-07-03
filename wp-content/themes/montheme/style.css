@@ -18,6 +18,10 @@ body {
     line-height     : 26px;
 }
 
+body {
+    background-color: #ffffff;
+}
+
 body, html {
     height : 100%;
 }

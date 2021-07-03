@@ -63,7 +63,7 @@ function ARTEMIS_SWP_custom_background_cb()
         	return;
         }
       
-        $style = $color ? "background-color: #$color;" : '';  
+        $style = $color ? "background-color: #$color;" : '';
       
         if ( $background ) {  
             $image = " background-image: url('$background');";  
