@@ -10,7 +10,7 @@ jQuery( document ).ready( function( $ ) {
     runMasonryForBlog( $ );
     stickyMenu( $ );
     backToTop( $ );
-    clickOnSearchIcon( jQuery );
+    clickOnSearchIcon( $ );
     handleMobile( $ );
     handleVideoImageContainer( $ );
     handleAlbumImageContainer( $ );
@@ -20,12 +20,9 @@ jQuery( document ).ready( function( $ ) {
     handleParallax( $ );
     handleGoToNextSection( $ );
     hanldeJsLinks( $ );
-    heritageSwpToggleMiniCart( $ );
-    heritageSwpToggleMiniWishlist( $ );
+    heritageToggleMiniCart( $ );
     handleProductAttrShowcase( $ );
     handleVideoSection( $ );
-    heritageSwpAddToWishlist( $ );
-    heritageSwpRemoveWishlistItem( $ );
     heritageSwpQuantityChanger( $ );
     customAspectRatio( $ );
     makeProdImgCover( $ );
@@ -760,31 +757,23 @@ var backToTop = function( $ ) {
     } );
 }
 
-console.log("test file");
-
-jQuery( '.trigger_global_search' ).click( function() {
-    console.log("test");
-    jQuery( '#lc_global_search' ).show();
-} );
-
-var clickOnSearchIcon = function( jQuery ) {
-    jQuery( '.trigger_global_search' ).click( function() {
-        console.log("test");
-        jQuery( '#lc_global_search' ).show();
+var clickOnSearchIcon = function( $ ) {
+    $( '.trigger_global_search' ).click( function() {
+        $( '#lc_global_search' ).show();
     } );
 
-    jQuery( '.close_search_form' ).click( function() {
-        var $global_search = jQuery( '#lc_global_search' );
+    $( '.close_search_form' ).click( function() {
+        var $global_search = $( '#lc_global_search' );
         $global_search.hide();
-        jQuery( '.lc_global_search_inner' , $global_search).removeClass('active');
-        jQuery( '#search-word' , $global_search).val('');
-        jQuery( '#search_results' , $global_search).empty();
+        $( '.lc_global_search_inner' , $global_search).removeClass('active');
+        $( '#search-word' , $global_search).val('');
+        $( '#search_results' , $global_search).empty();
     } );
 
-    jQuery( document ).keyup( function( e ) {
+    $( document ).keyup( function( e ) {
         /* escape key maps to keycode `27`*/
         if ( e.keyCode == 27 ) {
-            jQuery( '.close_search_form' ).trigger('click');
+            $( '.close_search_form' ).trigger('click');
             // jQuery( '#lc_global_search' ).hide();
         }
     } );
@@ -1182,34 +1171,34 @@ var imageOverText = function( $ ) {
     } );
 }
 
-var heritageSwpToggleMiniCart = function( $ ) {
-    var miniCartIcon = jQuery( '.heritage-minicart-icon' );
+var heritageToggleMiniCart = function( $ ) {
+    var miniCartIcon = $( '.heritage-minicart-icon' );
     miniCartIcon.find( '.heritage-minicart' ).hide();
 
     miniCartIcon.hover( function() {
-        jQuery( this ).find( '.heritage-minicart' ).stop().fadeIn();
-        if (jQuery('.pre_header.classic_double_menu').length) {
-            jQuery('.at_wishlist.account_option').css("display", "none");
-            jQuery('.at_login.account_option').css("display", "none");
+        $( this ).find( '.heritage-minicart' ).stop().fadeIn();
+        if ($('.pre_header.classic_double_menu').length) {
+            $('.at_wishlist.account_option').css("display", "none");
+            $('.at_login.account_option').css("display", "none");
         }
     }, function() {
         setTimeout( (function( parent ) {
             return function() {
-                if ( ! jQuery( '.heritage-minicart-icon:hover' ).length ) {
-                    jQuery( parent ).find( '.heritage-minicart' ).stop().fadeOut(10);
-                    jQuery('.at_wishlist.account_option').css("display", "block");
-                    jQuery('.at_login.account_option').css("display", "block");                    
+                if ( ! $( '.heritage-minicart-icon:hover' ).length ) {
+                    $( parent ).find( '.heritage-minicart' ).stop().fadeOut(10);
+                    $('.at_wishlist.account_option').css("display", "block");
+                    $('.at_login.account_option').css("display", "block");
                 }
             }
         })( this ), 100 );
     } );
 };
 var heritageSwpQuantityChanger = function( $ ) {
-    jQuery( document ).on( 'click', '.increment_qty', function() {
-        var input = jQuery( this ).parent().parent().find( "input.qty" );
+    $( document ).on( 'click', '.increment_qty', function() {
+        var input = $( this ).parent().parent().find( "input.qty" );
         var oldVal = input.val();
         if ( parseFloat( oldVal ) >= 0 ) {
-            var step = parseInt( jQuery( input ).attr( 'step' ) );
+            var step = parseInt( $( input ).attr( 'step' ) );
             step = step > 0 ? step : 1;
             var newVal = parseFloat( oldVal ) + step;
             input.val( newVal ).trigger( 'change' );
@@ -1853,16 +1842,17 @@ function heritageSwpHandleProductsMasonry($) {
 }
 
 function handleFullScreenSearch () {
+    console.log('handled');
     var $ = jQuery;
     var searching = false;
-    var $container = jQuery( '#lc_global_search' );
-    var $triggerSearch = jQuery( '#search-submit', $container );
-    jQuery( '#search-word', $container ).on('focus click', function(){
-        jQuery('.lc_global_search_inner', $container).addClass('active');
+    var $container = $( '#lc_global_search' );
+    var $triggerSearch = $( '#search-submit', $container );
+    $( '#search-word', $container ).on('focus click', function(){
+        $('.lc_global_search_inner', $container).addClass('active');
     });
 
     function doSearch ( searchTerm ) {
-        var ajax_url = jQuery( '#search-form', $container ).data( 'ajaxAction' );
+        var ajax_url = $( '#search-form', $container ).data( 'ajaxAction' );
         if ( !ajax_url ) {
             return true;
         }
@@ -1876,36 +1866,36 @@ function handleFullScreenSearch () {
             'beforeSend' : function() {
                 searching = true;
                 $container.addClass('loading');
-                jQuery( '.search_results', $container ).empty();
+                $( '.search_results', $container ).empty();
             },
             'success'    : function( response ) {
                 //make sure display right results
-                if ( searchTerm == jQuery( '#search-word', $container ).val().trim() ) {
+                if ( searchTerm == $( '#search-word', $container ).val().trim() ) {
                     searching = false;
                     response = JSON.parse( response );
                     if ( typeof response.posts !== "undefined" ) {
-                        jQuery( '.search_results', $container ).html( response.posts );
+                        $( '.search_results', $container ).html( response.posts );
                         var height = 0;
-                        jQuery( '.search_results', $container ).find( '.heritage_swp_post' ).each( function() {
-                            var selfHeight = jQuery( this ).outerHeight();
+                        $( '.search_results', $container ).find( '.heritage_swp_post' ).each( function() {
+                            var selfHeight = $( this ).outerHeight();
                             if ( height < selfHeight ) {
                                 height = selfHeight;
                             }
                         } );
-                        jQuery( '.search_results', $container ).find( '.heritage_swp_post' ).css( 'height', height );
+                        $( '.search_results', $container ).find( '.heritage_swp_post' ).css( 'height', height );
                     }
                 }
             },
             'complete'   : function() {
-                if ( searchTerm == jQuery( '#search-word', $container ).val().trim() ) {
+                if ( searchTerm == $( '#search-word', $container ).val().trim() ) {
                     $container.find( '.search_dropdown' ).removeClass( 'loading' );
                     searching = false;
                     $container.removeClass( 'loading' );
                 }
             },
             'error'      : function( jqXHR, textStatus, errorThrown ) {
-                jQuery( '.search_results', $container ).html( errorThrown );
-                if ( searchTerm == jQuery( '#search-word', $container ).val().trim() ) {
+                $( '.search_results', $container ).html( errorThrown );
+                if ( searchTerm == $( '#search-word', $container ).val().trim() ) {
                     $container.find( '.search_dropdown' ).removeClass( 'loading' );
                     searching = false;
                 }
