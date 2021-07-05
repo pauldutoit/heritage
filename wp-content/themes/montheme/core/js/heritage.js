@@ -1183,11 +1183,11 @@ var imageOverText = function( $ ) {
 }
 
 var heritageSwpToggleMiniCart = function( $ ) {
-    var miniCartIcon = jQuery( '.heritage-swp-minicart-icon' );
-    miniCartIcon.find( '.heritage-swp-minicart' ).hide();
+    var miniCartIcon = jQuery( '.heritage-minicart-icon' );
+    miniCartIcon.find( '.heritage-minicart' ).hide();
 
     miniCartIcon.hover( function() {
-        jQuery( this ).find( '.heritage-swp-minicart' ).stop().fadeIn();
+        jQuery( this ).find( '.heritage-minicart' ).stop().fadeIn();
         if (jQuery('.pre_header.classic_double_menu').length) {
             jQuery('.at_wishlist.account_option').css("display", "none");
             jQuery('.at_login.account_option').css("display", "none");
@@ -1195,8 +1195,8 @@ var heritageSwpToggleMiniCart = function( $ ) {
     }, function() {
         setTimeout( (function( parent ) {
             return function() {
-                if ( ! jQuery( '.heritage-swp-minicart-icon:hover' ).length ) {
-                    jQuery( parent ).find( '.heritage-swp-minicart' ).stop().fadeOut(10);
+                if ( ! jQuery( '.heritage-minicart-icon:hover' ).length ) {
+                    jQuery( parent ).find( '.heritage-minicart' ).stop().fadeOut(10);
                     jQuery('.at_wishlist.account_option').css("display", "block");
                     jQuery('.at_login.account_option').css("display", "block");                    
                 }
@@ -1204,98 +1204,6 @@ var heritageSwpToggleMiniCart = function( $ ) {
         })( this ), 100 );
     } );
 };
-var heritageSwpToggleMiniWishlist = function( $ ) {
-    var miniCartIcon = jQuery( '.at_wishlist' );
-    miniCartIcon.find( '.heritage-swp-miniwishlist' ).hide();
-
-    miniCartIcon.find( 'a' ).mouseenter( function() {
-            miniCartIcon.find( '.heritage-swp-miniwishlist' ).stop().fadeIn();
-    } );
-    miniCartIcon.mouseleave( function() {
-        setTimeout( (function( parent ) {
-            return function() {
-                if ( ! jQuery( '.at_wishlist:hover' ).length ) {
-                    jQuery( parent ).find( '.heritage-swp-miniwishlist' ).stop().fadeOut(10);
-                }
-            }
-        })( miniCartIcon ), 100 );
-    } );
-};
-
-var heritageSwpAddToWishlist = function( $ ) {
-    jQuery( 'body' ).on( 'click', '.heritage_swp_add_to_wishlist', function( event ) {
-        var productId = jQuery( this ).data( 'wishlist-id' );
-        var _self = this;
-        $.ajax( {
-            type     : 'POST',
-            url      : heritage_swp_wishlist.ajax_url,
-            data     : {
-                action     : 'heritage_swp_add_to_wishlist',
-                product_id : productId
-            },
-            dataType : "json",
-            success  : function( response ) {
-                if ( typeof response.error !== "undefined" ) {
-                    alert( response.message )
-                }
-                else {
-                    var btn = '<span class="heritage_swp_already_on_wishlist" title="' + response.message + '"><i class="fa fa-heart"></i> <span>' + response.message + '</span></span>';
-
-                    if ( typeof response.mini_wishlist_item !== "undefined" ) {
-                        var $wishlist = jQuery( '.heritage_swp-mini_wishlist' );
-                        $wishlist.find( 'li.empty' ).remove();
-                        $wishlist.append( response.mini_wishlist_item );
-                        jQuery( '.heritage-swp-miniwishlist p.buttons' ).removeClass( 'at_hidden' );
-                    }
-
-                    jQuery( _self ).replaceWith( btn );
-                }
-            },
-            error    : function( MLHttpRequest, textStatus, errorThrown ) {
-                alert( response.errorThrown );
-            }
-        } );
-        return false;
-    } );
-};
-
-var heritageSwpRemoveWishlistItem = function( $ ) {
-    jQuery( 'body' ).on( 'click', '.heritage-swp-wishlist-remove-item', function( event ) {
-        var productId = jQuery( this ).data( 'wishlist-id' );
-        var _self = this;
-        $.ajax( {
-            type     : 'POST',
-            url      : heritage_swp_wishlist.ajax_url,
-            data     : {
-                action     : 'heritage_swp_remove_from_wishlist',
-                product_id : productId
-            },
-            dataType : "json",
-            success  : function( response, textStatus, XMLHttpRequest ) {
-                if ( typeof response.success !== "undefined" ) {
-                    jQuery( '[data-wishlist-item=' + productId + ']' ).fadeOut( 400, function() {
-                        jQuery( this ).remove();
-
-                        if ( response.products_in_wishlist == 0 ) {
-                            jQuery( '#heritage-swp-empty-wishlist' ).show();
-                            jQuery( 'ul.heritage_swp-mini_wishlist' ).append( '<li class="empty">' + heritage_swp_wishlist.emptyText + '</li>' );
-                            jQuery( '.heritage-swp-miniwishlist p.buttons' ).addClass( 'at_hidden' );
-                        }
-                    } );
-                }
-                else {
-                    alert( response.message );
-                }
-            },
-            error    : function( MLHttpRequest, textStatus, errorThrown ) {
-                alert( response.errorThrown )
-            }
-        } );
-
-        return false;
-    } );
-};
-
 var heritageSwpQuantityChanger = function( $ ) {
     jQuery( document ).on( 'click', '.increment_qty', function() {
         var input = jQuery( this ).parent().parent().find( "input.qty" );
