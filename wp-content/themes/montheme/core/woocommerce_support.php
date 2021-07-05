@@ -43,9 +43,21 @@ if('grid' == HERITAGE_get_products_view_mode()){
 
 }else{
     // list mode
-    add_action( 'woocommerce_after_shop_loop_item', 'HERITAGE_quickview_button', 20 );
-}
+    //before woocommerce_template_loop_product_link_open - 10
+    add_action('woocommerce_before_shop_loop_item', create_function('', 'echo "<div class=\"at_product_image_container\">";'), 1);
+    //remove product link wrapping image
+    remove_action( 'woocommerce_before_shop_loop_item', 'woocommerce_template_loop_product_link_open', 10 );
+    remove_action( 'woocommerce_after_shop_loop_item', 'woocommerce_template_loop_product_link_close', 5 );
 
+    //before woocommerce_template_loop_product_title - 10
+    add_action('woocommerce_shop_loop_item_title', create_function('', 'echo "</div>";'), 1);
+
+    add_action('woocommerce_shop_loop_item_title', create_function('', 'echo "<div class=\"at_product_details_container\">";'), 2);
+
+
+    add_action( 'woocommerce_after_shop_loop_item', 'HERITAGE_quickview_button', 20 );
+    add_action( 'woocommerce_after_shop_loop_item', create_function( '', 'echo "</div>";' ), 50 );
+}
 
 function HERITAGE_woocommerce_wrapper_start() {
 
@@ -196,7 +208,7 @@ add_action( 'woocommerce_after_add_to_cart_form', 'HERITAGE_sharing_icons', 30 )
 function HERITAGE_after_product_images() {
     global $post, $product, $woocommerce;
     ?>
-    <div class="heritage_swp_gallery_thumbnails clearfix img-container">
+    <div class="artemis_swp_gallery_thumbnails clearfix img-container">
     <?php
     $attachment_ids = $product->get_gallery_image_ids();
 
@@ -219,7 +231,7 @@ function HERITAGE_after_product_images() {
         $placeholder_src = wc_placeholder_img_src();
         printf( '<a href="%s" class="%s" title="%s" ><img src="%s" alt="%s" class="wp-post-thumb-image"/></a>',
             $placeholder_src,
-            'heritage_swp_gallery_thumbnail active',
+            'artemis_swp_gallery_thumbnail active',
             esc_html__( 'Awaiting product image', 'heritage' ),
             $placeholder_src,
             esc_html__( 'Awaiting product image', 'heritage' ) );
@@ -238,7 +250,7 @@ function HERITAGE_after_product_images() {
                 sprintf(
                     '<a href="%s" class="%s" title="%s">%s</a>',
                     esc_url( $props['url'] ),
-                    'heritage_swp_gallery_thumbnail',
+                    'artemis_swp_gallery_thumbnail',
                     esc_attr( $props['caption'] ),
                     wp_get_attachment_image( $attachment_id, apply_filters( 'single_product_small_thumbnail_size', 'thumbnail' ), 0 )
                 ),
@@ -254,6 +266,7 @@ function HERITAGE_after_product_images() {
 
 function HERITAGE_carpet_customization()
 {
+    /**  @TODO traduction **/
     ?>
     <div>
         <p>Pour ceux qui désirent un tapis unique et personnalisé sur le bout des ongles <a href="<?= get_permalink(get_page_by_title('Customization')) ?>"> Personnaliser mon tapis </a></p>

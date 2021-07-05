@@ -11,6 +11,8 @@ if(!function_exists('HERITAGE_setup')) {
         add_theme_support('menu');
         add_theme_support('automatic-feed-links');
 
+        add_image_size('post-thumbnail', 250, 250, true);
+
         register_nav_menus(
             array(
                 'main-menu' => esc_html__('Main menu', 'heritage'),
@@ -151,8 +153,4 @@ if(!function_exists('HERITAGE_create_customization_page')) {
     }
 }
 add_action('init', 'HERITAGE_create_customization_page');
-
-
-
-
 ?>
