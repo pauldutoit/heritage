@@ -21,7 +21,10 @@ add_action('woocommerce_after_main_content', 'HERITAGE_woocommerce_wrapper_end',
 // view mode
 add_action('init', 'HERITAGE_set_product_view_mode');
 add_action('woocommerce_before_shop_loop', 'HERITAGE_show_grid_mode', 10);
-add_action( 'woocommerce_before_shop_loop', 'HERITAGE_products_per_row_buttons', 25 );
+add_action('woocommerce_before_shop_loop', 'HERITAGE_products_per_row_buttons', 25 );
+
+// customization
+add_action('woocommerce_before_shop_loop', 'HERITAGE_carpet_customization', 9);
 
 // cart
 add_action('woocommerce_cart_actions', 'HERITAGE_add_cart_buttons');
@@ -248,14 +251,13 @@ function HERITAGE_after_product_images() {
     }
     ?></div><?php
 }
+
 function HERITAGE_carpet_customization()
 {
     ?>
-
     <div>
         <p>Pour ceux qui désirent un tapis unique et personnalisé sur le bout des ongles <a href="<?= get_permalink(get_page_by_title('Customization')) ?>"> Personnaliser mon tapis </a></p>
     </div>
-
     <?php
 }
 
