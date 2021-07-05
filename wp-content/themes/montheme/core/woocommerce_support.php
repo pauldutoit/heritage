@@ -38,9 +38,90 @@ add_action('woocommerce_after_product_images','HERITAGE_after_product_images');
 
 
 
+
+function HERITAGE_set_product_view_mode() {
+    if ( isset( $_REQUEST['mode'] ) ) {
+        $grid_mode = intval( $_REQUEST['mode'] );
+        if ( ! in_array( $grid_mode, array('grid', 'list') ) ) {
+            $grid_mode = 'grid';
+        }
+        setcookie( 'heritage_products_view_mode', $grid_mode );
+    }
+}
+add_action( 'init', 'HERITAGE_set_product_view_mode' );
+
 if('grid' == HERITAGE_get_products_view_mode()){
+
+    function HERITAGE_product_loop_top_container_open(){
+        echo '<div class="at_product_loop_top_container">';
+    }
+    add_action('woocommerce_before_shop_loop_item', 'HERITAGE_product_loop_top_container_open', 5);
+
+    remove_action('woocommerce_after_shop_loop_item', 'woocommerce_template_loop_product_link_close', 5);
+    remove_action( 'woocommerce_after_shop_loop_item_title', 'woocommerce_template_loop_rating', 5 );
+
+    add_action( 'woocommerce_before_shop_loop_item_title', 'woocommerce_template_loop_product_link_close', 11 );
+
+    function HERITAGE_open_product_list_mask() {
+        global $post;
+        echo '<div class="at_product_actions_mask lc_js_link" data-href="'. esc_attr(get_permalink($post->ID)) .'" data-atcot="0">';
+    }
+    add_action( 'woocommerce_before_shop_loop_item_title', 'HERITAGE_open_product_list_mask', 11 );
+    add_action( 'woocommerce_before_shop_loop_item_title', 'woocommerce_template_loop_rating', 15 );
     add_action( 'woocommerce_before_shop_loop_item_title', 'HERITAGE_quickview_button', 20 );
 
+    function HERITAGE_close_product_list_mask() {
+        echo "</div>";
+    }
+    add_action( 'woocommerce_before_shop_loop_item_title', 'HERITAGE_close_product_list_mask', 50);
+
+
+    function HERITAGE_product_loop_top_container_close() {
+        echo '</div>';
+    }
+    add_action( 'woocommerce_before_shop_loop_item_title', 'HERITAGE_product_loop_top_container_close', 100 );
+
+    add_filter( 'loop_shop_columns', 'HERITAGE_get_products_per_row' );
+
+    function HERITAGE_products_per_row_buttons( ) {
+        $ppr = HERITAGE_get_products_per_row(); ?>
+        <div class="at_products_per_row_container">
+            <form id="at_products_per_page_form" method="get">
+                <input type="hidden" id="at_products_per_row" name="products_per_row" value="<?php echo esc_attr($ppr) ?>">
+                <?php esc_attr_e('Show Grid:', 'artemis-swp') ?>
+                <a href="#" data-per_page="3" class="at_products_per_row_item <?php echo esc_attr($ppr == 3 ? 'active' : ''); ?>">3</a>
+                <a href="#" data-per_page="4" class="at_products_per_row_item <?php echo esc_attr($ppr == 4 ? 'active' : ''); ?>">4</a>
+                <a href="#" data-per_page="5" class="at_products_per_row_item <?php echo esc_attr($ppr == 5 ? 'active' : ''); ?>">5</a>
+                <?php
+                // Keep query string vars intact
+                foreach ( $_GET as $key => $val ) {
+                    if ( 'products_per_row' === $key || 'submit' === $key ) {
+                        continue;
+                    }
+                    if ( is_array( $val ) ) {
+                        foreach ( $val as $innerVal ) {
+                            echo '<input type="hidden" name="' . esc_attr( $key ) . '[]" value="' . esc_attr( $innerVal ) . '" />';
+                        }
+                    } else {
+                        echo '<input type="hidden" name="' . esc_attr( $key ) . '" value="' . esc_attr( $val ) . '" />';
+                    }
+                }
+                ?>
+            </form>
+        </div>
+        <?php
+    }
+    add_action( 'woocommerce_before_shop_loop', 'HERITAGE_products_per_row_buttons', 25 );
+
+    function HERITAGE_set_products_per_row() {
+        if ( isset( $_REQUEST['products_per_row'] ) ) {
+            $ppr = intval( $_REQUEST['products_per_row'] );
+            if ( 3 <= $ppr && $ppr <= 5 ) {
+                setcookie( 'heritage_products_per_row', $ppr );
+            }
+        }
+    }
+    add_action( 'init', 'HERITAGE_set_products_per_row' );
 }else{
     // list mode
     //before woocommerce_template_loop_product_link_open - 10
@@ -112,44 +193,6 @@ function HERITAGE_show_grid_mode() {
     <?php
 }
 
-function HERITAGE_set_product_view_mode() {
-    if ( isset( $_REQUEST['mode'] ) ) {
-        $grid_mode = intval( $_REQUEST['mode'] );
-        if ( ! in_array( $grid_mode, array('grid', 'list') ) ) {
-            $grid_mode = 'grid';
-        }
-        setcookie( 'heritage_products_view_mode', $grid_mode );
-    }
-}
-
-function HERITAGE_products_per_row_buttons( ) {
-    $ppr = HERITAGE_get_products_per_row(); ?>
-    <div class="at_products_per_row_container">
-        <form id="at_products_per_page_form" method="get">
-            <input type="hidden" id="at_products_per_row" name="products_per_row" value="<?php echo esc_attr($ppr) ?>">
-            <?php esc_attr_e('Show Grid:', 'heritage') ?>
-            <a href="#" data-per_page="3" class="at_products_per_row_item <?php echo esc_attr($ppr == 3 ? 'active' : ''); ?>">3</a>
-            <a href="#" data-per_page="4" class="at_products_per_row_item <?php echo esc_attr($ppr == 4 ? 'active' : ''); ?>">4</a>
-            <a href="#" data-per_page="5" class="at_products_per_row_item <?php echo esc_attr($ppr == 5 ? 'active' : ''); ?>">5</a>
-            <?php
-            // Keep query string vars intact
-            foreach ( $_GET as $key => $val ) {
-                if ( 'products_per_row' === $key || 'submit' === $key ) {
-                    continue;
-                }
-                if ( is_array( $val ) ) {
-                    foreach ( $val as $innerVal ) {
-                        echo '<input type="hidden" name="' . esc_attr( $key ) . '[]" value="' . esc_attr( $innerVal ) . '" />';
-                    }
-                } else {
-                    echo '<input type="hidden" name="' . esc_attr( $key ) . '" value="' . esc_attr( $val ) . '" />';
-                }
-            }
-            ?>
-        </form>
-    </div>
-    <?php
-}
 
 /**
  * Cart
