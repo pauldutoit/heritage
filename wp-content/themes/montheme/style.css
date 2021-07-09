@@ -876,8 +876,14 @@ input[type="search"]::-ms-clear {
 }
 
 .lc_big_content_padding {
-    padding-top: 50px;
     padding-bottom: 20px;
+}
+
+.lc_big_content_padding div p {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 60px;
 }
 
 .lc_basic_content_padding, #sidebar {
@@ -965,6 +971,21 @@ input[type="search"]::-ms-clear {
 .lc_content_with_sidebar.has_shop_sidebar_right {
     padding: 0;
     padding-right: 15px;
+}
+
+.header_scroll {
+    background-color: black;
+}
+
+.white-menu-item {
+    color: white;
+}
+
+#lc_swp_content .lc_content_full div p a {
+    margin-left: 20px;
+    padding: 10px;
+    font-weight: bold;
+    font-size: 20px;
 }
 
 header#at_page_header, .pre_header {
@@ -1916,9 +1937,11 @@ label.woo_rememberme_label,
 
 .heading_content_container {
     position       : relative;
-    padding-top    : 170px;
+    padding-top    : 130px;
     padding-bottom : 25px;
     text-align     : center;
+    display: flex;
+    justify-content: center;
 }
 
 .heading_content_container.header_has_image {
@@ -4264,9 +4287,21 @@ tr.cart-subtotal td {
 }
 
 .woocommerce div.product p.price {
-    font-size: 16px;
+    font-size: 25px;
     font-weight: 400;
     font-style: italic;
+}
+
+.woocommerce-product-attributes shop_attributes {
+    color: black;
+}
+
+#pa_pa-size {
+    font-size: 15px;
+}
+
+.single_variation_wrap .single_add_to_cart_button {
+    font-size: 20px;
 }
 
 .woocommerce table.shop_table td.product-price, 
@@ -5628,19 +5663,25 @@ header.sticky_enabled.header_classic_double_menu .at_wishlist .heritage-swp-mini
 
 .woocommerce .product .onsale,
 .woocommerce ul.products li.product .onsale {
-    width          : 50px;
-    height         : 20px;
-    border-radius  : 0;
-    padding        : 0;
-    line-height    : 20px;
-    text-transform : uppercase;
-    font-weight    : 400;
-    margin-top     : 0;
-    margin-right   : 0;
-    min-height     : 20px;
-    z-index        : 1;
-    top            : 30px;
-    left           : 0;
+    width: 66px;
+    height: 30px;
+    border-radius: 0;
+    padding: 0px;
+    line-height: 30px;
+    text-transform: uppercase;
+    font-weight: 400;
+    margin-top: 0px;
+    margin-right: 0;
+    min-height: 20px;
+    z-index: 1;
+    top: 30px;
+    left: 0;
+}
+
+.added_to_cart {
+    text-decoration: underline!important;
+    font-weight: bold;
+    font-size: 17px;
 }
 
 .woocommerce ul.products.at_custom_prod_cols.mode-grid.at_columns-3 li.product,
