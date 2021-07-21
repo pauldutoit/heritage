@@ -29,7 +29,7 @@ body, html {
 
 body, 
 .woocommerce .widget_layered_nav ul li.chosen a:before, .woocommerce .widget_layered_nav_filters ul li a:before {
-    font-family     : 'Lato', sans-serif;
+    font-family     : 'Gotham', sans-serif;
 }
 
 * {
@@ -182,7 +182,7 @@ h3.footer-widget-title, h3.widgettitle,
 .page_navigation,
 .eventlist_month, .emphasize_first .event_location, .emphasize_first .event_venue, .emphasize_first .event_buy, .lc_view_more,
 h1, h2, h3, h4, h5, h6 {
-    font-family : 'Lato', sans-serif;
+    font-family : 'Gotham', sans-serif;
 }
 
 .button {
@@ -192,7 +192,7 @@ h1, h2, h3, h4, h5, h6 {
 h3#comments-title,
 .woocommerce ul.products li.product h3,
 h2.section_title, h5.lc_reviewer_name {
-    font-family : 'Lato', sans-serif;
+    font-family : 'Gotham', sans-serif;
 }
 
 /*colors*/
@@ -767,6 +767,12 @@ form.search-form {
     font-style: italic;
     margin-left: 20px;
 }
+
+woocommerce-Price-amount bdi {
+    color: #99CC33;
+    font-size: 17px;
+}
+
 a.heritage_swp_search_post:hover > .heritage_swp_post_title > .search_result_post_title {
     margin-left: 25px;
 }

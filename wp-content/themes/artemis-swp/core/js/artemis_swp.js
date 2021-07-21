@@ -74,6 +74,9 @@ jQuery( document ).ready( function( $ ) {
     artemisSwpHandleProductsMasonry($);
     handleFullScreenSearch();
 });
+
+console.log("test file");
+
 var artemisSwpStyleElement = document.createElement( 'style' ),
         artemisSwpStylesheet;
 
@@ -754,13 +757,15 @@ var backToTop = function( $ ) {
     } );
 }
 
+//FONCTION POUR LA RECHERCHE, PROBLEME AVEX JQUERY POSSIBLE
+
 var clickOnSearchIcon = function( $ ) {
     $( '.trigger_global_search' ).click( function() {
         $( '#lc_global_search' ).show();
     } );
 
     $( '.close_search_form' ).click( function() {
-        var $global_search = $( '#lc_global_search' );
+        var $global_search = $( '#lc_globagit pul_search' );
         $global_search.hide();
         $( '.lc_global_search_inner' , $global_search).removeClass('active');
         $( '#search-word' , $global_search).val('');
