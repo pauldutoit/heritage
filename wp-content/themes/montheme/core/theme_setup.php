@@ -153,4 +153,30 @@ if(!function_exists('HERITAGE_create_customization_page')) {
     }
 }
 add_action('init', 'HERITAGE_create_customization_page');
+
+if(!function_exists('HERITAGE_create_contact_page')) {
+
+    function HERITAGE_create_contact_page()
+    {
+        $check_page_exist = get_page_by_title('Contact', 'OBJECT', 'page');
+        if (empty($check_page_exist)) {
+            $page_id = wp_insert_post(
+                array(
+                    'comment_status' => 'close',
+                    'ping_status' => 'close',
+                    'post_author' => 1,
+                    'post_title' => ucwords('contact'),
+                    'post_name' => strtolower(str_replace(' ', '-', trim('Contact'))),
+                    'post_status' => 'publish',
+                    'post_content' => 'Content of the page',
+                    'post_type' => 'page',
+                    'post_parent' => NULL
+                )
+            );
+            add_post_meta($page_id, '_wp_page_template', 'template-contact.php');
+        }
+    }
+}
+add_action('init', 'HERITAGE_create_contact_page');
+
 ?>

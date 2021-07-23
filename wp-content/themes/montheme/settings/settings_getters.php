@@ -179,3 +179,27 @@ function HERITAGE_get_available_social_profiles() {
 
     return $user_profiles;
 }
+
+/**
+ *  CONTACT Functions
+ */
+
+function HERITAGE_get_contact_address()
+{
+    return esc_html(HERITAGE_get_theme_option('heritage_theme_contact_options', 'lc_contact_address'));
+}
+
+function HERITAGE_get_contact_email()
+{
+    return sanitize_email(HERITAGE_get_theme_option('HERITAGE_theme_contact_options', 'lc_contact_email'));
+}
+
+function HERITAGE_get_contact_phone()
+{
+    return esc_html(HERITAGE_get_theme_option('heritage_theme_contact_options', 'lc_contact_phone'));
+}
+
+function HERITAGE_get_contact_fax()
+{
+    return esc_html(HERITAGE_get_theme_option('heritage_theme_contact_options', 'lc_contact_fax'));
+}
