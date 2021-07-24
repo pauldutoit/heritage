@@ -22,9 +22,6 @@ $call_us_msg = wp_kses(__("Call <strong>Us</strong>", "heritage"), $allowed_tags
 $email_msg = wp_kses(__("Email", "heritage"), $allowed_tags);
 
 ?>
-
-
-tototototottoto
     <div class="lc_content_full lc_swp_boxed lc_basic_content_padding">
         <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 
@@ -77,7 +74,7 @@ tototototottoto
         </div>
 
         <div class="at_cf_in_template">
-            <?php get_template_part('views/templates/ajax_contact_form'); ?>
+            <?php get_template_part('templates/utils/ajax_contact_form'); ?>
         </div>
     </div>
 
