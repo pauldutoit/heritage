@@ -179,4 +179,28 @@ if(!function_exists('HERITAGE_create_contact_page')) {
 }
 add_action('init', 'HERITAGE_create_contact_page');
 
+if(!function_exists('HERITAGE_create_cgv_page')) {
+
+    function HERITAGE_create_cgv_page()
+    {
+        $check_page_exist = get_page_by_title('CGV', 'OBJECT', 'page');
+        if (empty($check_page_exist)) {
+            $page_id = wp_insert_post(
+                array(
+                    'comment_status' => 'close',
+                    'ping_status' => 'close',
+                    'post_author' => 1,
+                    'post_title' => ucwords('cgv'),
+                    'post_name' => strtolower(str_replace(' ', '-', trim('CGV'))),
+                    'post_status' => 'publish',
+                    'post_content' => 'Conditions générales de ventes',
+                    'post_type' => 'page',
+                    'post_parent' => NULL
+                )
+            );
+        }
+    }
+}
+add_action('init', 'HERITAGE_create_cgv_page');
+
 ?>
