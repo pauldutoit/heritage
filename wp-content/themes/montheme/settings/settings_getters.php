@@ -180,6 +180,10 @@ function HERITAGE_get_available_social_profiles() {
     return $user_profiles;
 }
 
+function HERITAGE_get_menu_message() {
+    return HERITAGE_get_theme_option('heritage_theme_general_options', 'lc_menu_message');
+}
+
 /**
  *  CONTACT Functions
  */

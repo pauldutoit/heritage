@@ -3,27 +3,25 @@ $input_position_class = "vc_lc_element three_on_row three_on_row_layout";
 $center_button_class = "text_center";
 ?>
 
-<div class="artemis_contactform">
-    <form class="artemis_contactform">
+<div class="heritage_contactform">
+    <form class="heritage_contactform">
         <ul class="contactform_fields">
-
-            <li class="comment-form-author artemis_cf_entry <?php echo esc_attr($input_position_class); ?>">
-                <input type="text" placeholder="<?php echo esc_html__('Your Name ', 'heritage'); ?>" name="contactName" id="contactName" class="artemis_cf_input required requiredField contactNameInput" />
-                <div class="artemis_cf_error"><?php echo esc_html__('Please enter your name', 'heritage'); ?></div>
+            <li class="comment-form-author heritage_cf_entry <?php echo esc_attr($input_position_class); ?>">
+                <input type="text" placeholder="<?php echo esc_html__('Your Name ', 'heritage'); ?>" name="contactName" id="contactName" class="heritage_cf_input required requiredField contactNameInput" />
+                <div class="heritage_cf_error"><?php echo esc_html__('Please enter your name', 'heritage'); ?></div>
+            </li>
+            <li class="comment-form-email heritage_cf_entry <?php echo esc_attr($input_position_class); ?>">
+                <input type="text" placeholder="<?php echo esc_html__('Email ', 'heritage'); ?>" name="email" id="contactemail" class="heritage_cf_input required requiredField email" />
+                <div class="heritage_cf_error"><?php echo esc_html__('Please enter a correct email address', 'heritage'); ?></div>
             </li>
 
-            <li class="comment-form-email artemis_cf_entry <?php echo esc_attr($input_position_class); ?>">
-                <input type="text" placeholder="<?php echo esc_html__('Email ', 'heritage'); ?>" name="email" id="contactemail" class="artemis_cf_input required requiredField email" />
-                <div class="artemis_cf_error"><?php echo esc_html__('Please enter a correct email address', 'heritage'); ?></div>
+            <li class="comment-form-url heritage_cf_entry <?php echo esc_attr($input_position_class); ?>">
+                <input type="text" placeholder="<?php echo esc_html__('Phone ', 'heritage'); ?>" name="phone" id="phone" class="heritage_cf_input" />
             </li>
 
-            <li class="comment-form-url artemis_cf_entry <?php echo esc_attr($input_position_class); ?>">
-                <input type="text" placeholder="<?php echo esc_html__('Phone ', 'heritage'); ?>" name="phone" id="phone" class="artemis_cf_input" />
-            </li>
-
-            <li class="comment-form-comment artemis_cf_entry vc_lc_element">
-                <textarea name="comments" placeholder="<?php echo esc_html__('Message ', 'heritage'); ?>" id="commentsText" rows="10" cols="30" class="artemis_cf_input required requiredField contactMessageInput"></textarea>
-                <div class="artemis_cf_error"><?php echo esc_html__('Please enter a message', 'heritage'); ?></div>
+            <li class="comment-form-comment heritage_cf_entry vc_lc_element">
+                <textarea name="comments" placeholder="<?php echo esc_html__('Message ', 'heritage'); ?>" id="commentsText" rows="10" cols="30" class="heritage_cf_input required requiredField contactMessageInput"></textarea>
+                <div class="heritage_cf_error"><?php echo esc_html__('Please enter a message', 'heritage'); ?></div>
             </li>
             <?php
             /*
@@ -34,11 +32,11 @@ $center_button_class = "text_center";
             */
             ?>
             <li class="wp_mail_error">
-                <div class="artemis_cf_error"><?php echo esc_html__('Cannot send mail, an error occurred while delivering this message. Please try again later.', 'heritage'); ?></div>
+                <div class="heritage_cf_error"><?php echo esc_html__('Cannot send mail, an error occurred while delivering this message. Please try again later.', 'heritage'); ?></div>
             </li>
 
             <li class="formResultOK">
-                <div class="artemis_cf_error"><?php echo esc_html__('Your message was sent successfully. Thanks!', 'heritage'); ?></div>
+                <div class="heritage_cf_error"><?php echo esc_html__('Your message was sent successfully. Thanks!', 'heritage'); ?></div>
             </li>
             <?php /*TODO: add recaptcha */?>
             <li class="<?php echo esc_attr($center_button_class); ?>">
@@ -47,7 +45,7 @@ $center_button_class = "text_center";
             </li>
 
         </ul>
-        <input type="hidden" name="action" value="artemiscontactform_action" />
-        <?php wp_nonce_field('artemiscontactform_action', 'contactform_nonce'); /*wp_nonce_field('artemiscontactform_action', 'contactform_nonce', true, false); */?>
+        <input type="hidden" name="action" value="heritagecontactform_action" />
+        <?php wp_nonce_field('heritagecontactform_action', 'contactform_nonce'); ?>
     </form>
 </div>

@@ -144,7 +144,7 @@ if(!function_exists('HERITAGE_create_customization_page')) {
                     'post_title' => ucwords('customization'),
                     'post_name' => strtolower(str_replace(' ', '-', trim('Customization'))),
                     'post_status' => 'publish',
-                    'post_content' => 'Content of the page',
+                    'post_content' => '',
                     'post_type' => 'page',
                     'post_parent' => NULL
                 )
@@ -168,7 +168,7 @@ if(!function_exists('HERITAGE_create_contact_page')) {
                     'post_title' => ucwords('contact'),
                     'post_name' => strtolower(str_replace(' ', '-', trim('Contact'))),
                     'post_status' => 'publish',
-                    'post_content' => 'Content of the page',
+                    'post_content' => '',
                     'post_type' => 'page',
                     'post_parent' => NULL
                 )
