@@ -385,11 +385,6 @@ function HERITAGE_add_settings_fields()
 
     $footer_settings = array(
         array(
-            'id'		=> 'lc_footer_widgets_background_image',
-            'label'		=> esc_html__('Footer widgets Background Image', 'artemis-swp'),
-            'callback'	=> 'HERITAGE_footer_widget_bgimg_cbk'
-        ),
-        array(
             'id'		=> 'lc_copyright_text',
             'label'		=> esc_html__('Copyright text', 'artemis-swp'),
             'callback'	=> 'HERITAGE_copyright_text_cbk'
@@ -687,24 +682,6 @@ function HERITAGE_pinterest_url_cbk() {
 /*
     Footer Options
  */
-
-
-function HERITAGE_footer_widget_bgimg_cbk() {
-    $footer_bg_image = HERITAGE_get_theme_option('heritage_theme_footer_options', 'lc_footer_widgets_background_image');
-
-    ?>
-    <input id="lc_swp_footer_bg_image_upload_value" type="text" name="heritage_theme_footer_options[lc_footer_widgets_background_image]" size="150" value="<?php echo esc_url($footer_bg_image); ?>"/>
-    <input id="lc_swp_upload_footer_widgets_bg_image_button" type="button" class="button" value="<?php echo esc_html__('Upload Image', 'heritage'); ?>" />
-    <input id="lc_swp_remove_footer_widgets_bg_image_button" type="button" class="button" value="<?php echo esc_html__('Remove Image', 'heritage'); ?>" />
-    <p class="description">
-        <?php echo esc_html__('Upload a custom background image for the footer widgets area.', 'heritage'); ?>
-    </p>
-
-    <div id="lc_footer_widgets_bg_image_preview">
-        <img class="lc_swp_setting_preview_favicon" src="<?php echo esc_url($footer_bg_image); ?>">
-    </div>
-    <?php
-}
 
 function HERITAGE_copyright_text_cbk() {
     $copyright_text = HERITAGE_get_theme_option('heritage_theme_footer_options', 'lc_copyright_text');
